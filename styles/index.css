@@ -1,0 +1,81 @@
+/* RESETTING DEFAULTS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    width: 100%;
+}
+
+
+/* INTRO styles */
+.intro{
+    padding-top: 5rem;
+    text-align: center;
+    height: 40vh;
+    background: url('https://images.pexels.com/photos/723240/pexels-photo-723240.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center/cover;
+    filter: grayscale(60%);
+}
+.intro > a{
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 1px 1px 10px #000;
+    font-size: 2rem;
+    transition: .5s;
+}
+.intro > a > i{
+    display: block;
+}
+.intro > a:hover > i{
+    transform: scale(1.1);
+    transition: .5s;
+    color: #FCC911;
+}
+
+/* STRUCTURING THE CONTENT */
+.content{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+
+
+@media(min-width: 500px){
+
+
+}
+
+@media(min-width: 768px){
+
+
+}
+
+@media(min-width: 985px){
+    .container{
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+    }
+    .intro{
+        padding-top: 0;
+        height: 35vh;
+        line-height: 35vh;
+    }
+    .intro > a{
+        font-size: 3rem;
+    }
+    .intro > a > i{
+        display: inline-block;
+    }
+    .intro > a:hover > i{
+        transform: translateX(3rem);
+        transition: 1s;
+        color: #FCC911;
+    }
+    
+
+}
