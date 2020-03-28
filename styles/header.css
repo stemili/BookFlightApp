@@ -1,3 +1,7 @@
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -20,6 +24,11 @@
   justify-content: space-evenly;
   width: 30px;
   height: 21px;
+}
+
+.toggle-button:focus{
+  outline: none;
+
 }
 
 .toggle-button.active span:first-child,
