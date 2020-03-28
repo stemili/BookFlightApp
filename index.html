@@ -1,68 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/footer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+
+    <script src="scripts/header.js" defer></script>
     <title>Book Your Flight</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
+      <div class="header-main">
         <div class="logo-section">
-            <a href="#" class="logo">
-                <img src="img/logo.png" alt="">
-            </a>
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="" />
+          </a>
         </div>
-        <a href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+
+        <a href="#" class="toggle-button" id="toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </a>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">List</a></li>
-                <li><a href="">Custom</a></li>
-                <li><a href="">About Us</a></li>
-            </ul>
-        </nav>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">List</a></li>
+          <li><a href="">Custom</a></li>
+          <li><a href="">About Us</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <div class="intro">
-            <a href="./views/list.html">Find Your Flight <i class="fas fa-plane"></i></a>
-        </div>
-        <div class="content">
-            <div class="container">
-                <article class="slider">
-    
-                </article>
-        
-                <article class="top-rated">
-        
-                </article>
-                
-                <article class="best-of">
-        
-                </article>
-        
-                <article class="fb-feed">
-        
-                </article>
-            </div>
-        </div>
-        
+      <div class="intro">
+        <a href="./views/list.html"
+          >Find Your Flight <i class="fas fa-plane"></i
+        ></a>
+      </div>
+      <div class="content">
+        <div class="container">
+          <article class="slider"></article>
 
+          <article class="top-rated"></article>
+
+          <article class="best-of"></article>
+
+          <article class="fb-feed"></article>
+        </div>
+      </div>
     </main>
 
-    <footer class="footer">
-
-    </footer>
-
-</body>
+    <footer class="footer"></footer>
+  </body>
 </html>
