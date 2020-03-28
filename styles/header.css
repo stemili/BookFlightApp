@@ -1,21 +1,42 @@
 .header {
-  background: var(--yellow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 }
 
+.header-main {
+  width: 100%;
+  background: var(--yellow);
+}
+
 .toggle-button {
   display: flex;
   position: absolute;
   margin: auto;
-  top: 1.7rem;
+  top: 2.4rem;
   right: 1.5rem;
   flex-direction: column;
   justify-content: space-evenly;
   width: 30px;
   height: 21px;
+}
+
+.toggle-button.active span:first-child,
+.toggle-button.active span:last-child {
+  position: absolute;
+}
+
+.toggle-button.active span:first-child {
+  transform: rotate(45deg);
+}
+
+.toggle-button.active span:last-child {
+  transform: rotate(-45deg);
+}
+
+.toggle-button.active span:nth-child(2) {
+  display: none;
 }
 
 .toggle-button .bar {
@@ -31,8 +52,8 @@
 }
 
 .logo-section > a > img {
-  height: auto;
-  width: 100%;
+  width: auto;
+  max-height: 50px;
 }
 
 nav {
@@ -41,7 +62,11 @@ nav {
 }
 
 nav.active {
+    z-index: 10;
   display: block;
+  position: absolute;
+  background-color: #fcc911bb;
+  top: 13%
 }
 
 nav > ul {
@@ -50,6 +75,7 @@ nav > ul {
 }
 
 ul > li > a {
+  color: black;
   text-decoration: none;
   display: block;
   padding: 1rem;
@@ -75,17 +101,16 @@ ul > li > a {
     z-index: 10;
   }
 
+  .header-main {
+    background-color: transparent;
+  }
+
   .toggle-button {
     display: none;
   }
 
   .logo-section {
     margin: 1rem 6rem;
-  }
-
-  .logo-section > a > img {
-    width: auto;
-    max-height: 50px;
   }
 
   nav {
@@ -110,6 +135,5 @@ ul > li > a {
 
   nav > ul > li > a {
     white-space: nowrap;
-    color: black;
   }
 }
