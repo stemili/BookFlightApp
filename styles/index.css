@@ -6,6 +6,15 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+:root{
+    --yellow: #fcc911;
+    --pink: #f2b0b0;
+    --dark-pink: #e58787;
+    --red: #ea3535;
+    --purple: #6d087a;
+
+}
+
 body{
     width: 100%;
 }
@@ -61,12 +70,13 @@ body{
         margin: auto;
     }
     .intro{
-        padding-top: 0;
-        height: 35vh;
+        padding-top: 3.5rem;
+        height: 45vh;
         line-height: 35vh;
     }
     .intro > a{
         font-size: 3rem;
+        margin-top: 1rem;
     }
     .intro > a > i{
         display: inline-block;
