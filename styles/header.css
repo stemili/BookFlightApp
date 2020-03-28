@@ -36,12 +36,12 @@
 }
 
 nav {
-    display: none;
+  display: none;
   width: 100%;
 }
 
-nav.active{
-    display: block;
+nav.active {
+  display: block;
 }
 
 nav > ul {
@@ -89,6 +89,8 @@ ul > li > a {
   }
 
   nav {
+    margin-right: 6rem;
+    display: block;
     height: 100%;
     width: 26%;
   }
@@ -107,6 +109,7 @@ ul > li > a {
   }
 
   nav > ul > li > a {
-      color: black;
+    white-space: nowrap;
+    color: black;
   }
 }
