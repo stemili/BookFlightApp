@@ -56,6 +56,7 @@ body{
     height: inherit;
     background: url('../resources/index/intro-svg.svg') no-repeat bottom center;
     z-index: -1;
+    transform: translateY(1px);
 }
 
 
