@@ -1,0 +1,142 @@
+/* slider head h2 */
+.slider-head > h2{
+    color: #333;
+    padding: .5rem .7rem 0;
+}
+
+.slider-head > a {
+    display: none;
+}
+.slider-head #city-slider{
+    white-space: nowrap;
+    padding-bottom: .7rem;
+    background: url('../resources/index/stroke.png') no-repeat center bottom;
+}
+
+.slider .slider-content{
+    position: relative;
+    max-width: 100%;
+}
+
+/* navigation for tablet -> desktop */
+.slider-content > button{
+    background: none;
+    border: none;
+    position: absolute;
+}
+.slider-content > #slider-left{
+    top: 50%; left: 0;
+    transform: translate(0, -50%);
+    display: none;
+}
+.slider-content > #slider-right{
+    top: 50%; right: 0;
+    transform: translate(0, -50%);
+    display: none;
+}
+
+/* main slider for images */
+
+
+
+.slider-cards{
+    padding: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.slider-card{
+    overflow: hidden;
+    position: relative;
+    border-radius: .5rem;
+    list-style: none;
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    color: white;
+    text-shadow: 0 0 .3rem #333;
+    margin: .5rem;
+    box-shadow: 1px 1px 1rem #333;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.slider-card::before{
+    position: absolute;
+    content: '';
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: .5s;
+}
+.slider-card:hover::before{
+    transition: .5s;
+    transform: translateY(0);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+.slider-card .card-hover-in{
+    transform: translateY(4rem);
+    transition: .5s;
+}
+
+.slider-card > .card-hover-in{
+    z-index: 2;
+}
+.slider-card:hover .card-hover-in{
+    transform: translateY(0);
+    transition: .5s;
+}
+
+
+
+
+
+
+.slider-card > .card-hover-in > h3{
+    white-space: nowrap;
+    padding-right: .5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: .5rem;
+}
+
+.slider-card > .card-hover-in > h3 > i{
+    color: var(--yellow);
+}
+.slider-card .card-hover-in > p > .price-currency {
+    font-size: .7rem;
+    vertical-align: top;
+}
+
+
+.slider-card .card-hover-in > a{
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: .6rem 1rem .6rem;
+    text-decoration: none;
+    background-color: var(--yellow);
+    color: #333;
+    text-shadow: none;
+}
+
+.slider-card .card-hover-in > a:hover{
+    opacity: .8;
+    transition: .3s;
+}
+
+.slider-cards > .slider-card:last-child {
+    background: url('../resources/index/moscow.jpg') no-repeat center center/cover;
+}
+.slider-cards > .slider-card:first-child {
+    background: url('../resources/index/podgorica.jpg') no-repeat center center/cover;
+}
+.slider-cards > .slider-card {
+    background: url('../resources/index/washington.jpg') no-repeat center center/cover;
+}

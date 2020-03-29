@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
-      integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv"
-      crossorigin="anonymous"
-    />
-
-    <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/header.css" />
-    <link rel="stylesheet" href="./styles/footer.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/slider.css">
+    <link rel="stylesheet" href="./styles/footer.css">
 
     <script src="scripts/header.js" defer></script>
+
     <title>Book Your Flight</title>
-  </head>
+</head>
   <body>
     <header class="header">
       <div class="header-main">
@@ -47,14 +41,64 @@
     </header>
 
     <main>
-      <div class="intro">
-        <a href="./views/list.html"
-          >Find Your Flight <i class="fas fa-plane"></i
-        ></a>
-      </div>
-      <div class="content">
-        <div class="container">
-          <article class="slider"></article>
+        <div class="intro">
+            <a href="./views/list.html">Find Your Flight <i class="fas fa-plane"></i></a>
+            <img src="./resources/index/intro-fade.png" alt="">
+        </div>
+            <div class="container">
+                <article class="slider">
+                    <div class="slider-head">
+                        <h2><span id="month-slider">April</span> Deals from <span id="city-slider">Podgorica</span></h2>
+                        <a href="./views/list.html" class="btn-more">Explore Other Destinations</a>
+                    </div>
+                    <div class="slider-content">
+                        <button id="slider-left"><i class="fas fa-chevron-left"></i></button>
+                        
+                        <ul class="slider-cards">
+                            <li class="slider-card">
+                                <div class="card-hover-in">
+                                    <h3><i class="fas fa-plane"></i> Podgorica</h3>
+                                    <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
+                                    <a href="#">More Details</a>
+                                </div>
+                                    
+                            </li>
+                            <li class="slider-card">
+                                <div class="card-hover-in">
+                                    <h3><i class="fas fa-plane"></i> Washington DC</h3>
+                                    <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
+                                    <a href="#">More Details</a>
+                                </div>
+                            </li>
+                            <li class="slider-card">
+                                <div class="card-hover-in">
+                                    <h3><i class="fas fa-plane"></i> Moscow</h3>
+                                    <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
+                                    <a href="#">More Details</a>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <button id="slider-right"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+
+                </article>
+
+                <article class="top-rated">
+        
+                </article>
+                
+                <article class="best-of">
+        
+                </article>
+        
+                <article class="fb-feed">
+        
+                </article>
+            </div>
+        
+>>>>>>> stefan_grupa4
 
           <article class="top-rated"></article>
 
