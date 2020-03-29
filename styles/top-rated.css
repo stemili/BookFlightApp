@@ -1,0 +1,97 @@
+.top-rated {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    height: auto;
+    padding: 0.3rem;
+}
+
+.rounded {
+    border-radius: 1.5rem;
+}
+
+.top-rated-box {
+    height: 12rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
+}
+
+.barcelona {
+    background-image: url(../resources/barcelona.jpg)
+}
+
+.berlin {
+    background-image: url(../resources/berlin.jpg)
+}
+
+.top-rated-content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(252,201,17,0.6) 0%, rgba(0,36,51,0) 80%);
+}
+
+.top-rated-pop h1{
+    font-size: 2.5rem;
+    color:white;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    text-shadow: 0px 0px 10px black;
+    border-bottom: 2px solid rgba(252,201,17,1);
+    transition: all 0.3s ease-in;
+    
+}
+
+.top-rated-pop {
+    display: block;
+    width:40%;
+    height:0%;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    border-radius: 0 1.5rem 1.5rem 0;
+    background-color: rgba(0,0,0,0.4);
+    transition: height 0.3s linear;
+    color: rgba(252,201,17,1);
+    
+}
+
+.top-rated-text{
+    display:none;
+}
+
+#top-price{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.top-rated-content:hover > .top-rated-pop{
+    height: 100%;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.top-rated-content:hover > .top-rated-pop h1 {
+    position: static;
+    border-bottom: none;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.top-rated-content:hover > .top-rated-pop .top-rated-text {
+    display: grid;
+    justify-items: center;
+    
+}
+
+
+
+
+
