@@ -15,15 +15,6 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-:root{
-    --yellow: #fcc911;
-    --pink: #f2b0b0;
-    --dark-pink: #e58787;
-    --red: #ea3535;
-    --purple: #6d087a;
-
-}
-
 body{
     width: 100%;
 }

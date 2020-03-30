@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/slider.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/top-rated.css">
+    <link rel="stylesheet" href="./styles/modal.css">
     <script src="scripts/header.js" defer></script>
 
     <title>Book Your Flight</title>
@@ -43,7 +44,6 @@
     <main>
         <div class="intro">
             <a href="./views/list.html">Find Your Flight <i class="fas fa-plane"></i></a>
-            <img src="./resources/index/intro-fade.png" alt="">
         </div>
             <div class="container">
                 <article class="slider">
@@ -52,7 +52,7 @@
                         <a href="./views/list.html" class="btn-more">Explore Other Destinations</a>
                     </div>
                     <div class="slider-content">
-                        <button id="slider-left"><i class="fas fa-chevron-left"></i></button>
+                        <i id="slider-left" class="fas fa-chevron-circle-left"></i>
                         
                         <ul class="slider-cards">
                             <li class="slider-card">
@@ -77,9 +77,18 @@
                                     <a href="#">More Details</a>
                                 </div>
                             </li>
+                            <li class="slider-card">
+                              <div class="card-hover-in">
+                                  <h3><i class="fas fa-plane"></i> Moscow</h3>
+                                  <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
+                                  <a href="#">More Details</a>
+                              </div>
+                          </li>
+
+                            
                         </ul>
                         
-                        <button id="slider-right"><i class="fas fa-chevron-right"></i></button>
+                        <i id="slider-right" class="fas fa-chevron-circle-right"></i>
                     </div>
                     
 
@@ -128,10 +137,31 @@
           <article class="best-of"></article>
 
           <article class="fb-feed"></article>
+
+
+          <div id="modal-win" class="modal-window">
+            <div class="modal-content">
+              <div class="modal-content-top">
+                <i id="close-modal-btn" class="fas fa-times"></i>
+                <h3>Flight from Podgorica to London</h3>
+                <p>Turkish Airlines (1 way trip)</p>
+              </div>
+              <div class="modal-content-bottom"></div>
+              
+              
+            </div>
+          </div>
+
+
         </div>
       </div>
     </main>
 
     <footer class="footer"></footer>
+
+
+
+
+    <script src="./scripts/modal.js"></script>
   </body>
 </html>
