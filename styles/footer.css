@@ -78,8 +78,6 @@ footer{
 
 
 
-
-
 @media(min-width: 500px){
 
     
@@ -91,6 +89,10 @@ footer{
 }
 
 @media(min-width: 985px){
+    .footer{
+        padding: 1rem 0 0 0;
+    }
+    
     .footer-grid{
         justify-content: center;
         margin: 0 auto;
@@ -105,6 +107,30 @@ footer{
 
     .hide-small{
         display: inline-block;
+    }
+
+    .footer-statistics{
+        padding: 1rem 0;
+        background-color: var(--dark-pink);
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .statistic{
+        display: flex;
+        align-items: center;
+    }
+
+    .statistic i{
+        font-size: 2.5rem;
+        margin-right: .5rem;
+    }
+
+    .statistic div p:first-child{
+        font-size: 1.5rem;
+        font-weight: bolder;
     }
 
 }
