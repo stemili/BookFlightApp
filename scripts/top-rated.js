@@ -25,7 +25,6 @@ function loadMoreItems(e){
     // ^ da uvijek dodaje po jednu vrstu u zavisnosti od velicine windowa.
     if(topBoxes.length !== 12){
         for(let i=topBoxes.length;i<topBoxes.length+j;i++){
-            console.log(topDestinations[i].split(" ").join("").toLowerCase())
             let topBoxCopy = topBoxes[0].cloneNode(true);
             topBoxCopy.style.backgroundImage = "url(./resources/" + topDestinations[i].split(" ").join(""
             ).toLowerCase() + ".jpg";
