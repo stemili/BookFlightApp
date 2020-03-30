@@ -41,13 +41,18 @@ footer{
     align-content: center;
 }
 
-.hide-small button{
+.like-share button{
     border: none;
     padding: 0.3rem;
     margin-top: 5%;
     color: var(--yellow);
     background-color: black;
 }
+
+.like-share button:hover{
+    background-color: #b1640b;
+}
+
 
 .icons{
     display: flex;
@@ -57,6 +62,11 @@ footer{
 .icons a{
     font-size: 2rem;
     color: black;
+}
+
+.icons a:hover{
+    color: #b1640b;
+    text-shadow: black 1px 1px 1px;
 }
 
 .hide-small{
@@ -112,7 +122,7 @@ footer{
     .footer-statistics{
         margin-bottom: 1.5rem;
         padding: 1rem 0;
-        background-color: var(--dark-pink);
+        background-color: #b18d0b;
         width: 100%;
         display: flex;
         justify-content: space-evenly;
