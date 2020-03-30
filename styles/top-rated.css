@@ -3,36 +3,33 @@
     grid-template-columns: 1fr;
     grid-gap: 1rem;
     height: auto;
-    padding: 0.3rem;
+    padding: 1rem 0.3rem 0 0.3rem;
+    
+
 }
 
 .rounded {
-    border-radius: 1.5rem;
+    border-radius: 1rem;
 }
 
 .top-rated-box {
-    height: 12rem;
+    height: 14rem;
     position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
+    
 }
 
-.barcelona {
-    background-image: url(../resources/barcelona.jpg)
-}
-
-.berlin {
-    background-image: url(../resources/berlin.jpg)
-}
 
 .top-rated-content{
     position: absolute;
     width: 100%;
     height: 100%;
     background: rgb(2,0,36);
-    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(252,201,17,0.6) 0%, rgba(0,36,51,0) 80%);
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,36,51,0) 50%);
 }
 
 .top-rated-pop h1{
@@ -42,14 +39,14 @@
     bottom: 1rem;
     right: 1rem;
     text-shadow: 0px 0px 10px black;
-    border-bottom: 2px solid rgba(252,201,17,1);
+    border-bottom: 2px solid var(--yellow);
     transition: all 0.3s ease-in;
     
 }
 
 .top-rated-pop {
     display: block;
-    width:40%;
+    width:45%;
     height:0%;
     right: 0;
     bottom: 0;
@@ -57,7 +54,7 @@
     border-radius: 0 1.5rem 1.5rem 0;
     background-color: rgba(0,0,0,0.4);
     transition: height 0.3s linear;
-    color: rgba(252,201,17,1);
+    color: var(--yellow);
     
 }
 
@@ -89,6 +86,60 @@
     display: grid;
     justify-items: center;
     
+}
+
+.top-rated-button {
+    width: 50%;
+    justify-self: center;
+    height: 3rem;
+    cursor: pointer;
+    background-color: var(--red);
+    font-size: 1rem;
+    color: white;
+    border: none;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s linear;
+}
+
+.top-rated-button:focus{
+    outline: none;
+}
+
+.top-rated-button:hover{
+    background-color: rgb(190, 18, 18);   
+}
+
+@media(min-width: 500px){
+
+    .top-rated{
+        padding: 1rem 3rem 0 3rem;
+    }
+
+}
+
+@media(min-width: 650px){
+
+    .top-rated{
+        grid-template-columns: 1fr 1fr;
+        padding: 1rem 0.3rem 0 0.3rem;
+    }
+
+    .top-rated-button{
+        grid-column: 1/3;
+        width: 25%;
+    }
+
+}
+
+@media(min-width: 985px){
+    .top-rated{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .top-rated-button{
+        grid-column: 2/3;
+        width: 50%;
+    }
 }
 
 
