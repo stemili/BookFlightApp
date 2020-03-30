@@ -37,6 +37,16 @@ footer{
 
 .footer-social-media{
     width: 100%;
+    height: 20%;
+    align-content: center;
+}
+
+.hide-small button{
+    border: none;
+    padding: 0.3rem;
+    margin-top: 5%;
+    color: var(--yellow);
+    background-color: black;
 }
 
 .icons{
@@ -49,6 +59,9 @@ footer{
     color: black;
 }
 
+.hide-small{
+    display: none;
+}
 
 
 
@@ -78,6 +91,20 @@ footer{
 }
 
 @media(min-width: 985px){
-    
+    .footer-grid{
+        justify-content: center;
+        margin: 0 auto;
+        width: 80%;
+        grid-template-columns: repeat(4,20%);
+    }
+
+    .footer-social-media{
+        margin: 0 auto;
+        width: 33%;
+    }
+
+    .hide-small{
+        display: inline-block;
+    }
 
 }
