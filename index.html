@@ -1,230 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+        integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/slider.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/top-rated.css">
     <link rel="stylesheet" href="./styles/modal.css">
-    <script src="scripts/header.js" defer></script>
+    <script src="./scripts/header.js" defer></script>
 
     <title>Book Your Flight</title>
 </head>
-  <body>
-    <header class="header">
-      <div class="header-main">
-        <div class="logo-section">
-          <a href="#" class="logo">
-            <img src="./resources/logo.svg" alt="" />
-          </a>
-        </div>
 
-        <a href="#" class="toggle-button" id="toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">List</a></li>
-          <li><a href="">Custom</a></li>
-          <li><a href="">About Us</a></li>
-        </ul>
-      </nav>
+<body>
+    <header class="header">
+        <div class="header-main">
+            <div class="logo-section">
+                <a href="#" class="logo">
+                    <img src="./resources/logo.svg" alt="" />
+                </a>
+            </div>
+
+            <a href="#" class="toggle-button" id="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">List</a></li>
+                <li><a href="">Custom</a></li>
+                <li><a href="">About Us</a></li>
+                <li id="last-li" class="hide-small"><a href="javascript: void(0)" id="moreBtn" href="">More <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="">Travel guide</a></li>
+                            <li><a href="">Flight radar</a></li>
+                            <li><a href="">Visa conditions</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
+    
 
     <main>
         <div class="intro">
             <a href="./views/list.html">Find Your Flight <i class="fas fa-plane"></i></a>
         </div>
-            <div class="container">
-                <article class="slider">
-                    <div class="slider-head">
-                        <h2><span id="month-slider">April</span> Deals from <span id="city-slider">Podgorica</span></h2>
-                        <a href="./views/list.html" class="btn-more">Explore Other Destinations</a>
-                    </div>
-                    <div class="slider-content">
-                        <i id="slider-left" class="fas fa-chevron-circle-left"></i>
-                        
-                        <ul class="slider-cards">
-                            <li class="slider-card">
-                                <div class="card-hover-in">
-                                    <h3><i class="fas fa-plane"></i> Podgorica</h3>
-                                    <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
-                                    <a href="#">More Details</a>
-                                </div>
-                                    
-                            </li>
-                            <li class="slider-card">
-                                <div class="card-hover-in">
-                                    <h3><i class="fas fa-plane"></i> Washington DC</h3>
-                                    <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
-                                    <a href="#">More Details</a>
-                                </div>
-                            </li>
-                            <li class="slider-card">
-                                <div class="card-hover-in">
-                                    <h3><i class="fas fa-plane"></i> Moscow</h3>
-                                    <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
-                                    <a href="#">More Details</a>
-                                </div>
-                            </li>
-                            <li class="slider-card">
-                              <div class="card-hover-in">
-                                  <h3><i class="fas fa-plane"></i> Moscow</h3>
-                                  <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
-                                  <a href="#">More Details</a>
-                              </div>
-                          </li>
+        <div class="container">
+            <article class="slider">
+                <div class="slider-head">
+                    <h2><span id="month-slider">April</span> Deals from <span id="city-slider">Podgorica</span></h2>
+                    <a href="./views/list.html" class="btn-more">Explore Other Destinations</a>
+                </div>
+                <div class="slider-content">
+                    <i id="slider-left" class="fas fa-chevron-circle-left"></i>
 
-                            
-                        </ul>
-                        
-                        <i id="slider-right" class="fas fa-chevron-circle-right"></i>
-                    </div>
-                    
+                    <ul class="slider-cards">
+                        <li class="slider-card">
+                            <div class="card-hover-in">
+                                <h3><i class="fas fa-plane"></i> Podgorica</h3>
+                                <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span>
+                                </p>
+                                <a href="#">More Details</a>
+                            </div>
 
-                </article>
-                <div class="top-rated-header"><h2>Top Rated Destinations</h2></div>
-                <article class="top-rated">
-                    <script src="scripts/top-rated.js" defer></script>
-                    <div class="top-rated-box rounded">
-                        <div class="top-rated-content">
-                            <div class="top-rated-pop">
-                                <h1>Barcelona</h1>
-                                <div class="top-rated-text">
-                                    <span>from</span>
-                                    <h1>Podgorica</h1>
-                                    <span class="top-date"></span>
-                                    <span>starting at: </span>
-                                    <span class="top-price"></span>
-                                </div>
+                        </li>
+                        <li class="slider-card">
+                            <div class="card-hover-in">
+                                <h3><i class="fas fa-plane"></i> Washington DC</h3>
+                                <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span>
+                                </p>
+                                <a href="#">More Details</a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="top-rated-box rounded">
-                        <div class="top-rated-content">
-                            <div class="top-rated-pop">
-                                <h1>Berlin</h1>
-                                <div class="top-rated-text">
-                                    <span>from</span>
-                                    <h1>Podgorica</h1>
-                                    <span class="top-date"></span>
-                                    <span>starting at: </span>
-                                    <span class="top-price"></span>
-                                </div>
+                        </li>
+                        <li class="slider-card">
+                            <div class="card-hover-in">
+                                <h3><i class="fas fa-plane"></i> Moscow</h3>
+                                <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span>
+                                </p>
+                                <a href="#">More Details</a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="top-rated-box rounded">
-                        <div class="top-rated-content">
-                            <div class="top-rated-pop">
-                                <h1>Rome</h1>
-                                <div class="top-rated-text">
-                                    <span>from</span>
-                                    <h1>Podgorica</h1>
-                                    <span class="top-date"></span>
-                                    <span>starting at: </span>
-                                    <span class="top-price"></span>
-                                </div>
+                        </li>
+                        <li class="slider-card">
+                            <div class="card-hover-in">
+                                <h3><i class="fas fa-plane"></i> Moscow</h3>
+                                <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span>
+                                </p>
+                                <a href="#">More Details</a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="top-rated-box rounded">
-                        <div class="top-rated-content">
-                            <div class="top-rated-pop">
-                                <h1>Istanbul</h1>
-                                <div class="top-rated-text">
-                                    <span>from</span>
-                                    <h1>Podgorica</h1>
-                                    <span class="top-date"></span>
-                                    <span>starting at: </span>
-                                    <span class="top-price"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="top-rated-box rounded">
-                        <div class="top-rated-content">
-                            <div class="top-rated-pop">
-                                <h1>Paris</h1>
-                                <div class="top-rated-text">
-                                    <span>from</span>
-                                    <h1>Podgorica</h1>
-                                    <span class="top-date"></span>
-                                    <span>starting at: </span>
-                                    <span class="top-price"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="top-rated-box rounded">
-                        <div class="top-rated-content">
-                            <div class="top-rated-pop">
-                                <h1>Amsterdam</h1>
-                                <div class="top-rated-text">
-                                    <span>from</span>
-                                    <h1>Podgorica</h1>
-                                    <span class="top-date"></span>
-                                    <span>starting at: </span>
-                                    <span class="top-price"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="top-rated-button rounded">LOAD MORE</button>
-                </article>
-                
-                <article class="best-of">
-        
-                </article>
-        
-                <article class="fb-feed">
-        
-                </article>
+                        </li>
+
+
+                    </ul>
+
+                    <i id="slider-right" class="fas fa-chevron-circle-right"></i>
+                </div>
+
+
+            </article>
+            <div class="top-rated-header">
+                <h2>Top Rated Destinations</h2>
             </div>
-        
+            <article class="top-rated">
+                <script src="scripts/top-rated.js" defer></script>
+                <div class="top-rated-box rounded">
+                    <div class="top-rated-content">
+                        <div class="top-rated-pop">
+                            <h1>Barcelona</h1>
+                            <div class="top-rated-text">
+                                <span>from</span>
+                                <h1>Podgorica</h1>
+                                <span class="top-date"></span>
+                                <span>starting at: </span>
+                                <span class="top-price"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-rated-box rounded">
+                    <div class="top-rated-content">
+                        <div class="top-rated-pop">
+                            <h1>Berlin</h1>
+                            <div class="top-rated-text">
+                                <span>from</span>
+                                <h1>Podgorica</h1>
+                                <span class="top-date"></span>
+                                <span>starting at: </span>
+                                <span class="top-price"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-rated-box rounded">
+                    <div class="top-rated-content">
+                        <div class="top-rated-pop">
+                            <h1>Rome</h1>
+                            <div class="top-rated-text">
+                                <span>from</span>
+                                <h1>Podgorica</h1>
+                                <span class="top-date"></span>
+                                <span>starting at: </span>
+                                <span class="top-price"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-rated-box rounded">
+                    <div class="top-rated-content">
+                        <div class="top-rated-pop">
+                            <h1>Istanbul</h1>
+                            <div class="top-rated-text">
+                                <span>from</span>
+                                <h1>Podgorica</h1>
+                                <span class="top-date"></span>
+                                <span>starting at: </span>
+                                <span class="top-price"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-rated-box rounded">
+                    <div class="top-rated-content">
+                        <div class="top-rated-pop">
+                            <h1>Paris</h1>
+                            <div class="top-rated-text">
+                                <span>from</span>
+                                <h1>Podgorica</h1>
+                                <span class="top-date"></span>
+                                <span>starting at: </span>
+                                <span class="top-price"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-rated-box rounded">
+                    <div class="top-rated-content">
+                        <div class="top-rated-pop">
+                            <h1>Amsterdam</h1>
+                            <div class="top-rated-text">
+                                <span>from</span>
+                                <h1>Podgorica</h1>
+                                <span class="top-date"></span>
+                                <span>starting at: </span>
+                                <span class="top-price"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="top-rated-button rounded">LOAD MORE</button>
+            </article>
 
-          <article class="top-rated"></article>
+            <article class="best-of">
 
-          <article class="best-of"></article>
+            </article>
 
-          <article class="fb-feed"></article>
+            <article class="fb-feed">
+
+            </article>
+        </div>
 
 
-          <div id="modal-win" class="modal-window">
+        <article class="top-rated"></article>
+
+        <article class="best-of"></article>
+
+        <article class="fb-feed"></article>
+
+
+        <div id="modal-win" class="modal-window">
             <div class="modal-content">
-              <div class="modal-content-top">
-                <i id="close-modal-btn" class="fas fa-times"></i>
-                <h3>Flight from Podgorica to London</h3>
-                <p>Turkish Airlines (1 way trip)</p>
-              </div>
-              <div class="modal-content-bottom"></div>
-              
-              
+                <div class="modal-content-top">
+                    <i id="close-modal-btn" class="fas fa-times"></i>
+                    <h3>Flight from Podgorica to London</h3>
+                    <p>Turkish Airlines (1 way trip)</p>
+                </div>
+                <div class="modal-content-bottom"></div>
+
+
             </div>
-          </div>
+        </div>
 
 
         </div>
-      </div>
+        </div>
     </main>
 
 
     <footer class="footer">
         <div class="footer-statistics hide-small">
-            <div class="statistic"><i class="fas fa-birthday-cake"></i><div><p>15 years</p><p>of experiance</p></div></div>
-            <div class="statistic"><i class="fas fa-globe-europe"></i><div><p>50</p><p>countries</p></div></div>
-            <div class="statistic"><i class="fas fa-user-friends"></i></i><div><p>150 M</p><p>customers</p></div></div>
-            <div class="statistic"><i class="fas fa-plane-departure"></i></i><div><p>950</p><p>airlines</p></div></div>
+            <div class="statistic"><i class="fas fa-birthday-cake"></i>
+                <div>
+                    <p>15 years</p>
+                    <p>of experiance</p>
+                </div>
+            </div>
+            <div class="statistic"><i class="fas fa-globe-europe"></i>
+                <div>
+                    <p>50</p>
+                    <p>countries</p>
+                </div>
+            </div>
+            <div class="statistic"><i class="fas fa-user-friends"></i></i>
+                <div>
+                    <p>150 M</p>
+                    <p>customers</p>
+                </div>
+            </div>
+            <div class="statistic"><i class="fas fa-plane-departure"></i></i>
+                <div>
+                    <p>950</p>
+                    <p>airlines</p>
+                </div>
+            </div>
         </div>
         <div class="footer-grid">
             <div class="footer-link">
@@ -272,21 +311,23 @@
                 <a href=""><i class="fab fa-instagram"></i></a>
                 <a href=""><i class="fab fa-twitter"></i></a>
                 <a href=""><i class="fab fa-youtube"></i></a>
-                
+
                 <div class="like-share hide-small">
                     <button id="like"><i class="far fa-thumbs-up"></i>
                         Like
                     </button>
-    
+
                     <button id="share"><i class="fas fa-share"></i>
                         Share
                     </button>
                 </div>
-            </div>           
+            </div>
         </div>
 
     </footer>
     <script src="./scripts/modal.js"></script>
     <script src="./scripts/slider.js"></script>
-  </body>
+
+</body>
+
 </html>
