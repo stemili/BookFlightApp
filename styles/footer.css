@@ -40,13 +40,14 @@ footer{
     height: 20%;
     align-content: center;
 }
-
+/*check if git works*/
 .like-share button{
     border: none;
-    padding: 0.3rem;
+    padding: 0.4rem;
     margin-top: 5%;
     color: var(--yellow);
     background-color: black;
+    margin-bottom: 0;
 }
 
 .like-share button:hover{
