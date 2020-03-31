@@ -68,7 +68,7 @@
     display:none;
 }
 
-#top-price{
+.top-price{
     font-size: 2rem;
     font-weight: 600;
 }
