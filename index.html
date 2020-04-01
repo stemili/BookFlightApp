@@ -52,16 +52,15 @@
                         <a href="./views/list.html" class="btn-more">Explore Other Destinations</a>
                     </div>
                     <div class="slider-content">
-                        <i id="slider-left" class="fas fa-chevron-circle-left"></i>
+                        <i id="slider-left" class="fas fa-chevron-left"></i>
                         
                         <ul class="slider-cards">
-                            <li class="slider-card">
+                            <!-- <li class="slider-card">
                                 <div class="card-hover-in">
                                     <h3><i class="fas fa-plane"></i> Podgorica</h3>
                                     <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
                                     <a href="#">More Details</a>
                                 </div>
-                                    
                             </li>
                             <li class="slider-card">
                                 <div class="card-hover-in">
@@ -83,12 +82,12 @@
                                   <p>from <span class="price-slider">100 </span><span class="price-currency">EUR</span></p>
                                   <a href="#">More Details</a>
                               </div>
-                          </li>
+                          </li> -->
 
                             
                         </ul>
                         
-                        <i id="slider-right" class="fas fa-chevron-circle-right"></i>
+                        <i id="slider-right" class="fas fa-chevron-right"></i>
                     </div>
                     
 
@@ -200,18 +199,7 @@
           <article class="fb-feed"></article>
 
 
-          <div id="modal-win" class="modal-window">
-            <div class="modal-content">
-              <div class="modal-content-top">
-                <i id="close-modal-btn" class="fas fa-times"></i>
-                <h3>Flight from Podgorica to London</h3>
-                <p>Turkish Airlines (1 way trip)</p>
-              </div>
-              <div class="modal-content-bottom"></div>
-              
-              
-            </div>
-          </div>
+          
 
 
         </div>
@@ -284,8 +272,39 @@
                 </div>
             </div>           
         </div>
-
     </footer>
+
+
+<!-- modal window  -->
+    <div id="modal-win" class="modal-window">
+        <div class="modal-content">
+            <div class="modal-content-top">
+              <i id="close-modal-btn" class="fas fa-times"></i>
+              <h3>Flight from <span id="cityFrom"></span> to <span id="cityTo"></span></h3>
+              <p><span id="modal-airlines-code"></span> Airlines (1 way trip)</p>
+            </div>
+            <div class="modal-content-bottom">
+                <div class="modal-content-details">
+                    <p>Departure <span id="flightDate"></span></p> 
+                    <p><span class="md-air-code"></span><span><span id="modal-iataFrom"></span> <i class="fas fa-long-arrow-alt-right"></i> <span id="modal-iataTo"></span></span> <span>Direct</span></p>
+                    <p class="modal-time-details"><span><span id="modal-dep-time"></span> <i class="fas fa-long-arrow-alt-right"></i> <span id="modal-arr-time"></span></span>  <span>Trip duration: <span id="modal-duration"></span></span></p>
+                    <div class="modal-bags">
+                        <div>
+                            <i class="fas fa-suitcase"></i> <span id="modal-oneb-price"></span><span class="md-currency"></span>
+                        </div>
+                        <div>
+                            <i class="fas fa-suitcase"></i><i class="fas fa-suitcase"></i> <span id="modal-twob-price"></span><span class="md-currency"></span>
+                        </div>
+                    </div>
+                    <p>Not shure if you need travel VISA? <a href="http://www.doyouneedvisa.com/" target="_blank">Check here</a></p>
+                    <p><span id="md-price"></span><span class="md-currency"></span></p>
+                </div>
+                <a class="book-btn" href="https://www.google.com/flights?hl=en#flt=/m/0174pr..2020-04-17*./m/0174pr.2020-04-21;c:EUR;e:1;ls:1w;sd:0;t:h" target="_blank">Book This Flight</a>
+            </div>
+          </div>
+    </div>
+
+
     <script src="./scripts/modal.js"></script>
     <script src="./scripts/slider.js"></script>
   </body>

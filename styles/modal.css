@@ -78,3 +78,103 @@
     transform: translateY(0);
     transition: 1s;
 }
+
+.modal-content-bottom{
+    position: relative;
+    height: 60%;
+    background: url('../resources/modal/modal-bckg.svg') no-repeat right bottom/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content-bottom > .modal-content-details{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.modal-content-details > p:first-child{
+    text-align: center;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--yellow);
+}
+.modal-content-details > p:nth-child(2){
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 1rem;
+    border-bottom: 1px solid #333;
+}
+.modal-content-details > p:nth-child(3){
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0 .5rem;
+    border-bottom: 1px solid #333;
+}
+.modal-content-details > .modal-bags{
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+} 
+
+.modal-content-details > .modal-bags > div{
+    border: 1px solid var(--yellow);
+    padding: 1.2rem;
+    border-radius: 5px;
+    margin-left: .5rem;
+    color: #333;
+}
+.modal-content-details > p:nth-child(5){
+    padding-top: 1rem;
+    font-size: .9rem;
+}
+.modal-content-details > p:nth-child(5) > a{
+    margin-left: 1rem;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+}
+.modal-content-details > p:nth-child(5) > a:hover{
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid var(--yellow);
+}
+
+.modal-content-details > p:last-child{
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid gray;
+}
+.modal-content-details >p:last-child .mdCurrency{
+    font-size: 1.4rem;
+    vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+.book-btn{
+    position: absolute;
+    border: none;
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: .6rem 1rem .6rem;
+    text-decoration: none;
+    background-color: var(--yellow);
+    color: #333;
+    text-shadow: none;
+    bottom: 3rem;
+}
+
