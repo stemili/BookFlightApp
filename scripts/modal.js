@@ -1,12 +1,13 @@
 const cardsUl = document.querySelector('.slider-cards');
 const modalWindow = document.getElementById('modal-win');
+const modalContentTop = document.querySelector('.modal-content-top');
+
 
 const closeBtn = document.getElementById('close-modal-btn')
 
 
 cardsUl.addEventListener('click', (e)=>{
     if(e.target.classList.value === 'details-btn'){
-        console.log(e.target.parentElement.parentElement.id);
         // sliderContent from slide.js contains latest 12 flights
         let requestedFlight = sliderContent.filter(element => element.id === e.target.parentElement.parentElement.id ? true : false);
         if(requestedFlight[0] !== ''){
@@ -41,7 +42,7 @@ function fillModalWindow(flight){
     const oneBagPrice = document.getElementById('modal-oneb-price');
     const twoBagPrice = document.getElementById('modal-twob-price');
     const price = document.getElementById('md-price');
-    const currencies = document.querySelectorAll('.md-currency')
+    const currencies = document.querySelectorAll('.md-currency');
 
     cityFrom.textContent = flight.cityFrom;
     cityTo.textContent = flight.cityTo;
@@ -54,7 +55,12 @@ function fillModalWindow(flight){
     arrTime.textContent = flight.arrTime;
     durTime.textContent = flight.flyDur;
     currencies.forEach(element => {element.textContent = Object.keys(flight.price)[0]});
-    oneBagPrice.textContent = flight.bagsPrice['1'];
+    if(flight.bagsPrice['1'] != 0){
+        oneBagPrice.textContent = flight.bagsPrice['1'] 
+    } else {
+        oneBagPrice.textContent = 'FREE';
+        currencies[0].textContent = '';
+    }
     if(!flight.bagsPrice['2']){
         currencies[1].textContent = '';
         twoBagPrice.textContent = 'N/A';
@@ -62,6 +68,7 @@ function fillModalWindow(flight){
         twoBagPrice.textContent = flight.bagsPrice['2'];
     }
     price.textContent = Object.values(flight.price)[0];
+    modalContentTop.style.backgroundImage = `url('../resources/${flight.cityTo}.jpg')`;
     
     
 }

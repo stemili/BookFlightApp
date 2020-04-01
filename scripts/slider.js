@@ -1,16 +1,19 @@
+// Selecting elements from the DOM
+const ulSlider = document.querySelector('.slider-cards');
+const sliderLeft = document.getElementById('slider-left');
+const sliderRight = document.getElementById('slider-right');
+
+
+
 // setting user location STATIC
 const userLocation = {city: 'Podgorica', iata: 'TGD'};
-
-const ulSlider = document.querySelector('.slider-cards');
-
-
+let first12;
 // defining default DATE
 let today = new Date();
 let dd = String(today.getDate()).padStart(2, '0');
 let mm = String(today.getMonth() + 1).padStart(2, '0');
 let yyyy = today.getFullYear();
 let dateFrom = `${dd}%2F${mm}%2F${yyyy}`;
-
 // future date (30 days advance)
 today.setDate(today.getDate() + 30);
 dd = String(today.getDate()).padStart(2, '0');
@@ -18,8 +21,11 @@ mm = String(today.getMonth() + 1).padStart(2, '0');
 yyyy = today.getFullYear();
 let dateTo = `${dd}%2F${mm}%2F${yyyy}`;
 
+// Used by modal window
 let sliderContent = [];
 
+
+// Initial Fetching
 const newestTwelve = fetch(`https://api.skypicker.com/flights?partner=picky&fly_from=${userLocation.iata}&direct_flights=1&date_from=${dateFrom}&date_to=${dateTo}&sort=date`);
 newestTwelve.then( response => response.json())
             .then(obj => obj.data)
@@ -46,19 +52,15 @@ newestTwelve.then( response => response.json())
                 }
             })).then(some => {
                 sliderContent = some;
-                handleSliderImages(some);
-            })
+                createCards(some);
+            });
 
 
 
 
-function handleSliderImages(data){
-    let first12 = [data.slice(0,3), data.slice(3,6), data.slice(6,9), data.slice(9, 12)];
-    console.log(data);
-    let slide = 1;
+function createCards(data){
+    first12 = [data.slice(0,3), data.slice(3,6), data.slice(6,9), data.slice(9, 12)];
     let dfSlider = new DocumentFragment();
-    
-    // first12.forEach(group => {
         first12[0].forEach(card => {
             let newCard = document.createElement('li');
             newCard.classList.add('slider-card');
@@ -80,9 +82,45 @@ function handleSliderImages(data){
         newCard.innerHTML = '<i class="fas fa-search-location"></i>';
         dfSlider.appendChild(newCard)
         ulSlider.innerHTML = '';
-        console.log(ulSlider)
         ulSlider.appendChild(dfSlider);
+}
 
-    // })
+
+let slide = 0;
+
+function handleLeftNav(){
+    if(slide === 0){
+        slide = 3;
+    } else {
+        slide--;
+    }
+    changeSliderLook(slide);
+}
+
+function handleRightNav(){
+    if(slide === 3){
+        slide = 0;
+    } else {
+        slide++;
+    }
+    changeSliderLook(slide);
+}
+
+function changeSliderLook(slide){
+    const currentLis = document.querySelectorAll('.slider-card');
+    let currentArr = first12[slide];
+    currentArr.forEach((card, index) => {
+        let currentElement = currentLis[index];
+        currentElement.id = card.id;
+        currentElement.querySelector('h3').innerHTML = `<i class="fas fa-plane"></i> ${card.cityTo}`;
+        currentElement.querySelector('.price-currency').textContent = Object.keys(card.price)[0];
+        currentElement.querySelector('.price-slider').textContent = Object.values(card.price)[0];
+        currentElement.querySelector('.slider-date').textContent = card.flightDate;
+        currentElement.style.backgroundImage = `url('./resources/${card.cityTo}.jpg')`;
+    })
     
 }
+
+
+sliderLeft.addEventListener('click', handleLeftNav);
+sliderRight.addEventListener('click', handleRightNav);
