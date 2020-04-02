@@ -22,11 +22,12 @@ const toElement = document.querySelector("#to");
         })
     })
 
-    console.log("test")
-    addEmptyClass(fromElement);
-    addEmptyClass(toElement)
+    addEmptyClassAndListeners(fromElement);
+    addEmptyClassAndListeners(toElement)
 
-    function addEmptyClass(element){
+
+
+    function addEmptyClassAndListeners(element){
         element.addEventListener("keyup",(e)=>{
             if(e.target.value === ""){
                 element.classList.add("empty")
@@ -34,6 +35,33 @@ const toElement = document.querySelector("#to");
                 element.classList.remove("empty")
             }
         })
+
+        // element.addEventListener("click",(e)=>{
+        //     console.log(e.target.value)
+        //     if(e.target.value === ""){
+        //         element.classList.remove("empty")
+        //     }
+        // })
+
+        // element.addEventListener("mouseleave",(e)=>{
+        //     console.log("test")
+        //     console.log(e.target)
+        //     if(e.target.children[0].value === ""){
+        //         element.classList.add("empty");
+        //     }
+        // })
+
+        // document.addEventListener("click",()=>{
+        //     if(fromElement.children[0].value === ""){
+        //         fromElement.classList.add("empty");
+        //     }
+        //     if(toElement.children[0].value === ""){
+        //         toElement.classList.add("empty");
+        //     }
+        // })
+        
+        
+
     }
 
     function addActiveClass(input){
