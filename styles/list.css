@@ -1,11 +1,202 @@
+/* COLOR PALETTE */
+
+:root {
+    --yellow: #fcc911;
+    --pink: #f2b0b0;
+    --dark-pink: #e58787;
+    --red: #ea3535;
+    --purple: #6d087a;
+}
+
+
 /* RESETTING DEFAULTS */
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
 }
 
-body{
+body {
     width: 100%;
+}
+
+
+/*list intro*/
+
+.intro {
+    display: flex;
+    position: relative;
+    padding-top: 1rem;
+    text-align: center;
+    min-height: 200px;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../resources/index/intro-img.jpg") no-repeat center center/cover;
+    filter: contrast(80%);
+    z-index: -2;
+}
+
+.intro::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: inherit;
+    background: url("../resources/index/intro-svg.svg") no-repeat bottom center;
+    z-index: -1;
+    transform: translateY(1px);
+}
+
+
+/* .intro > a{
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 1px 1px 10px #000;
+    font-size: 2rem;
+}
+.intro > a > i{
+    display: block;
+    transition: .5s;
+}
+.intro > a:hover > i{
+    transform: scale(1.1);
+    transition: .5s;
+    color: var(--yellow);
+} */
+
+
+/*search-flights*/
+
+@media (min-width: 985px) {
+    .search-flights {
+        width: 50%;
+        height: 50%;
+        background-color: #fcc911bb;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+    
+    .flight-options {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .flight-options>a {
+        padding: 10px;
+        text-decoration: none;
+        font-size: larger;
+        font-weight: bold;
+        color: white;
+        position: relative;
+    }
+    .flight-options>a:hover {
+        text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    }
+    .flight-options>a::after {
+        content: "";
+        display: none;
+        position: absolute;
+        left: 34%;
+        height: 0;
+        width: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid white;
+        z-index: 15;
+    }
+    .flight-options>a.active {
+        text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    }
+    .flight-options>a.active::after {
+        display: block;
+    }
+
+    .search-query {
+        width: 98%;
+        height: 80%;
+        background-color: white;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .query-item input {
+        border: none;
+        font-size: larger;
+        position: relative;
+    }
+
+    .query-item{
+        border: 1px solid var(--yellow);
+        border-radius: 2px;
+        height: 2.5rem;
+        width: 20%;
+        overflow: hidden;
+        padding: .5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .query-item.active{
+        box-shadow: 0 0 5px var(--yellow);
+    }
+
+    .tripIcons{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        border: none;
+        width: 3%;
+        color: black;       
+    }
+
+
+
+    #departure,
+    #return{
+        width: 14%;
+    }
+
+
+    #noOfPassengers{
+        width: 10%;
+    }
+
+    .search{
+        background-color: var(--dark-pink);
+        width: 6%;
+        padding: .5rem;
+        border: 1px solid black;
+    }   
+
+    .search i{
+        font-size: 1.5rem;
+    }
+
+    #from::before{
+        
+    }
+
+
+
+    
 }

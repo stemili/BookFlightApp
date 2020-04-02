@@ -1,18 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <link rel="stylesheet" href="../styles/list.css">
-    <title>Search Flight</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"/>
 
-    <h1>LIST APP</h1>
-    
-</body>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/list.css" />
+    <title>Search Flight</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-main">
+        <div class="logo-section">
+          <a href="#" class="logo">
+            <img src="../resources/logo.svg" alt="" />
+          </a>
+        </div>
+
+        <a href="#" class="toggle-button" id="toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">List</a></li>
+          <li><a href="">Custom</a></li>
+          <li><a href="">About Us</a></li>
+          <li id="last-li" class="hide-small">
+            <a href="javascript: void(0)" id="moreBtn" href=""
+              >More <i class="fas fa-caret-down"></i
+            ></a>
+            <div class="dropdown">
+              <ul>
+                <li><a href="">Travel guide</a></li>
+                <li><a href="">Flight radar</a></li>
+                <li><a href="">Visa conditions</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="intro">
+        <div class="search-flights">
+          <div class="flight-options">
+            <a class="active" href="#">One way</a>
+            <a href="#">Round trip</a>
+            <a href="#">Multi city</a>
+          </div>
+          <div class="search-query">
+            <div class="query-item" id="from"><input type="text"></div>
+            <div class="tripIcons query-item"><i class="fas fa-long-arrow-alt-right"></i><i class="fas fa-long-arrow-alt-left"></i></div>
+            <div class="query-item" id="to"><input type="text"></div>
+            <div class="query-item" id="departure"><input type="text"></div>
+            <div class="query-item" id="return"><input type="text"></div>
+            <div class="query-item" id="noOfPassengers"><input type="text"></div>
+            <div class="search tripIcons query-item"><i class="fas fa-search"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <script src="../scripts/search-flights.js"></script>
+    </main>
+  </body>
 </html>
