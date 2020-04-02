@@ -24,6 +24,7 @@ let dateTo = `${dd}%2F${mm}%2F${yyyy}`;
 // Used by modal window
 let sliderContent = [];
 
+let slidingTimeout;
 
 // Initial Fetching
 const newestTwelve = fetch(`https://api.skypicker.com/flights?partner=picky&fly_from=${userLocation.iata}&direct_flights=1&date_from=${dateFrom}&date_to=${dateTo}&sort=date`);
@@ -74,7 +75,7 @@ function createCards(data){
                         </div>
                         <button class='details-btn'>More Details</button>
                     </div>`;
-                    newCard.style.backgroundImage = `url(./resources/${card.cityTo}.jpg)`;
+                    newCard.style.backgroundImage = `url(./resources/${card.cityTo.toLowerCase()}.jpg)`;
             dfSlider.appendChild(newCard);
         })
         newCard = document.createElement('li');
@@ -83,43 +84,77 @@ function createCards(data){
         dfSlider.appendChild(newCard)
         ulSlider.innerHTML = '';
         ulSlider.appendChild(dfSlider);
+        // slidingTimeout = setTimeout(handleRightNav, 5000);
 }
 
 
 let slide = 0;
 
+
 function handleLeftNav(){
+    // clearTimeout(slidingTimeout);
     if(slide === 0){
         slide = 3;
     } else {
         slide--;
     }
-    changeSliderLook(slide);
+    changeSliderLook(slide, 0);
+    // slidingTimeout = setTimeout(handleRightNav, 5000);
 }
 
 function handleRightNav(){
+    // clearTimeout(slidingTimeout);
     if(slide === 3){
         slide = 0;
     } else {
         slide++;
     }
-    changeSliderLook(slide);
+    changeSliderLook(slide, 1);
+    // slidingTimeout = setTimeout(handleRightNav, 5000);
 }
 
-function changeSliderLook(slide){
+function changeSliderLook(slide, direction){
     const currentLis = document.querySelectorAll('.slider-card');
     let currentArr = first12[slide];
     currentArr.forEach((card, index) => {
         let currentElement = currentLis[index];
-        currentElement.id = card.id;
-        currentElement.querySelector('h3').innerHTML = `<i class="fas fa-plane"></i> ${card.cityTo}`;
-        currentElement.querySelector('.price-currency').textContent = Object.keys(card.price)[0];
-        currentElement.querySelector('.price-slider').textContent = Object.values(card.price)[0];
-        currentElement.querySelector('.slider-date').textContent = card.flightDate;
-        currentElement.style.backgroundImage = `url('./resources/${card.cityTo}.jpg')`;
+        // sliding effect, if 1(right) -> move right effect | 0(left) -> move left effect
+        if(direction){
+            ulSlider.animate([
+                {opacity: '1', transform: 'translateX(0px)'},
+                {opacity: '0', transform: 'translateX(120px)'},
+                {opacity: '0', transform: 'translateX(-120px)'},
+                {opacity: '1', transform: 'translateX(0px)'}
+            ],{
+                duration: 600,
+                iterations: 1
+            });
+        } else {{
+            ulSlider.animate([
+                {opacity: '1', transform: 'translateX(0px)'},
+                {opacity: '0', transform: 'translateX(-120px)'},
+                {opacity: '0', transform: 'translateX(120px)'},
+                {opacity: '1', transform: 'translateX(0px)'}
+            ],{
+                duration: 600,
+                iterations: 1
+            });
+        }}
+        // in the middle of transition(when the opacity is 0) change the elements
+        setTimeout(()=>{
+            currentElement.id = card.id;
+            currentElement.querySelector('h3').innerHTML = `<i class="fas fa-plane"></i> ${card.cityTo}`;
+            currentElement.querySelector('.price-currency').textContent = Object.keys(card.price)[0];
+            currentElement.querySelector('.price-slider').textContent = Object.values(card.price)[0];
+            currentElement.querySelector('.slider-date').textContent = card.flightDate;
+            currentElement.style.backgroundImage = `url('./resources/${card.cityTo.toLowerCase()}.jpg')`;
+        },300)
+        
     })
     
 }
+
+
 
 
 sliderLeft.addEventListener('click', handleLeftNav);

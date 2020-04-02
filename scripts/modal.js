@@ -55,6 +55,8 @@ function fillModalWindow(flight){
     arrTime.textContent = flight.arrTime;
     durTime.textContent = flight.flyDur;
     currencies.forEach(element => {element.textContent = Object.keys(flight.price)[0]});
+
+    // don't display currency if the value is 0 or undefined
     if(flight.bagsPrice['1'] != 0){
         oneBagPrice.textContent = flight.bagsPrice['1'] 
     } else {
@@ -67,8 +69,10 @@ function fillModalWindow(flight){
     } else {
         twoBagPrice.textContent = flight.bagsPrice['2'];
     }
+
+
     price.textContent = Object.values(flight.price)[0];
-    modalContentTop.style.backgroundImage = `url('../resources/${flight.cityTo}.jpg')`;
+    modalContentTop.style.backgroundImage = `url('../resources/${flight.cityTo.toLowerCase()}.jpg')`;
     
     
 }
