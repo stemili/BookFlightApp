@@ -96,11 +96,12 @@ nav > ul {
 
 ul > li > a {
   max-height: 100%;
-  color: black;
+  color: #fff;
   text-decoration: none;
   line-height: 50px;
   padding: 1rem;
   transition: .3s;
+  text-transform: uppercase;
 }
 
 ul > li > a:hover {
@@ -122,12 +123,15 @@ ul > li > a:hover {
 
 @media (min-width: 985px) {
   .header {
-    background-color: #fcc911bb;
+    background: linear-gradient(0deg, rgba(76,74,94,1) 0%, rgba(76,74,94,0.865983893557423) 50%, rgba(76,74,94,1) 100%);
+
+
+
+    box-shadow: 0 2px 16px 1px #dcdee3;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     padding: 0 3rem;
-    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -176,10 +180,11 @@ ul > li > a:hover {
     position: absolute;
     top: 50px;
     right: 55px;
-    background-color: var(--dark-pink);
+    background-color: var(--yellow);
     width: 10rem;
     padding: 0;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.411) ;
+    z-index: 10;
   }
 
   .dropdown.active{

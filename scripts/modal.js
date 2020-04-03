@@ -18,6 +18,17 @@ cardsUl.addEventListener('click', (e)=>{
     }
 })
 
+document.querySelector('.best-of .best-of-content').addEventListener('click',  (e)=>{
+    if(e.target.classList.value === 'best-of-btn'){
+        // bestOfContent from best-of.js
+        let requestedFlight = bestOfContent.filter(element => element.id === e.target.parentElement.parentElement.id ? true : false);
+        if(requestedFlight[0] !== ''){
+            fillModalWindow(requestedFlight[0]);
+            handleModalIn();
+        }
+    }
+})
+
 closeBtn.addEventListener('click', handleCloseBtn);
 
 function handleModalIn(e){

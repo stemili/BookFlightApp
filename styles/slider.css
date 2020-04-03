@@ -10,7 +10,6 @@
 .slider-head #city-slider{
     white-space: nowrap;
     padding-bottom: .7rem;
-    background: url('../resources/index/stroke.png') no-repeat center bottom;
 }
 
 .slider .slider-content{
@@ -146,31 +145,58 @@
     transition: .3s;
 }
 
-/* .slider-cards > .slider-card:last-child {
-    background: url('../resources/index/moscow.jpg') no-repeat center center/cover;
+.slider-loader{
+    grid-column: span 3;
+    height: 603px;
+    width: 100%;
+    background-color: #f8f8f8;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.slider-cards > .slider-card:first-child {
-    background: url('../resources/index/podgorica.jpg') no-repeat center center/cover;
+
+.slider-loader > .spinner{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 9px solid #f3f3f3;
+    border-top: 9px solid var(--yellow);
+    animation: spin 1s infinite linear;
 }
-.slider-cards > .slider-card {
-    background: url('../resources/index/washington.jpg') no-repeat center center/cover;
-} */
+
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+
 
 @media (min-width: 500px) {
 }
 
 @media (min-width: 768px) {
     .slider-head > h2{
-        padding: .5rem 0rem 0;
+        display: inline-block;
+        padding: 2rem 0rem 0;
+        border-bottom: 2px solid var(--yellow);
+        margin-bottom: 1rem;
+        padding-right: 3rem;
     }
     .slider-cards{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: .2rem;
     }
+    
     .slider-card{
         width: 100%;
-        height: 300px;
+        min-height: 300px;
+        height: 100%;
         margin: 0;
         border-radius: 0;
         box-shadow: none;
@@ -188,17 +214,21 @@
     .sd-card-blank:hover{
         opacity: .8;
     }
+
+    .slider-card:nth-child(1){
+        grid-column: span 1;
+    }
     .slider-card:nth-child(2){
         grid-column: span 2;
     }
     .slider-card:nth-child(3){
-        grid-column: span 2;
+        grid-column: span 3;
     }
 
     .slider-content > #slider-right , .slider-content > #slider-left{
         display: inline-block;
         position: absolute;
-        z-index: 10;
+        z-index: 8;
     }
     .card-hover-in > h3{
         font-size: 1.6rem;

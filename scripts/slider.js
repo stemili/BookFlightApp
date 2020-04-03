@@ -3,10 +3,12 @@ const ulSlider = document.querySelector('.slider-cards');
 const sliderLeft = document.getElementById('slider-left');
 const sliderRight = document.getElementById('slider-right');
 
-
+const currLocSlider = document.getElementById('city-slider');
+const slideOnEffect = document.querySelector('.slider-content');
 
 // setting user location STATIC
 const userLocation = {city: 'Podgorica', iata: 'TGD'};
+currLocSlider.textContent = userLocation.city;
 let first12;
 // defining default DATE
 let today = new Date();
@@ -79,10 +81,6 @@ function createCards(data){
                     newCard.style.backgroundImage = `url(./resources/${card.cityTo.toLowerCase()}.jpg)`;
             dfSlider.appendChild(newCard);
         })
-        newCard = document.createElement('li');
-        newCard.classList.add('sd-card-blank');
-        newCard.innerHTML = '<i class="fas fa-search-location"></i>';
-        dfSlider.appendChild(newCard)
         ulSlider.innerHTML = '';
         ulSlider.appendChild(dfSlider);
         // slidingTimeout = setTimeout(handleRightNav, 5000);
@@ -90,6 +88,7 @@ function createCards(data){
 
 
 let slide = 0;
+
 
 
 function handleLeftNav(){
@@ -114,9 +113,12 @@ function handleRightNav(){
     // slidingTimeout = setTimeout(handleRightNav, 5000);
 }
 
+const gridPosition = [[[1,1],[1,2],[1,3]],[[2,2],[1,1],[1,1]],[[1,3],[1,2],[1,1]],[[1,1],[2,2],[1,1]]];
+
 function changeSliderLook(slide, direction){
     const currentLis = document.querySelectorAll('.slider-card');
     let currentArr = first12[slide];
+    let gridTrack = 0;
     currentArr.forEach((card, index) => {
         let currentElement = currentLis[index];
         
@@ -128,25 +130,29 @@ function changeSliderLook(slide, direction){
             currentElement.querySelector('.price-slider').textContent = Object.values(card.price)[0];
             currentElement.querySelector('.slider-date').textContent = card.flightDate;
             currentElement.style.backgroundImage = `url('./resources/${card.cityTo.toLowerCase()}.jpg')`;
+            currentElement.style.gridRow = `span ${gridPosition[slide][gridTrack][0]}`;
+            currentElement.style.gridColumn = `span ${gridPosition[slide][gridTrack][1]}`;
+            gridTrack++;
         },300)
     })
+    gridTrack = 0;
     // sliding effect, if 1(right) -> move right effect | 0(left) -> move left effect
     if(direction){
-        ulSlider.animate([
-            {opacity: '1', transform: 'translateX(0px)'},
-            {opacity: '0', transform: 'translateX(120px)'},
-            {opacity: '0', transform: 'translateX(-120px)'},
-            {opacity: '1', transform: 'translateX(0px)'}
+        slideOnEffect.animate([
+            {opacity: '1'},
+            {opacity: '0'},
+            {opacity: '0'},
+            {opacity: '1'}
         ],{
             duration: 600,
             iterations: 1
         });
     } else {{
-        ulSlider.animate([
-            {opacity: '1', transform: 'translateX(0px)'},
-            {opacity: '0', transform: 'translateX(-120px)'},
-            {opacity: '0', transform: 'translateX(120px)'},
-            {opacity: '1', transform: 'translateX(0px)'}
+        slideOnEffect.animate([
+            {opacity: '1'},
+            {opacity: '0'},
+            {opacity: '0'},
+            {opacity: '1'}
         ],{
             duration: 600,
             iterations: 1

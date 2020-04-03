@@ -1,0 +1,68 @@
+.best-of > .best-of-content{
+    width: 100%;
+    height: 100%;
+}
+
+.best-of > .best-of-content h4{
+    font-size: 1.3rem;
+    text-align: center;
+    border-bottom: 2px solid var(--yellow);
+    margin-bottom: .7rem;
+}
+
+.best-of-content > .best-card{
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    box-shadow: 0 2px 16px 1px #dcdee3;
+}
+
+.best-of-content > .best-card > div{
+    padding: .7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.best-of-content  .best-of-btn{
+    cursor: pointer;
+    outline: none;
+    padding: .7rem 1rem .7rem 1rem;
+    border-radius: .5rem;
+    color: #333;
+    border: 1px solid var(--yellow);
+    background-color: transparent;
+}
+
+.best-of-content > .best-card > img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.best-of div > p:first-child{
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--yellow);
+}
+
+
+.best-of-content > .best-loader{
+    height: 829px;
+    width: 100%;
+    background-color: #f8f8f8;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.best-loader > .spinner{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 9px solid #f3f3f3;
+    border-top: 9px solid var(--yellow);
+    animation: spin 1s infinite linear;
+}
+

@@ -1,7 +1,7 @@
 /* COLOR PALETTE */
 :root{
     --yellow: #fcc911;
-    --blublak: ##4c4a5e;
+    --blublak: #4c4a5e;
     --pink: #f2b0b0;
     --dark-pink: #e58787;
     --red: #ea3535;
@@ -18,6 +18,7 @@
 
 body{
     width: 100%;
+    background-color: #f8f8f8;
 }
 
 
