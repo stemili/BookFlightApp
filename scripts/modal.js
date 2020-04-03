@@ -8,13 +8,13 @@ const closeBtn = document.getElementById('close-modal-btn')
 
 cardsUl.addEventListener('click', (e)=>{
     if(e.target.classList.value === 'details-btn'){
-        // sliderContent from slide.js contains latest 12 flights
+        // sliderContent from slider.js contains latest 12 flights
         let requestedFlight = sliderContent.filter(element => element.id === e.target.parentElement.parentElement.id ? true : false);
         if(requestedFlight[0] !== ''){
             fillModalWindow(requestedFlight[0]);
             handleModalIn();
         }
-        
+
     }
 })
 
@@ -43,6 +43,7 @@ function fillModalWindow(flight){
     const twoBagPrice = document.getElementById('modal-twob-price');
     const price = document.getElementById('md-price');
     const currencies = document.querySelectorAll('.md-currency');
+    const bookBtn = document.querySelector('.book-btn');
 
     cityFrom.textContent = flight.cityFrom;
     cityTo.textContent = flight.cityTo;
@@ -55,6 +56,7 @@ function fillModalWindow(flight){
     arrTime.textContent = flight.arrTime;
     durTime.textContent = flight.flyDur;
     currencies.forEach(element => {element.textContent = Object.keys(flight.price)[0]});
+    bookBtn.setAttribute('href', flight.bookLink);
 
     // don't display currency if the value is 0 or undefined
     if(flight.bagsPrice['1'] != 0){
@@ -72,7 +74,7 @@ function fillModalWindow(flight){
 
 
     price.textContent = Object.values(flight.price)[0];
-    modalContentTop.style.backgroundImage = `url('../resources/${flight.cityTo.toLowerCase()}.jpg')`;
+    modalContentTop.style.backgroundImage = `url('./resources/${flight.cityTo.toLowerCase()}.jpg')`;
     
     
 }

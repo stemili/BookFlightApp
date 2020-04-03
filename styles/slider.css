@@ -14,6 +14,7 @@
 }
 
 .slider .slider-content{
+    position: relative;
     display: flex;
     align-items: center;
 }
@@ -23,11 +24,27 @@
     display: none;
     font-size: 2.5rem;
     color: #333;
+    background-color: rgba(197, 197, 197, 0.815);
+    padding: .7rem;
 }
 .slider-content > i:hover{
     color: var(--yellow);
     transition: .2s;
     cursor: pointer;
+}
+
+.slider-content > #slider-right {
+    right: 0;
+    padding-right: .5rem;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.slider-content > #slider-left{
+    padding-left: .5rem;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+
 }
 
 
@@ -37,7 +54,6 @@
 
 .slider-cards{
     width: 100%;
-    padding: 1rem .5rem 1rem .5rem;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -181,6 +197,8 @@
 
     .slider-content > #slider-right , .slider-content > #slider-left{
         display: inline-block;
+        position: absolute;
+        z-index: 10;
     }
     .card-hover-in > h3{
         font-size: 1.6rem;

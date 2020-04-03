@@ -36,24 +36,26 @@ newestTwelve.then( response => response.json())
             .then(arr => arr.map(flight => {
                 return {
                     id : flight.id,
-                    cityFrom : flight.route[0].cityFrom,
-                    cityTo : flight.route[0].cityTo,
+                    cityFrom : flight.cityFrom,
+                    cityTo : flight.cityTo,
                     countryTo : flight.countryTo.name,
-                    iataFrom : flight.route[0].flyFrom,
-                    iataTo : flight.route[0].flyTo,
-                    airline : flight.route[0].airline,
+                    iataFrom : flight.flyFrom,
+                    iataTo : flight.flyTo,
+                    airline : flight.airlines[0],
                     price : flight.conversion,
                     bagsPrice : flight.bags_price,
                     depTime : convertUNIXtoUTC(flight.dTime).slice(17,22),
                     arrTime : convertUNIXtoUTC(flight.aTime).slice(17,22),
                     flyDur : flight.fly_duration,
                     distance : flight.distance,
-                    flightDate : convertUNIXtoUTC(flight.dTime).slice(4,17)
+                    flightDate : convertUNIXtoUTC(flight.dTime).slice(4,17),
+                    bookLink : flight.deep_link
 
                 }
             })).then(some => {
                 sliderContent = some;
                 createCards(some);
+                console.log(sliderContent)
             });
 
 
@@ -118,28 +120,7 @@ function changeSliderLook(slide, direction){
     let currentArr = first12[slide];
     currentArr.forEach((card, index) => {
         let currentElement = currentLis[index];
-        // sliding effect, if 1(right) -> move right effect | 0(left) -> move left effect
-        if(direction){
-            ulSlider.animate([
-                {opacity: '1', transform: 'translateX(0px)'},
-                {opacity: '0', transform: 'translateX(120px)'},
-                {opacity: '0', transform: 'translateX(-120px)'},
-                {opacity: '1', transform: 'translateX(0px)'}
-            ],{
-                duration: 600,
-                iterations: 1
-            });
-        } else {{
-            ulSlider.animate([
-                {opacity: '1', transform: 'translateX(0px)'},
-                {opacity: '0', transform: 'translateX(-120px)'},
-                {opacity: '0', transform: 'translateX(120px)'},
-                {opacity: '1', transform: 'translateX(0px)'}
-            ],{
-                duration: 600,
-                iterations: 1
-            });
-        }}
+        
         // in the middle of transition(when the opacity is 0) change the elements
         setTimeout(()=>{
             currentElement.id = card.id;
@@ -149,8 +130,29 @@ function changeSliderLook(slide, direction){
             currentElement.querySelector('.slider-date').textContent = card.flightDate;
             currentElement.style.backgroundImage = `url('./resources/${card.cityTo.toLowerCase()}.jpg')`;
         },300)
-        
     })
+    // sliding effect, if 1(right) -> move right effect | 0(left) -> move left effect
+    if(direction){
+        ulSlider.animate([
+            {opacity: '1', transform: 'translateX(0px)'},
+            {opacity: '0', transform: 'translateX(120px)'},
+            {opacity: '0', transform: 'translateX(-120px)'},
+            {opacity: '1', transform: 'translateX(0px)'}
+        ],{
+            duration: 600,
+            iterations: 1
+        });
+    } else {{
+        ulSlider.animate([
+            {opacity: '1', transform: 'translateX(0px)'},
+            {opacity: '0', transform: 'translateX(-120px)'},
+            {opacity: '0', transform: 'translateX(120px)'},
+            {opacity: '1', transform: 'translateX(0px)'}
+        ],{
+            duration: 600,
+            iterations: 1
+        });
+    }}
     
 }
 
