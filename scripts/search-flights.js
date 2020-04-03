@@ -4,6 +4,8 @@ const searchQuery = document.querySelector(".search-query");
 const queryItems = searchQuery.children;
 const fromElement = document.querySelector("#from");
 const toElement = document.querySelector("#to");
+const flightDateElement = document.querySelector("#departure");
+const returnDateElement = document.querySelector("#return");
 
 //IIF to add event listeners to travel options
 (function addEventListenersToFlightOptions(){
@@ -23,7 +25,10 @@ const toElement = document.querySelector("#to");
     })
 
     addEmptyClassAndListeners(fromElement);
-    addEmptyClassAndListeners(toElement)
+    addEmptyClassAndListeners(toElement);
+    console.log(flightDateElement)
+    addEmptyClassAndListeners(flightDateElement);
+    addEmptyClassAndListeners(returnDateElement);
 
 
 

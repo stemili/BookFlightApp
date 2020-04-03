@@ -191,7 +191,9 @@ body {
   }
 
   #from::before,
-  #to::before {
+  #to::before,
+  #departure::before,
+  #return::before {
     content: "";
     position: absolute;
     width: 15px;
@@ -201,7 +203,9 @@ body {
   }
 
   #from.empty,
-  #to.empty{
+  #to.empty,
+  #departure.empty,
+  #return.empty{
     padding-left: 25px;
   }
 
@@ -212,6 +216,13 @@ body {
 
   #to.empty::before{
     background-image: url("../resources/b.svg");
+  }
+
+  #departure.empty::before,
+  #return.empty::before{
+    background-image: url("../resources/date.svg") ;
+    background-repeat: no-repeat;
+
   }
 
 
