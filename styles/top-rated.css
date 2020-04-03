@@ -3,16 +3,16 @@
     grid-template-columns: 1fr;
     grid-gap: 1rem;
     height: auto;
-    padding: 1rem 0.3rem 0 0.3rem;
-    
+    padding: 0 0.3rem 0 0.3rem;
 
 }
-
+/*
 .rounded {
     border-radius: 1rem;
 }
-
+*/
 .top-rated-header{
+    grid-column: 1/4;
     padding-left:0.7rem;
 }
 
@@ -57,7 +57,7 @@
     right: 0;
     bottom: 0;
     position: absolute;
-    border-radius: 0 1rem 1rem 0;
+    /*border-radius: 0 1rem 1rem 0;*/
     background-color: rgba(0,0,0,0.0);
     transition: height 0.4s ease;
     color: var(--yellow);
@@ -71,6 +71,11 @@
 .top-price{
     font-size: 2rem;
     font-weight: 600;
+}
+
+.top-price sup {
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .top-rated-content:hover > .top-rated-pop{
@@ -118,10 +123,28 @@
     background-color: rgb(190, 18, 18);   
 }
 
+.top-rated-loader {
+    display: block;
+    border: 0.2rem solid #4c4a5e;
+    border-radius: 50%;
+    border-top: 0.2rem solid var(--yellow);
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    -webkit-animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+  
+
 @media(min-width: 500px){
 
     .top-rated{
-        padding: 1rem 3rem 0 3rem;
+        padding: 0rem 3rem 0 3rem;
     }
 
 }
@@ -130,7 +153,7 @@
 
     .top-rated{
         grid-template-columns: 1fr 1fr;
-        padding: 1rem 0.3rem 0 0.3rem;
+        padding: 0rem 0.3rem 0 0.3rem;
     }
 
     .top-rated-button{

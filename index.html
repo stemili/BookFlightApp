@@ -14,12 +14,17 @@
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/top-rated.css">
     <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="stylesheet" href="./styles/fb-feed.css">
     <script src="./scripts/header.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <title>Book Your Flight</title>
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=182908967210&autoLogAppEvents=1"></script>
+
     <header class="header">
         <div class="header-main">
             <div class="logo-section">
@@ -59,6 +64,7 @@
             <a href="./views/list.html">Find Your Flight <i class="fas fa-plane"></i></a>
         </div>
             <div class="container">
+                
                 <article class="slider">
                     <div class="slider-head">
                         <h2><span id="month-slider">April</span> Deals from <span id="city-slider">Podgorica</span></h2>
@@ -74,14 +80,16 @@
                         <i id="slider-right" class="fas fa-chevron-right"></i>
                     </div>
                     
-
                 </article>
 
+                <article class="best-of">
+                    BEST
+                </article>
                 
-                <div class="top-rated-header"><h2>Top Rated Destinations</h2></div>
                 <article class="top-rated">
+                    <div class="top-rated-header"><h2>Top Rated Destinations</h2></div>
                     <script src="scripts/top-rated.js" defer></script>
-                    <div class="top-rated-box rounded">
+                    <div class="top-rated-box">
                         <div class="top-rated-content">
                             <div class="top-rated-pop">
                                 <h1>Barcelona</h1>
@@ -91,12 +99,12 @@
                                     <span class="top-date"></span>
                                     <span>starting at: </span>
                                     <span class="top-price"></span>
+                                    <div class="top-rated-loader"></div>
                                 </div>
-                            
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="top-rated-box rounded">
+                <div class="top-rated-box">
                     <div class="top-rated-content">
                         <div class="top-rated-pop">
                             <h1>Berlin</h1>
@@ -106,6 +114,7 @@
                                 <span class="top-date"></span>
                                 <span>starting at: </span>
                                 <span class="top-price"></span>
+                                <div class="top-rated-loader"></div>
                             </div>
                         </div>
                     </div>
@@ -120,6 +129,7 @@
                                 <span class="top-date"></span>
                                 <span>starting at: </span>
                                 <span class="top-price"></span>
+                                <div class="top-rated-loader"></div>
                             </div>
                         </div>
                     </div>
@@ -134,6 +144,7 @@
                                 <span class="top-date"></span>
                                 <span>starting at: </span>
                                 <span class="top-price"></span>
+                                <div class="top-rated-loader"></div>
                             </div>
                         </div>
                     </div>
@@ -148,6 +159,7 @@
                                 <span class="top-date"></span>
                                 <span>starting at: </span>
                                 <span class="top-price"></span>
+                                <div class="top-rated-loader"></div>
                             </div>
                         </div>
                     </div>
@@ -155,13 +167,14 @@
                 <div class="top-rated-box rounded">
                     <div class="top-rated-content">
                         <div class="top-rated-pop">
-                            <h1>Amsterdam</h1>
+                            <h1>Budapest</h1>
                             <div class="top-rated-text">
                                 <span>from</span>
                                 <h1>Podgorica</h1>
                                 <span class="top-date"></span>
                                 <span>starting at: </span>
                                 <span class="top-price"></span>
+                                <div class="top-rated-loader"></div>
                             </div>
                         </div>
                     </div>
@@ -169,23 +182,15 @@
                 <button type="button" class="top-rated-button rounded">LOAD MORE</button>
             </article>
 
-            <article class="best-of">
-
-            </article>
-
             <article class="fb-feed">
-
+                <span><i class="fab fa-facebook-square"></i><h2> Feed</h2></span>
+                <div class="fb-page" data-href="https://www.facebook.com/flywithmeweb/" data-tabs="timeline,events" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/flywithmeweb/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/flywithmeweb/">Fly With Me</a>
+                    </blockquote>
+                </div>
             </article>
         </div>
-
-
-        <article class="top-rated"></article>
-
-        <article class="best-of"></article>
-
-        <article class="fb-feed"></article>
-
-
 
         </div>
         </div>
