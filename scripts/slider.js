@@ -55,7 +55,6 @@ newestTwelve.then( response => response.json())
             })).then(some => {
                 sliderContent = some;
                 createCards(some);
-                console.log(sliderContent)
             });
 
 

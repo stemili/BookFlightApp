@@ -22,10 +22,10 @@
 /* navigation for tablet -> desktop */
 .slider-content > i{
     display: none;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #333;
-    background-color: rgba(197, 197, 197, 0.815);
-    padding: .7rem;
+    background-color: rgba(155, 155, 155, 0.815);
+    padding: .3rem;
 }
 .slider-content > i:hover{
     color: var(--yellow);
