@@ -1,7 +1,10 @@
 /* slider head h2 */
+.slider{
+    margin-bottom: 2rem;
+}
 .slider-head > h2{
     color: #333;
-    padding: .5rem .7rem 0;
+    padding-left: 0.3rem;
 }
 
 .slider-head > a {
@@ -185,10 +188,8 @@
 @media (min-width: 768px) {
     .slider-head > h2{
         display: inline-block;
-        padding: 2rem 0rem 0;
         border-bottom: 2px solid var(--yellow);
         margin-bottom: 1rem;
-        padding-right: 3rem;
     }
     .slider-cards{
         display: grid;

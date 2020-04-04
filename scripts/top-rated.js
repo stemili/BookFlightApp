@@ -55,13 +55,11 @@ function updateTopRated(cityName){
             }
         })
         .then(flight => {
-
             let date = convertUNIXtoUTC(flight.data[0].dTime);
             let shortDate = date.slice(4,17);
             let price = flight.data[0].price;
             const topBoxes = document.querySelectorAll(".top-rated-pop");
             [...topBoxes].forEach(box => {
-                
                 if(box.firstElementChild.textContent === cityName){
                     box.lastElementChild.children[2].innerHTML = shortDate;
                     box.lastElementChild.lastElementChild.style.display = "none";
@@ -92,7 +90,22 @@ function updateTopRated(cityName){
             
         })
         
-        .catch(err => console.log(err))
+        .catch(err => {
+            
+            let covidObj = function(){
+                let newObj = document.createElement("div");
+                newObj.classList.add("covid-19","animated","fadeIn","slow");
+                newObj.innerHTML = '<span id="covid">COVID-19</span>';
+                return newObj;
+            }
+            const topRatedBoxes = document.querySelectorAll(".top-rated-content");
+            [...topRatedBoxes].forEach(box => {
+                if(box.firstElementChild.firstElementChild.textContent === cityName){
+                    box.append(covidObj());
+                }
+            })
+
+        })
 };
 
 let letovi = [];
