@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../styles/header.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="../styles/list.css" />
+    <link rel="stylesheet" href="../styles/search-flights.css">
     <title>Search Flight</title>
   </head>
 
@@ -64,10 +65,24 @@
             <div class="query-item empty" id="from"><input type="text"></div>
             <div class="tripIcons query-item"><i class="fas fa-long-arrow-alt-right"></i><i class="fas fa-long-arrow-alt-left"></i></div>
             <div class="query-item empty" id="to"><input type="text"></div>
-            <div class="query-item empty" id="departure"><input type="text"></div>
-            <div class="query-item empty" id="return"><input type="text"></div>
+            <div class="query-item empty" id="departure"><input type="text" readonly="readonly"></div>
+            <div class="query-item empty" id="return"><input type="text" readonly="readonly"></div>
             <div class="query-item" id="noOfPassengers"><input type="text"></div>
             <div class="search tripIcons query-item"><i class="fas fa-search"></i></div>
+            
+            <div class="date-picker">
+              <div class="dates">
+                <div class="month">
+                  <div class="arrows prev-mth">&lt;</div>
+                  <div class="mth"></div>
+                  <div class="arrows next-mth">&gt;</div>
+                </div>
+          
+                <div class="days"></div>
+              </div>
+            </div>
+
+            <script src="../scripts/date-picker.js"></script>
           </div>
         </div>
       </div>

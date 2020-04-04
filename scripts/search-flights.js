@@ -6,9 +6,10 @@ const fromElement = document.querySelector("#from");
 const toElement = document.querySelector("#to");
 const flightDateElement = document.querySelector("#departure");
 const returnDateElement = document.querySelector("#return");
-
 //IIF to add event listeners to travel options
 (function addEventListenersToFlightOptions(){
+
+
 
     Array.from(options).forEach(option => {
         option.addEventListener("click",()=>{
@@ -26,13 +27,14 @@ const returnDateElement = document.querySelector("#return");
 
     addEmptyClassAndListeners(fromElement);
     addEmptyClassAndListeners(toElement);
-    console.log(flightDateElement)
     addEmptyClassAndListeners(flightDateElement);
     addEmptyClassAndListeners(returnDateElement);
 
 
 
     function addEmptyClassAndListeners(element){
+        
+        
         element.addEventListener("keyup",(e)=>{
             if(e.target.value === ""){
                 element.classList.add("empty")

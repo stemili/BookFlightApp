@@ -1,0 +1,233 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+
+@media (min-width: 985px) {
+    .search-flights {
+      width: 50%;
+      height: 50%;
+      background-color: #fcc911bb;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+  
+    .flight-options {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .flight-options > a {
+      padding: 10px;
+      text-decoration: none;
+      font-size: larger;
+      font-weight: bold;
+      color: white;
+      position: relative;
+    }
+    .flight-options > a:hover {
+      text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    }
+    .flight-options > a::after {
+      content: "";
+      display: none;
+      position: absolute;
+      left: 34%;
+      height: 0;
+      width: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid white;
+      z-index: 15;
+    }
+    .flight-options > a.active {
+      text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    }
+    .flight-options > a.active::after {
+      display: block;
+    }
+  
+    .search-query {
+      width: 98%;
+      height: 80%;
+      background-color: white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      position: relative;
+    }
+  
+    .query-item input {
+      border: none;
+      font-size: larger;
+      outline: none;
+
+    }
+  
+    #departure input,
+    #return input {
+        font-weight: bold;
+        font-size: .6rem;
+    }
+  
+    .query-item {
+      border: 1px solid var(--yellow);
+      border-radius: 2px;
+      height: 2.5rem;
+      width: 20%;
+      overflow: hidden;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+  
+    .query-item.active {
+      box-shadow: 0 0 5px var(--yellow);
+    }
+  
+    .tripIcons {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      border: none;
+      width: 3%;
+      color: black;
+    }
+  
+    #departure,
+    #return {
+      width: 14%;
+    }
+  
+    #noOfPassengers {
+      width: 10%;
+    }
+  
+    .search {
+      background-color: var(--dark-pink);
+      width: 6%;
+      padding: 0.5rem;
+      border: 1px solid black;
+    }
+  
+    .search i {
+      font-size: 1.5rem;
+    }
+  
+    #from::before,
+    #to::before,
+    #departure::before,
+    #return::before {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 30px;
+      z-index: 5;
+      left: 5px;
+    }
+  
+    #from.empty,
+    #to.empty,
+    #departure.empty,
+    #return.empty{
+      padding-left: 25px;
+    }
+  
+  
+    #from.empty::before{
+      background-image: url("../resources/a.svg");
+    }
+  
+    #to.empty::before{
+      background-image: url("../resources/b.svg");
+    }
+  
+    #departure.empty::before,
+    #return.empty::before{
+      background-image: url("../resources/date.svg") ;
+      background-repeat: no-repeat;
+  
+    }
+  
+ /*DATE PICKER*/
+.date-picker{
+    display: none;
+    left: 40%;
+    position: absolute;
+    width: 40%;
+    max-width: 320px;
+	height: auto;
+	background-color: #FFF;
+	margin: 30px auto;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.date-picker .dates {
+    border: var(--yellow) 2px solid;
+
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+
+	background-color: #FFF;
+}
+
+.date-picker.show {
+	display: block;
+}
+
+.date-picker .dates .month {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid #EEE;
+}
+
+.date-picker .dates .month .arrows {
+	width: 35px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #313131;
+	font-size: 20px;
+}
+
+.date-picker .dates .month .arrows:hover {
+	background-color: #F3F3F3;
+}
+
+.date-picker .dates .month .arrows:active {
+	background-color: var(--yellow);
+}
+
+.date-picker .dates .days {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	height: 200px;
+}
+.date-picker .dates .days .day { 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #313131;
+}
+.date-picker .dates .days .day.selected {
+	background-color: var(--yellow);
+}
+  
+  
+  }
+  
