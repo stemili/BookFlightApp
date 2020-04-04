@@ -59,6 +59,8 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    border-radius: .6rem;
+    box-shadow: 0 2px 16px 1px #dcdee3;
 }
 
 /* CARD styling */
@@ -93,7 +95,7 @@
 .slider-card:hover::before{
     transition: .5s;
     transform: translateY(0);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #3f3d56c0;
 }
 
 .slider-card .card-hover-in{
@@ -141,6 +143,7 @@
     background-color: var(--yellow);
     color: #333;
     text-shadow: none;
+    border-radius: .2rem;
 }
 
 .slider-card .card-hover-in > .details-btn:hover{

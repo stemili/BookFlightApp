@@ -42,8 +42,9 @@ function removeRepeatedCities (flights){
 }
 
 function createBestCards(bestContentArr){
-    bestOfDom.innerHTML = `<h4>The world's best flight deals</h4>
-    <p>Save heaps on your next summer vacation, holiday getaway or dream trip to a bucket list destination.</p>`;
+    bestOfDom.innerHTML = `<h4>The world's best flight deals</h4>`;
+
+    // <p>Save heaps on your next summer vacation, holiday getaway or dream trip to a bucket list destination.</p>
     let dfBestSlider = new DocumentFragment();
     bestContentArr.forEach(card => {
         let newCard = document.createElement('div');
@@ -54,7 +55,7 @@ function createBestCards(bestContentArr){
             <div>
                 <div>
                     <p><span class="best-of-city">${card.cityTo}</span>, <span class="best-of-country">${card.countryTo}</span></p>
-                    <p>As low as <span class="best-of-price">${Object.values(card.price)[0]}</span><span class="best-of-currency">${Object.keys(card.price)[0]}</span></p>
+                    <p>As low as <span class="best-of-price">${Object.values(card.price)[0]}</span> <span class="best-of-currency">${Object.keys(card.price)[0]}</span></p>
                 </div>
                 <button class="best-of-btn">Details</button>
             </div>`;

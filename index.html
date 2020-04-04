@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
         integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
 
@@ -27,36 +28,40 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=182908967210&autoLogAppEvents=1"></script>
 
     <header class="header">
-        <div class="header-main">
-            <div class="logo-section">
-                <a href="#" class="logo">
+        <div class="container-header">
+            <div class="header-main">
+                <a href="#" class="header-logo-section">
                     <img src="./resources/logo.svg" alt="" />
                 </a>
+    
+                <a href="#" class="toggle-button" id="toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
             </div>
-
-            <a href="#" class="toggle-button" id="toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
+            <nav class="header-nav">
+                <ul class="header-nav-ul">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="./views/list.html">List</a></li>
+                    <li><a href="">Custom</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li>
+                        <div id="more-dropdown">
+                            <a>More <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul id="header-drop-items">
+                                    <li><a href="https://www.inspirock.com/" target="_blank">Travel Planner</a></li>
+                                    <li><a href="https://www.flightradar24.com/" target="_blank">Flight radar</a></li>
+                                    <li><a href="http://www.doyouneedvisa.com/" target="_blank">Visa conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">List</a></li>
-                <li><a href="">Custom</a></li>
-                <li><a href="">About Us</a></li>
-                <li id="last-li" class="hide-small"><a href="javascript: void(0)" id="moreBtn" href="">More <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="">Travel guide</a></li>
-                            <li><a href="">Flight radar</a></li>
-                            <li><a href="">Visa conditions</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        
     </header>
     
 

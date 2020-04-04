@@ -1,10 +1,11 @@
 /* COLOR PALETTE */
 :root{
     --yellow: #fcc911;
-    --blublak: #4c4a5e;
+    --blublak: #3f3d56;
     --pink: #f2b0b0;
     --dark-pink: #e58787;
-    --red: #ea3535;
+    --green: #57b894;
+    --red: #ff6584;
     --purple: #6d087a;
 }
 
@@ -28,6 +29,7 @@ body{
     text-align: center;
     min-height: 200px;
     height: 40vh;
+    min-height: 330px;
     background-image: url('../resources/index/intro.svg');
 
     background-size: auto 100%;
@@ -36,6 +38,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    
+    
 }
 
 .intro > div{
@@ -65,10 +70,35 @@ body{
 }
 
 .intro >  a {
+    position: relative;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: .1rem;
     color: #4c4a5e;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 3rem;
     transform: none ;
+    font-weight: 600;
+}
+.intro >  a:hover {
+    font-size: 3.1rem;
+    transition: .3s;
+}
+
+.intro > a::before{
+    position: absolute;
+    top: 0; left: 0;
+    content: '';
+    width: 100%; 
+    height: 100%;
+    background-image: url('../resources/index/airplane.svg');
+    background-repeat: no-repeat;
+    transform: translateX(-150px) scale(1.1);
+    transition: 2s;
+}
+
+.intro > a:hover:before{
+    transform: translateX(300px);
+    transition: 2s;
 }
 
 
@@ -125,6 +155,7 @@ body{
 @media(min-width: 985px){
     
     .container{
+        border-top: 3px solid var(--blublak);
         width: 100%;
         max-width: 1300px;
         margin: auto;
@@ -135,13 +166,16 @@ body{
         margin-bottom: 2rem;
     }
     .intro > div{
-        animation: rotation 20s infinite linear ;
+        animation: rotation 15s infinite linear ;
         display: flex;
     }
     
     .intro > div div{
         animation: counterrotation 40s infinite linear ;
         display: flex;
+    }
+    .intro{
+        margin-bottom: 2rem;
     }
     
     
