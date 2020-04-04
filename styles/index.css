@@ -23,6 +23,8 @@ body{
 }
 
 .container{
+    border-top: 3px solid var(--blublak);
+    padding-top: 2rem;
     margin: 3rem auto 3rem auto;
 }
 
@@ -45,7 +47,6 @@ body{
     height: 40vh;
     min-height: 330px;
     background-image: url('../resources/index/intro.svg');
-
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -182,7 +183,7 @@ body{
     }
     
     .container{
-        border-top: 3px solid var(--blublak);
+        
         width: 100%;
         max-width: 1300px;
         display: grid;
@@ -199,18 +200,14 @@ body{
         animation: counterrotation 40s infinite linear ;
         display: flex;
     }
-<<<<<<< HEAD
     .intro{
         margin-bottom: 2rem;
     }
-    
-=======
 
-    .container-bottom {
+    .container-bottom{
         display: block;
-        padding: 0;
     }
->>>>>>> petar_grupa4
+    
     
 
 }
