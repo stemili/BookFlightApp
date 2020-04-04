@@ -1,6 +1,6 @@
 .fb-feed {
-    margin-top: 3rem;
-    width: 100%;
+    
+    width: 325px;
     max-height: 555px;
     text-align: center;
     background-color: #fff;
@@ -10,6 +10,7 @@
     border: .5rem solid #fff;
     overflow: hidden;
     box-shadow: 0 2px 16px 1px #dcdee3;
+    justify-self: center;
 
     
 }
@@ -31,6 +32,24 @@
 .fb-feed h2 {
     display: inline;
     color: #3b5998 ;
+}
+
+@media(min-width: 768px){
+    .fb-feed{
+        justify-self: center;
+    }
+    .fb_iframe_widget{
+        width: 100%;
+    }
+}
+
+@media(min-width: 985px){
+    .fb-feed{
+        width: 100%;
+    }
+    .fb_iframe_widget{
+        width: 200px;
+    }
 }
 
 

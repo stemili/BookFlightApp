@@ -22,6 +22,20 @@ body{
     background-color: #f8f8f8;
 }
 
+.container{
+    margin: 3rem auto 3rem auto;
+}
+
+.container-top{
+    margin-bottom: 2rem;
+}
+
+.container-bottom {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
 
 /* INTRO styles */
 .intro{
@@ -143,28 +157,39 @@ body{
 
 
 @media(min-width: 500px){
-
-
+    .best-of{
+        max-width: 400px;
+        justify-self: center;
+    }
 }
 
 @media(min-width: 768px){
-
+    .best-of{
+        max-width: 400px;
+        justify-self: center;
+    }
+    .container-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0 0.3rem 0 0.3rem;
+    }
 
 }
 
 @media(min-width: 985px){
+    .best-of{
+        width: 100%;
+    }
     
     .container{
         border-top: 3px solid var(--blublak);
         width: 100%;
         max-width: 1300px;
-        margin: auto;
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-column-gap: 1rem;
-        grid-row-gap: 1.5rem;
-        margin-bottom: 2rem;
     }
+
     .intro > div{
         animation: rotation 15s infinite linear ;
         display: flex;
@@ -174,10 +199,18 @@ body{
         animation: counterrotation 40s infinite linear ;
         display: flex;
     }
+<<<<<<< HEAD
     .intro{
         margin-bottom: 2rem;
     }
     
+=======
+
+    .container-bottom {
+        display: block;
+        padding: 0;
+    }
+>>>>>>> petar_grupa4
     
 
 }
