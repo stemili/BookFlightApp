@@ -3,11 +3,12 @@
     width: 100%;
     max-height: 555px;
     text-align: center;
-    background-color: #365899;
-    padding: 0.5rem;
+    background-color: var(--blublak);
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
+    border: .5rem solid var(--blublak);
+    overflow: hidden;
     
 }
 

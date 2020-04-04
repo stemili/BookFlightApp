@@ -42,7 +42,7 @@ body{
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-image: url('../resources/index/mainRotation.svg');
@@ -55,7 +55,7 @@ body{
     width: 285px;
     height: 285px;
     border-radius: 50%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-image: url('../resources/index/secondaryRotation.svg');
@@ -71,13 +71,8 @@ body{
     transform: none ;
 }
 
-.intro > div{
-    animation: rotation 20s infinite linear ;
-}
 
-.intro > div div{
-    animation: counterrotation 40s infinite linear ;
-}
+
 
 .intro #intro-where{
     position: absolute;
@@ -128,6 +123,7 @@ body{
 }
 
 @media(min-width: 985px){
+    
     .container{
         width: 100%;
         max-width: 1300px;
@@ -138,6 +134,16 @@ body{
         grid-row-gap: 1.5rem;
         margin-bottom: 2rem;
     }
+    .intro > div{
+        animation: rotation 20s infinite linear ;
+        display: flex;
+    }
+    
+    .intro > div div{
+        animation: counterrotation 40s infinite linear ;
+        display: flex;
+    }
+    
     
 
 }
