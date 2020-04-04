@@ -103,6 +103,10 @@ function populateDates (e) {
 			activeElement.children[0].value = formatDate(selectedDate)
 			activeElement.classList.remove("empty")
 			date_picker_element.classList.remove("show")
+
+			if(activeElement === return_element){
+				return_element.classList.add("notEmpty");
+			}
 			populateDates();
 		});
 

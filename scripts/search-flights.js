@@ -6,21 +6,50 @@ const fromElement = document.querySelector("#from");
 const toElement = document.querySelector("#to");
 const flightDateElement = document.querySelector("#departure");
 const returnDateElement = document.querySelector("#return");
+const returnElementX = returnDateElement.lastElementChild; 
+let activeFlightOption;
+
 //IIF to add event listeners to travel options
 (function addEventListenersToFlightOptions(){
 
+    document.addEventListener("click",()=>{
+        if(activeFlightOption==options[0]){
+            queryItems[1].lastElementChild.style.display="none";
+        }else{
+            queryItems[1].lastElementChild.style.display="block";
+    
+        }
+    })
 
+    returnDateElement.addEventListener("click",()=>{
+        removeActiveClassFromAll(options);
+        addActiveClass(options[1]);
+    })
+
+    returnElementX.addEventListener("click",(e)=>{
+        e.stopImmediatePropagation();
+        returnDateElement.classList.remove("notEmpty");
+        returnDateElement.classList.add("empty");
+        removeActiveClassFromAll(options);
+        addActiveClass(options[0]);
+        activeFlightOption = options[0];
+        queryItems[1].lastElementChild.style.display="none";
+
+        returnDateElement.firstElementChild.value = "";
+
+    })
 
     Array.from(options).forEach(option => {
         option.addEventListener("click",()=>{
-            removeActiveClassFromAll(option,options);
+            removeActiveClassFromAll(options);
             addActiveClass(option);
+            activeFlightOption = option;
         });
     });
 
     Array.from(queryItems).forEach(item => {
         item.addEventListener("click",()=>{
-            removeActiveClassFromAll(item,queryItems);
+            removeActiveClassFromAll(queryItems);
             addActiveClass(item);
         })
     })
@@ -75,11 +104,11 @@ const returnDateElement = document.querySelector("#return");
         input.classList.add("active");
     }
 
-    function removeActiveClassFromAll(input,array){
+    function removeActiveClassFromAll(array){
         Array.from(array).forEach(option => {
-            if(option!=input){
+            
                 option.classList.remove("active");
-            }
+            
         })
     }
 })();
