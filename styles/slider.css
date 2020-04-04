@@ -20,27 +20,30 @@
 
 /* navigation for tablet -> desktop */
 .slider-content > i{
+    cursor: pointer;
     display: none;
     font-size: 2.2rem;
-    color: #333;
-    background-color: rgba(155, 155, 155, 0.815);
+    color: var(--yellow);
+    background-color: #4c4a5eb6;
     padding: .3rem;
 }
 .slider-content > i:hover{
-    color: var(--yellow);
+    background-color: var(--blublak);
     transition: .2s;
-    cursor: pointer;
+    
 }
 
 .slider-content > #slider-right {
     right: 0;
-    padding-right: .5rem;
+    padding: .7rem;
+    padding-right: .1rem;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
 }
 
 .slider-content > #slider-left{
-    padding-left: .5rem;
+    padding: .7rem;
+    padding-left: .1rem;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
 
@@ -103,7 +106,7 @@
     z-index: 2;
 }
 .slider-card:hover .card-hover-in{
-    transform: translateY(0);
+    transform: translateY(-.7rem);
     transition: .5s;
 }
 
