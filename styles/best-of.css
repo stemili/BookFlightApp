@@ -44,9 +44,15 @@
 }
 
 .best-of-content > .best-card > img{
+    filter: brightness(0.8);
     width: 100%;
     height: 160px;
     object-fit: cover;
+}
+
+.best-of-content > .best-card:hover > img{
+    filter: brightness(1);
+    transition: 1s;
 }
 
 .best-of div > p:first-child{

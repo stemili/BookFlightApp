@@ -125,7 +125,7 @@ body{
     transform: translate(-50%, -50%);
 }
 
-@keyframes rotation{
+@keyframes rotation-intro{
     0%{
         transform: rotate(0deg) scale(1);
     }
@@ -137,7 +137,7 @@ body{
     }
 }
 
-@keyframes counterrotation{
+@keyframes counterrotation-intro{
     0%{
         transform: rotate(0deg) scale(1);
     }
@@ -192,12 +192,12 @@ body{
     }
 
     .intro > div{
-        animation: rotation 15s infinite linear ;
+        animation: rotation-intro 15s infinite linear ;
         display: flex;
     }
     
     .intro > div div{
-        animation: counterrotation 40s infinite linear ;
+        animation: counterrotation-intro 40s infinite linear ;
         display: flex;
     }
     .intro{
