@@ -1,146 +1,174 @@
-footer{
-    background-color: var(--yellow);
-    padding: 1rem;
+footer {
+    background-color: #3f3d56;
+    color:#fcc911;
+    width: 100%;
 }
 
+.footer-top-wrap{
+    background-color:#fcc911;
+}
 
-.footer-grid{
+.footer-wrapper {
+    
+    background-color: #3f3d56;
+    color: white;
+}
+
+.footer-statistics{
+    color: #3f3d56;
     display: grid;
-    grid-template-columns: repeat(1,auto);
+    grid-gap: 1rem;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 4rem;
+    padding: 0.5rem 0 0.5rem 0;
 }
 
-.footer-link{
-    margin: .5rem 0;
+.statistic {   
+    display: flex; 
+    height: 100%;
+    width: auto;
+    padding: 0.2rem;
+    align-items: center;
 }
 
-.footer-link p{
-    font-weight: bold;
+.statistic > i{
+    padding-right: 0.4rem;
+    font-size: 2.5rem;
 }
 
-.footer-link ul{
-    list-style: none;
-    text-align: left;
+.statistic-inner-text > span{
+    display: block;
+    height: auto;
+    line-height: 1.4rem;
 }
 
-.footer-link ul li{
-    font-size: smaller;
-    padding: 0;
+.statistic-inner-text span:first-child{
+    font-size: 1.8rem;
+    font-weight: 900;
 }
 
-.footer-link ul li:not(:last-child){
-    margin-bottom: -20px;
-}
-
-.footer-link ul li a{
-    padding: 0;
+.footer-middle-grid {
+    width: 100%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+    padding: 0.3rem;
+    margin:2rem 0 2rem 0;
 }
 
 .footer-social-media{
-    width: 100%;
-    height: 20%;
-    align-content: center;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: auto;
+    grid-gap: 1rem;
+    padding: 1rem;
 }
 
-.like-share button{
-    border: none;
-    padding: 0.3rem;
-    margin-top: 5%;
+.footer-list {
+    list-style-type: none;
+    padding-top: 0.3rem;
+}
+
+.footer-list-item{
+    padding: 0.3rem 0 0.3rem 0;
+}
+
+.footer-list-item > a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s linear;
+}
+
+.footer-list-item a:hover{
     color: var(--yellow);
-    background-color: black;
 }
 
-.like-share button:hover{
-    background-color: #b1640b;
+.footer-icon{
+    color: white;
+    text-decoration: none;
+    margin-right: 2rem;
+    
 }
 
-
-.icons{
-    display: flex;
-    justify-content: space-evenly;
+.footer-links > h4 {
+    font-size: 1.3rem;
 }
 
-.icons a{
+.footer-icon > i {
     font-size: 2rem;
-    color: black;
+    transition: color 0.3s linear;
 }
 
-.icons a:hover{
-    color: #b1640b;
-    text-shadow: black 1px 1px 1px;
+.footer-icon > i:hover{
+    color: var(--yellow);
 }
 
-.hide-small{
-    display: none;
+.footer-buttons > button {
+    height: 1.6rem;
+    width:auto;
+    padding: 0 0.5rem 0 0.5rem;
+    line-height: 1.1rem;
+    background-color: white;
+    color: #3f3d56;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s linear;
+    cursor: pointer;
+
 }
 
+.footer-buttons > button:hover {
+    background-color: var(--yellow);
+}
 
+#like{
+    margin-right: 1.5rem;
+}
 
+.footer-icons a:last-child{
+    margin-right: 0;
+}
+@media(min-width: 550px){
+    .footer-statistics{
+        grid-template-columns: repeat(4,auto);
+        justify-content: space-between;
+        grid-gap: 0;
+        padding: 0;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-@media(min-width: 500px){
-
+    .footer-social-media{
+        grid-template-columns: auto auto;
+        grid-gap: 2rem;
+    }
     
 }
 
 @media(min-width: 768px){
 
-
+    .footer-middle-grid {
+        grid-template-columns: repeat(4,1fr);
+        justify-items: center;
+        grid-gap: 0;
+    }
 }
 
 @media(min-width: 985px){
-    .footer{
-        padding: 0 0 1rem 0;
-    }
-    
-    .footer-grid{
-        justify-content: center;
-        margin: 0 auto;
-        width: 80%;
-        grid-template-columns: repeat(4,20%);
-    }
 
-    .footer-social-media{
-        margin: 0 auto;
-        width: 33%;
-    }
-
-    .hide-small{
-        display: inline-block;
-    }
-
-    .footer-statistics{
-        margin-bottom: 1.5rem;
-        padding: 1rem 0;
-        background-color: #b18d0b;
+    .footer-wrapper{
+        max-width: 1300px;
         width: 100%;
-        display: flex;
-        justify-content: space-evenly;
+        margin: auto;
     }
-
-    .statistic{
-        display: flex;
-        align-items: center;
+    .footer-statistics{
+        max-width: 1300px;
+        width: 100%;
+        margin:auto;
     }
-
-    .statistic i{
-        font-size: 2.5rem;
-        margin-right: .5rem;
-    }
-
-    .statistic div p:first-child{
-        font-size: 1.5rem;
-        font-weight: bolder;
-    }
-
 }
