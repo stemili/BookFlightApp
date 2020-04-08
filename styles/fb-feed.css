@@ -1,6 +1,6 @@
 .fb-feed {
     
-    width: 325px;
+    min-width: 250px;
     max-height: 555px;
     text-align: center;
     background-color: #fff;
@@ -47,9 +47,9 @@
     .fb-feed{
         width: 100%;
     }
-    .fb_iframe_widget{
+    /* .fb_iframe_widget{
         width: 200px;
-    }
+    } */
 }
 
 

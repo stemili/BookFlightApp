@@ -50,7 +50,7 @@
     padding-top: 5rem;
     text-shadow: 0px 0px 20px #000;
     font-weight: 100;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 .modal-content-top p{
     color: var(--yellow);
@@ -62,7 +62,7 @@
 
 .modal-content-top .fa-times{
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #ccc;
     transition: color .2s;
     position: absolute;
@@ -89,7 +89,7 @@
 }
 
 .modal-content-bottom > .modal-content-details{
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -101,7 +101,7 @@
     border-bottom: 1px solid var(--yellow);
 }
 .modal-content-details > p:nth-child(2){
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
     display: flex;
     justify-content: space-between;
@@ -114,7 +114,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     justify-content: space-between;
     padding: .5rem 0 .5rem;
     border-bottom: 1px solid #333;
@@ -192,12 +192,11 @@
 @media (min-width: 768px) {
 }
 
+
+
 @media (min-width: 985px) {
     .modal-content{
         max-width: 650px;
-        margin: 10vh auto;
-        width: 55%;
-        min-height: 700px;
         background: url('../resources/modal/modal-bckg.svg') no-repeat right bottom/cover;
     }
     .modal-content-top{
@@ -251,5 +250,20 @@
         font-size: 1rem;
         padding: .6rem 1rem .6rem;
         margin-bottom: 1rem;
+    }
+    .modal-content-top .fa-times{
+        font-size: 2rem;
+    }
+}
+
+
+
+/* laptop fix */
+@media(max-height: 670px){
+    .modal-content-top > h3{
+        padding: 1.5rem;
+    }
+    .modal-content-top{
+        height: 20% ;
     }
 }

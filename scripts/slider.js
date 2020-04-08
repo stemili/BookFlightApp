@@ -28,6 +28,8 @@ let sliderContent = [];
 
 let slidingTimeout;
 
+let sliderSize = window.innerWidth >= 768 ? 1 : 0;
+
 // Initial Fetching
 const newestTwelve = fetch(`https://api.skypicker.com/flights?partner=picky&fly_from=${userLocation.iata}&direct_flights=1&date_from=${dateFrom}&date_to=${dateTo}&sort=date`);
 newestTwelve.then( response => response.json())
@@ -56,7 +58,11 @@ newestTwelve.then( response => response.json())
                 }
             })).then(some => {
                 sliderContent = some;
-                createCards(some);
+                if(sliderSize === 0){
+                    addingTwelve();
+                } else {
+                    createCards(some);
+                }
             });
 
 
@@ -83,7 +89,7 @@ function createCards(data){
         })
         ulSlider.innerHTML = '';
         ulSlider.appendChild(dfSlider);
-        // slidingTimeout = setTimeout(handleRightNav, 5000);
+        slidingTimeout = setTimeout(handleRightNav, 4000);
 }
 
 
@@ -92,27 +98,28 @@ let slide = 0;
 
 
 function handleLeftNav(){
-    // clearTimeout(slidingTimeout);
+    clearTimeout(slidingTimeout);
     if(slide === 0){
         slide = 3;
     } else {
         slide--;
     }
     changeSliderLook(slide, 0);
-    // slidingTimeout = setTimeout(handleRightNav, 5000);
+    slidingTimeout = setTimeout(handleRightNav, 4000);
 }
 
 function handleRightNav(){
-    // clearTimeout(slidingTimeout);
+    clearTimeout(slidingTimeout);
     if(slide === 3){
         slide = 0;
     } else {
         slide++;
     }
     changeSliderLook(slide, 1);
-    // slidingTimeout = setTimeout(handleRightNav, 5000);
+    slidingTimeout = setTimeout(handleRightNav, 4000);
 }
 
+//dynamically changing span of elements inside the grid 
 const gridPosition = [[[1,1],[1,2],[1,3]],[[2,2],[1,1],[1,1]],[[1,3],[1,2],[1,1]],[[1,1],[2,2],[1,1]]];
 
 function changeSliderLook(slide, direction){
@@ -160,6 +167,46 @@ function changeSliderLook(slide, direction){
     }}
     
 }
+
+function sliderChangeResize(){
+    if(window.innerWidth >= 768 && sliderSize === 0){
+        createCards(sliderContent);
+        sliderSize = 1;
+    } else if(window.innerWidth < 768 && sliderSize === 1){
+        clearTimeout(slidingTimeout);
+        addingTwelve();
+        sliderSize = 0;
+    }
+}
+
+function addingTwelve(){
+    let firstTwelveResize = sliderContent.slice(0,13);
+        let dfSlider = new DocumentFragment();
+        firstTwelveResize.forEach(card => {
+            let newCard = document.createElement('li');
+            newCard.classList.add('slider-card');
+            newCard.id = card.id;
+            newCard.innerHTML = `
+                    <div class="card-hover-in">
+                        <h3><i class="fas fa-plane"></i> ${card.cityTo}</h3>
+                        <div>
+                            <p>from <span class="price-slider">${Object.values(card.price)[0]} </span><span class="price-currency">${Object.keys(card.price)[0]}</span></p>
+                            <p class='slider-date'>${card.flightDate}</p>  
+                        </div>
+                        <button class='details-btn'>More Details</button>
+                    </div>`;
+                    newCard.style.backgroundImage = `url(./resources/${card.cityTo.toLowerCase()}.jpg)`;
+            dfSlider.appendChild(newCard);
+        })
+        ulSlider.innerHTML = '';
+        ulSlider.appendChild(dfSlider);
+}
+
+
+
+
+window.addEventListener('resize' , sliderChangeResize);
+
 
 
 

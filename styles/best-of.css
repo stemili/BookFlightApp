@@ -10,12 +10,12 @@
 .best-of > .best-of-content h4{
     font-size: 1.3rem;
     text-align: center;
-    border-bottom: 2px solid var(--red);
+    border-bottom: 2px solid var(--green);
     margin-bottom: 1.2rem;
 }
 
 .best-of-content > .best-card{
-    border-radius: 1rem;
+    border-radius: .7rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -35,12 +35,12 @@
     padding: .7rem 1rem .7rem 1rem;
     border-radius: .5rem;
     color: #333;
-    border: 1px solid var(--red);
+    border: 1px solid var(--green);
     background-color: transparent;
 }
 .best-of-content  .best-of-btn:hover{
-    background-color: var(--red);
-    color: #fff;
+    background-color: #f1f1f1;
+    color: var(--green);
 }
 
 .best-of-content > .best-card > img{
@@ -57,7 +57,7 @@
 
 .best-of div > p:first-child{
     font-size: 1.2rem;
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--green);
 }
 
 
@@ -76,7 +76,25 @@
     height: 150px;
     border-radius: 50%;
     border: 9px solid #f3f3f3;
-    border-top: 9px solid var(--yellow);
+    border-top: 9px solid var(--green);
     animation: spin 1s infinite linear;
 }
 
+
+
+@media(max-width:1200px){
+    .best-of-content > .best-card > div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .best-of-content  .best-of-btn{
+        margin-top: .5rem;
+    }
+}
+
+@media(max-width: 500px){
+    .best-of{
+        width: 90%;
+        margin: 0 auto;
+    }
+}

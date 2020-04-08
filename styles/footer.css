@@ -1,21 +1,21 @@
 footer {
-    background-color: #3f3d56;
-    color:#fcc911;
+    background-color: var(--blublak);
     width: 100%;
 }
 
 .footer-top-wrap{
-    background-color:#fcc911;
+    background: linear-gradient(0deg, rgba(66,64,89,1) 0%, rgba(97,94,132,1) 100%);
+
 }
 
 .footer-wrapper {
     
-    background-color: #3f3d56;
+    background-color: var(--blublak);
     color: white;
 }
 
 .footer-statistics{
-    color: #3f3d56;
+    color: var(--green);
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: auto auto;
@@ -36,6 +36,10 @@ footer {
 .statistic > i{
     padding-right: 0.4rem;
     font-size: 2.5rem;
+}
+
+.statistic:nth-child(odd) {
+    color: var(--yellow)
 }
 
 .statistic-inner-text > span{
@@ -85,7 +89,7 @@ footer {
 }
 
 .footer-list-item a:hover{
-    color: var(--yellow);
+    color: var(--green);
 }
 
 .footer-icon{
