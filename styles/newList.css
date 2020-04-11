@@ -8,6 +8,7 @@
   --purple: #6d087a;
 }
 
+
 /* RESETTING DEFAULTS */
 * {
   margin: 0;
@@ -17,6 +18,7 @@
 }
 
 .form-container {
+  height: 95vh;
   width: 90%;
   display: flex;
   flex-direction: column;
