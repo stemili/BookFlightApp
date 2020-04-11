@@ -1,0 +1,55 @@
+.fb-feed {
+    
+    min-width: 250px;
+    max-height: 555px;
+    text-align: center;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    border: .5rem solid #fff;
+    overflow: hidden;
+    box-shadow: 0 2px 16px 1px #dcdee3;
+    justify-self: center;
+
+    
+}
+
+.fb_iframe_widget{
+    width: 200px;
+}
+
+.fb-feed span {
+    margin-bottom: 0.4rem;
+}
+
+.fa-facebook-square {
+    color: #3b5998 ;
+    font-size: 1.5rem;
+}
+
+
+.fb-feed h2 {
+    display: inline;
+    color: #3b5998 ;
+}
+
+@media(min-width: 768px){
+    .fb-feed{
+        justify-self: center;
+    }
+    .fb_iframe_widget{
+        width: 100%;
+    }
+}
+
+@media(min-width: 985px){
+    .fb-feed{
+        width: 100%;
+    }
+    /* .fb_iframe_widget{
+        width: 200px;
+    } */
+}
+
+

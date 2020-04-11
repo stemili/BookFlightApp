@@ -3,10 +3,12 @@ const ulSlider = document.querySelector('.slider-cards');
 const sliderLeft = document.getElementById('slider-left');
 const sliderRight = document.getElementById('slider-right');
 
-
+const currLocSlider = document.getElementById('city-slider');
+const slideOnEffect = document.querySelector('.slider-content');
 
 // setting user location STATIC
 const userLocation = {city: 'Podgorica', iata: 'TGD'};
+currLocSlider.textContent = userLocation.city;
 let first12;
 // defining default DATE
 let today = new Date();
@@ -26,6 +28,8 @@ let sliderContent = [];
 
 let slidingTimeout;
 
+let sliderSize = window.innerWidth >= 768 ? 1 : 0;
+
 // Initial Fetching
 const newestTwelve = fetch(`https://api.skypicker.com/flights?partner=picky&fly_from=${userLocation.iata}&direct_flights=1&date_from=${dateFrom}&date_to=${dateTo}&sort=date`);
 newestTwelve.then( response => response.json())
@@ -36,24 +40,29 @@ newestTwelve.then( response => response.json())
             .then(arr => arr.map(flight => {
                 return {
                     id : flight.id,
-                    cityFrom : flight.route[0].cityFrom,
-                    cityTo : flight.route[0].cityTo,
+                    cityFrom : flight.cityFrom,
+                    cityTo : flight.cityTo,
                     countryTo : flight.countryTo.name,
-                    iataFrom : flight.route[0].flyFrom,
-                    iataTo : flight.route[0].flyTo,
-                    airline : flight.route[0].airline,
+                    iataFrom : flight.flyFrom,
+                    iataTo : flight.flyTo,
+                    airline : flight.airlines[0],
                     price : flight.conversion,
                     bagsPrice : flight.bags_price,
                     depTime : convertUNIXtoUTC(flight.dTime).slice(17,22),
                     arrTime : convertUNIXtoUTC(flight.aTime).slice(17,22),
                     flyDur : flight.fly_duration,
                     distance : flight.distance,
-                    flightDate : convertUNIXtoUTC(flight.dTime).slice(4,17)
+                    flightDate : convertUNIXtoUTC(flight.dTime).slice(4,17),
+                    bookLink : flight.deep_link
 
                 }
             })).then(some => {
                 sliderContent = some;
-                createCards(some);
+                if(sliderSize === 0){
+                    addingTwelve();
+                } else {
+                    createCards(some);
+                }
             });
 
 
@@ -78,68 +87,48 @@ function createCards(data){
                     newCard.style.backgroundImage = `url(./resources/${card.cityTo.toLowerCase()}.jpg)`;
             dfSlider.appendChild(newCard);
         })
-        newCard = document.createElement('li');
-        newCard.classList.add('sd-card-blank');
-        newCard.innerHTML = '<i class="fas fa-search-location"></i>';
-        dfSlider.appendChild(newCard)
         ulSlider.innerHTML = '';
         ulSlider.appendChild(dfSlider);
-        // slidingTimeout = setTimeout(handleRightNav, 5000);
+        slidingTimeout = setTimeout(handleRightNav, 4000);
 }
 
 
 let slide = 0;
 
 
+
 function handleLeftNav(){
-    // clearTimeout(slidingTimeout);
+    clearTimeout(slidingTimeout);
     if(slide === 0){
         slide = 3;
     } else {
         slide--;
     }
     changeSliderLook(slide, 0);
-    // slidingTimeout = setTimeout(handleRightNav, 5000);
+    slidingTimeout = setTimeout(handleRightNav, 4000);
 }
 
 function handleRightNav(){
-    // clearTimeout(slidingTimeout);
+    clearTimeout(slidingTimeout);
     if(slide === 3){
         slide = 0;
     } else {
         slide++;
     }
     changeSliderLook(slide, 1);
-    // slidingTimeout = setTimeout(handleRightNav, 5000);
+    slidingTimeout = setTimeout(handleRightNav, 4000);
 }
+
+//dynamically changing span of elements inside the grid 
+const gridPosition = [[[1,1],[1,2],[1,3]],[[2,2],[1,1],[1,1]],[[1,3],[1,2],[1,1]],[[1,1],[2,2],[1,1]]];
 
 function changeSliderLook(slide, direction){
     const currentLis = document.querySelectorAll('.slider-card');
     let currentArr = first12[slide];
+    let gridTrack = 0;
     currentArr.forEach((card, index) => {
         let currentElement = currentLis[index];
-        // sliding effect, if 1(right) -> move right effect | 0(left) -> move left effect
-        if(direction){
-            ulSlider.animate([
-                {opacity: '1', transform: 'translateX(0px)'},
-                {opacity: '0', transform: 'translateX(120px)'},
-                {opacity: '0', transform: 'translateX(-120px)'},
-                {opacity: '1', transform: 'translateX(0px)'}
-            ],{
-                duration: 600,
-                iterations: 1
-            });
-        } else {{
-            ulSlider.animate([
-                {opacity: '1', transform: 'translateX(0px)'},
-                {opacity: '0', transform: 'translateX(-120px)'},
-                {opacity: '0', transform: 'translateX(120px)'},
-                {opacity: '1', transform: 'translateX(0px)'}
-            ],{
-                duration: 600,
-                iterations: 1
-            });
-        }}
+        
         // in the middle of transition(when the opacity is 0) change the elements
         setTimeout(()=>{
             currentElement.id = card.id;
@@ -148,11 +137,76 @@ function changeSliderLook(slide, direction){
             currentElement.querySelector('.price-slider').textContent = Object.values(card.price)[0];
             currentElement.querySelector('.slider-date').textContent = card.flightDate;
             currentElement.style.backgroundImage = `url('./resources/${card.cityTo.toLowerCase()}.jpg')`;
+            currentElement.style.gridRow = `span ${gridPosition[slide][gridTrack][0]}`;
+            currentElement.style.gridColumn = `span ${gridPosition[slide][gridTrack][1]}`;
+            gridTrack++;
         },300)
-        
     })
+    gridTrack = 0;
+    // sliding effect, if 1(right) -> move right effect | 0(left) -> move left effect
+    if(direction){
+        slideOnEffect.animate([
+            {opacity: '1'},
+            {opacity: '0'},
+            {opacity: '0'},
+            {opacity: '1'}
+        ],{
+            duration: 600,
+            iterations: 1
+        });
+    } else {{
+        slideOnEffect.animate([
+            {opacity: '1'},
+            {opacity: '0'},
+            {opacity: '0'},
+            {opacity: '1'}
+        ],{
+            duration: 600,
+            iterations: 1
+        });
+    }}
     
 }
+
+function sliderChangeResize(){
+    if(window.innerWidth >= 768 && sliderSize === 0){
+        createCards(sliderContent);
+        sliderSize = 1;
+    } else if(window.innerWidth < 768 && sliderSize === 1){
+        clearTimeout(slidingTimeout);
+        addingTwelve();
+        sliderSize = 0;
+    }
+}
+
+function addingTwelve(){
+    let firstTwelveResize = sliderContent.slice(0,13);
+        let dfSlider = new DocumentFragment();
+        firstTwelveResize.forEach(card => {
+            let newCard = document.createElement('li');
+            newCard.classList.add('slider-card');
+            newCard.id = card.id;
+            newCard.innerHTML = `
+                    <div class="card-hover-in">
+                        <h3><i class="fas fa-plane"></i> ${card.cityTo}</h3>
+                        <div>
+                            <p>from <span class="price-slider">${Object.values(card.price)[0]} </span><span class="price-currency">${Object.keys(card.price)[0]}</span></p>
+                            <p class='slider-date'>${card.flightDate}</p>  
+                        </div>
+                        <button class='details-btn'>More Details</button>
+                    </div>`;
+                    newCard.style.backgroundImage = `url(./resources/${card.cityTo.toLowerCase()}.jpg)`;
+            dfSlider.appendChild(newCard);
+        })
+        ulSlider.innerHTML = '';
+        ulSlider.appendChild(dfSlider);
+}
+
+
+
+
+window.addEventListener('resize' , sliderChangeResize);
+
 
 
 
