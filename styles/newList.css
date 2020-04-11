@@ -1,0 +1,158 @@
+:root {
+  --yellow: #fcc911;
+  --blublak: #3f3d56;
+  --pink: #f2b0b0;
+  --dark-pink: #e58787;
+  --green: #57b894;
+  --red: #ff6584;
+  --purple: #6d087a;
+}
+
+/* RESETTING DEFAULTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+.form-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.3rem;
+  margin: 0 auto;
+}
+
+.search-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  background-color: var(--blublak);
+}
+
+#searchForm {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background-color: var(--blublak);
+  padding: 0.2rem;
+}
+
+#searchForm > div input {
+  width: 100%;
+  height: 100%;
+}
+
+#searchForm > div {
+  padding: 0.2rem;
+  height: 40px;
+}
+
+.fromDestination {
+  grid-column: 1/6;
+}
+
+.switchBtn {
+  grid-column: 6/7;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+#switchBtn {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  font-size: 1.1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.toDestination {
+  grid-column: 1/7;
+}
+
+.departureDate {
+  grid-column: 1/7;
+}
+
+.returnDate {
+  grid-column: 1/7;
+}
+
+@media (min-width: 500px) {
+  .departureDate {
+    grid-column: 1/4;
+  }
+
+  .returnDate {
+    grid-column: 4/7;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-container {
+    width: 80%;
+  }
+
+  .fromDestination {
+    grid-column: 1/4;
+  }
+  .switchBtn {
+    grid-column: 4;
+    justify-content: center;
+  }
+  #switchBtn {
+    width: 100%;
+    font-size: small;
+    flex-direction: column;
+  }
+  #switchBtn i {
+    transform: rotate(90deg);
+  }
+  .toDestination {
+    grid-column: 5/7;
+  }
+}
+
+@media (min-width: 985px) {
+  .form-container {
+    width: 60%;
+  }
+  #searchForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0.2rem;
+    border-radius: 5px;
+  }
+
+  .search-options-grid {
+    background-color: transparent;
+  }
+
+  .fromDestination {
+    width: 25%;
+  }
+  .switchBtn {
+    width: 8%;
+  }
+
+  #switchBtn {
+    width: 100%;
+  }
+
+  .toDestination {
+    width: 25%;
+  }
+
+  .departureDate {
+    width: 20%;
+  }
+
+  .returnDate {
+    width: 20%;
+  }
+}
