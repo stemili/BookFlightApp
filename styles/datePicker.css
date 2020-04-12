@@ -74,7 +74,35 @@
 }
 
 @media (min-width: 500px) {
+    .date-picker{
+        width: 50%;
+    }
+
+
+    .date-picker.return{
+        top: 140px;
+        right: 0;
+    }
 }
 
 @media (min-width: 768px) {
+    .date-picker.depart{
+        top: 95px;
+    }
+
+    .date-picker.return{
+        top: 95px;
+    }
+}
+
+@media (min-width: 985px) {
+    .date-picker.depart,
+    .date-picker.return{
+        top: 48px;
+        width: 22%;
+    }
+
+    .date-picker.depart{
+        right: 22.3%;
+    }
 }

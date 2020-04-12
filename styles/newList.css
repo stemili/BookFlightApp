@@ -164,7 +164,7 @@
     width: 25%;
   }
   .switchBtn {
-    width: 8%;
+    width: 5%;
   }
 
   #switchBtn {
@@ -176,10 +176,10 @@
   }
 
   .departureDate {
-    width: 20%;
+    width: 22%;
   }
 
   .returnDate {
-    width: 20%;
+    width: 22%;
   }
 }
