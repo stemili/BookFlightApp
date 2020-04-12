@@ -67,12 +67,35 @@ function $(selector) {
         }else{
           formContainer.classList.remove("one-way");
         }
-        tripUl.parentElement.classList.add("hide");
-        let icon = tripOption.children[0];
-        tripOption.textContent = li.textContent+" ";
-        tripOption.appendChild(icon)
+        switchTextContent(li,tripUl);
+        // tripUl.parentElement.classList.add("hide");
+        // let icon = tripOption.children[0];
+        // tripOption.textContent = li.textContent+" ";
+        // tripOption.appendChild(icon)
       });
     });
+
+    [...cabinUl.children].forEach(li=>{
+      li.addEventListener("click",e=>{
+        switchTextContent(li,cabinUl);
+      })
+    })
+
+    function switchTextContent(li,ul){
+      ul.parentElement.classList.add("hide");
+
+      let optionForChange = ul.parentElement.parentElement.children[0];
+      optionForChange.textContent = li.textContent+" ";
+      let icon = createIcon();
+      optionForChange.appendChild(icon);
+
+    }
+
+    function createIcon(){
+      let icon = document.createElement("i");
+      icon.classList.add("fas","fa-chevron-down");
+      return icon;
+    }
   })();
 
   function hideAllBut(element) {
