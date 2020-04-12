@@ -43,24 +43,6 @@ function $(selector) {
     cabinAllOptions.classList.add("hide");
   });
 
-  //   document.addEventListener("click",(e)=>{
-  //       let selectedOption = e.target.parentElement.children[1]
-  //       let isClickedInside = false;
-  //     //   console.log(isClickedInside)
-  //     //   if(!isClickedInside){
-  //     //       travelersAllOptions.classList.add("hide");
-  //     //   }
-  //       hideIfClickedOutside(e.target,selectedOption)
-
-  //       function hideIfClickedOutside(target,option){
-  //           console.log(option)
-  //         isClickedInside = option.contains(target);
-  //         if(!isClickedInside){
-  //             option.classList.add("hide")
-  //         }
-  //       }
-
-  //   });
   (function eventListenersForLi() {
     let tripUl = tripAllOptions.firstElementChild;
     let travelersUl = travelersAllOptions.firstElementChild;
@@ -136,7 +118,6 @@ function $(selector) {
             changeTravelersText();
 
             childrenSpan.textContent = travelerObj.children;
-            console.log(travelerObj)
           });
           break;
         case noOfInfantsSpan:
@@ -158,7 +139,6 @@ function $(selector) {
             changeTravelersText();
 
             noOfInfantsSpan.textContent = travelerObj.infants;
-            console.log(travelerObj)
           });
           break;
           function changeTravelersText() {
@@ -179,7 +159,6 @@ function $(selector) {
             travelerObj.travelers--;
           }
           changeTravelersText();
-          console.log(travelerObj.children);
           spanElement.textContent = no;
         });
 
@@ -188,8 +167,6 @@ function $(selector) {
           no++;
           travelerObj.travelers++;
           changeTravelersText();
-
-          console.log(travelerObj);
           spanElement.textContent = no;
         });
       }
