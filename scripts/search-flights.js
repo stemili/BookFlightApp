@@ -10,10 +10,13 @@ const cabinAllOptions = $(".cabin");
 
 const retDate = $(".returnDate");
 const searchOptions = document.querySelectorAll(".col-ul");
-let adults = 1;
-let children = 0;
-let infants = 0;
-let travelers = 1;
+
+let travelerObj = {
+  adults: 1,
+  children: 0,
+  infants: 0,
+  travelers: 1,
+};
 
 function $(selector) {
   return document.querySelector(selector);
@@ -95,17 +98,75 @@ function $(selector) {
       let plusBtn = colRightElements[2];
       switch (noOfPeopleSpan) {
         case adultsSpan:
-          plusMinusEventListenersFor("adults", adultsSpan);
+          minusBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (travelerObj.adults <= 0) {
+              return;
+            } else {
+              travelerObj.adults--;
+              travelerObj.travelers--;
+            }
+            changeTravelersText();
+            noOfPeopleSpan.textContent = travelerObj.adults;
+          });
+          plusBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            travelerObj.adults++;
+            travelerObj.travelers++;
+            changeTravelersText();
+            adultsSpan.textContent = travelerObj.adults;
+          });
           break;
         case childrenSpan:
-          plusMinusEventListenersFor("children", childrenSpan);
-          console.log("test2");
+          minusBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (travelerObj.children <= 0) {
+              return;
+            } else {
+              travelerObj.children--;
+              travelerObj.travelers--;
+            }
+            changeTravelersText();
+            childrenSpan.textContent = travelerObj.children;
+          });
+          plusBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            travelerObj.children++;
+            travelerObj.travelers++;
+            changeTravelersText();
 
+            childrenSpan.textContent = travelerObj.children;
+            console.log(travelerObj)
+          });
           break;
         case noOfInfantsSpan:
-          console.log("test3");
-          plusMinusEventListenersFor("infants", noOfInfantsSpan);
+          minusBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (travelerObj.infants <= 0) {
+              return;
+            } else {
+              travelerObj.infants--;
+              travelerObj.travelers--;
+            }
+            changeTravelersText();
+            noOfInfantsSpan.textContent = travelerObj.infants;
+          });
+          plusBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            travelerObj.infants++;
+            travelerObj.travelers++;
+            changeTravelersText();
+
+            noOfInfantsSpan.textContent = travelerObj.infants;
+            console.log(travelerObj)
+          });
           break;
+          function changeTravelersText() {
+            let whoTravels = checkIfTravelers();
+            let icon = createIcon();
+            travelersOption.textContent = `${travelerObj.travelers} ${whoTravels}`;
+            travelersOption.appendChild(icon);
+          }
       }
 
       function plusMinusEventListenersFor(no, spanElement) {
@@ -114,44 +175,43 @@ function $(selector) {
           if (no <= 0) {
             return;
           } else {
-            no--;
-            travelers--;
+            no++;
+            travelerObj.travelers--;
           }
           changeTravelersText();
-          console.log(
-            `adults: ${adults},children: ${children},infants${infants}`
-          );
+          console.log(travelerObj.children);
           spanElement.textContent = no;
         });
 
         plusBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           no++;
-          travelers++;
+          travelerObj.travelers++;
           changeTravelersText();
-          console.log(
-            `adults: ${adults},children: ${children},infants${infants}`
-          );
 
+          console.log(travelerObj);
           spanElement.textContent = no;
         });
-
-        function changeTravelersText() {
-          let whoTravels = checkIfTravelers();
-          let icon = createIcon();
-          travelersOption.textContent = `${travelers} ${whoTravels}`;
-          travelersOption.appendChild(icon);
-        }
       }
 
       function checkIfTravelers() {
-        if (adults > 0 && children === 0 && infants === 0) {
-          console.log("test2");
-
+        if (
+          travelerObj.adults > 0 &&
+          travelerObj.children === 0 &&
+          travelerObj.infants === 0
+        ) {
           return "adults";
-        } else if (adults === 0 && children > 0 && infants === 0) {
+        } else if (
+          travelerObj.adults === 0 &&
+          travelerObj.children > 0 &&
+          travelerObj.infants === 0
+        ) {
           return "children";
-        } else if (adults === 0 && children === 0 && infants > 2) {
+        } else if (
+          travelerObj.adults === 0 &&
+          travelerObj.children === 0 &&
+          travelerObj.infants > 2
+        ) {
           alert("Infants can't go on plane without adult's supervision!");
           return "adults";
         } else {
