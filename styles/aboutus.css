@@ -1,0 +1,251 @@
+.main-about-us{
+    background-color: #060c21;
+    text-align: center;
+    padding-bottom: 5rem;
+}
+
+
+.main-about-us > h1{
+    font-size: 4rem;
+    padding: 2rem;
+    background: rgb(252,201,17);
+    background: linear-gradient(90deg, rgba(252,201,17,1) 30%, rgb(255, 82, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: context-menu;
+}
+
+.main-about-us > h2{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    color: var(--green);
+}
+
+.main-about-us > p {
+    color: white;
+    font-style: italic;
+    width: 40%;
+    margin:auto;
+}
+
+.about-us-grid{
+    display: grid;
+    max-width: 1500px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+    padding: 2rem;
+    margin: auto;
+    
+}
+
+.about-box{
+    height: 60vh;
+    width: 100%;
+    background: var(--blublak);
+    position: relative;
+    z-index: 1;
+}
+
+.about-content > p {
+    display: none;
+}
+
+
+.about-box::after{
+    content: '';
+    position: absolute;
+    top:-2px;
+    left:-2px;
+    right:-2px;
+    bottom:-2px;
+    background-color:white;
+    z-index: -1;
+    transform: skew(2deg,2deg);
+}
+
+.about-box:nth-child(1):after,
+.about-box:nth-child(1) >.about-content > .pop-up-button{
+    background: linear-gradient(315deg, #ff0057, #e64a19);
+}
+
+.about-box:nth-child(2):after,
+.about-box:nth-child(2) >.about-content > .pop-up-button{
+    background: linear-gradient(315deg, #89ff00, #00bcd4);
+}
+
+.about-box:nth-child(3):after,
+.about-box:nth-child(3) >.about-content > .pop-up-button{
+    background: linear-gradient(315deg, #e91e63, #5d02ff);
+}
+
+.about-content{
+    z-index: 2;
+    background-color: #060c21;
+    height: 100%;
+    position: relative;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-content::before{
+    content:'';
+    position: absolute;
+    top:0;
+    left: 0;
+    width:50%;
+    bottom:0;
+    background-color: rgb(255, 255, 255, 0.05);
+    z-index: -1;
+}
+
+.about-content::after{
+    content:'';
+    position: absolute;
+    top:0;
+    right: 0;
+    width:auto;
+    z-index: -1;
+    color: white;
+    font-size: 3rem;
+    padding: 0.3rem;
+    transition: all 0.5s ease-out;
+    
+}
+.about-box:nth-child(1) > .about-content::after{
+    content:'Petar';
+    background: linear-gradient(315deg, #ff0057, #e64a19);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.about-box:nth-child(2) > .about-content::after{
+    content:'Stefan';
+    background: linear-gradient(315deg, #89ff00, #00bcd4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-box:nth-child(3) > .about-content::after{
+    content:'Veljko';
+    background: linear-gradient(315deg, #e91e63, #5d02ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.about-content > img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.pop-up-button {
+    font-size: 1.4rem;
+    padding: 0.7rem;
+    position: absolute;
+    bottom:-50px;
+    left:1rem;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.about-content:hover > .pop-up-button:hover {
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.3);
+    bottom: 1.3rem;
+}
+.about-content:hover > .pop-up-button{
+    bottom: 1rem;
+}
+
+.blurred {
+    filter: blur(2px);
+}
+
+.about-us-window{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+}
+
+.about-window-box{
+    width:70%;
+    height: 70%;
+    background-color: white;
+    position: relative;
+}
+
+.about-exit {
+    position: absolute;
+    right: -2rem;
+    top: -2rem;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    line-height: 2rem;
+    color: black;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+
+/*  //Pokusaj klase enlarge
+
+.enlarge {
+    position: absolute;
+    left: 0;
+    max-width: 1500px;
+    width: 330%;
+    z-index: 10;
+}
+
+.enlarge > .about-content {
+    justify-content: start;
+}
+
+.enlarge > .about-content > button {
+    display: none;
+}
+
+.enlarge > .about-content::after {
+    font-size: 4rem;
+    top: 2rem;
+    right: 25%;
+    transform: translateX(50%);
+}
+
+.enlarge > .about-content > img {
+    position: relative;
+    left: 25%;
+    transform: translateX(-50%);
+}
+
+.enlarge > .about-content > p {
+    display: inline-block;
+    opacity: 100%;
+    color: white;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    transform: translateX(50%);
+    width: 10rem;
+}
+
+*/
+
+
+
+
