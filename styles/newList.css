@@ -18,14 +18,15 @@
 }
 
 .form-container {
-  height: 95vh;
+  height: 40vh;
   width: 90%;
-  max-width: 1100;;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   padding: 0.3rem;
   margin: 3rem auto;
 }
+
 
 .search-options-grid {
   display: grid;
@@ -109,6 +110,15 @@
   background-image: url("/resources/toDateFormIcon.png");
 }
 
+#submitBtn{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  padding: .3rem;
+  text-align: center;
+  margin: .5rem auto;
+}
+
 @media (min-width: 500px) {
   .departureDate {
     grid-column: 1/4;
@@ -147,6 +157,9 @@
 @media (min-width: 985px) {
   .form-container {
     width: 60%;
+  }
+  #submitBtn{
+    display: inline-block;
   }
   #searchForm {
     display: flex;
