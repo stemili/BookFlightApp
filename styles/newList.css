@@ -17,8 +17,12 @@
   font-family: "Quicksand", sans-serif;
 }
 
+body{
+  background-color: whitesmoke;
+}
+
 .form-container {
-  height: 95vh;
+  min-height: 95vh;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -83,6 +87,194 @@
 .returnDate {
   grid-column: 1/7;
 }
+
+
+
+
+
+.result-li{
+  margin: 0 auto;
+  max-width: 800px;
+  list-style: none;
+  display: flex;
+}
+
+.date-li{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: .2rem;
+}
+
+.li-main{
+  background-color: #fff;
+  margin: .5rem;
+  margin-right: .2rem;
+  padding: .5rem;
+  width: 69.75%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.li-price{
+  position: relative;
+  margin: .5rem;
+  margin-left: 0rem;
+  background-color: var(--green);
+  padding-top: 2rem;
+  width: 29.75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  font-size: 2.5rem;
+}
+
+.li-price .price-amount{
+  font-weight: 500;
+  color: #fff;
+}
+.li-price .price-currency{
+  font-size: 1.2rem;
+  vertical-align: top;
+  color: #fff;
+}
+
+.li-price > a{
+  font-size: 1rem;
+  color: #166e16;
+  text-decoration: none;
+  padding: .5rem 2rem .5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: white;
+  transition: border-radius .2s;
+}
+.li-price > a:hover{
+  border-radius: 0;
+}
+
+
+.li-flight-info{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 1rem 0 1rem;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+.middle-line{
+  grid-column: span 3;
+  display: flex;
+  align-items: center;
+}
+.middle-line > div{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border-bottom: 3px solid red; */
+}
+
+.middle-line > div > div:first-child , .middle-line > div > div:last-child{
+  border-bottom: 1.5px solid var(--yellow); 
+  width: 100%;
+} 
+.middle-line > div > div:nth-child(2) > span:nth-child(2){
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  min-width: 30px;
+  color: var(--blublak)
+}
+
+.middle-line > div > div:nth-child(2) > span:first-child{
+  position: absolute;
+  top: .2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.middle-line > div > div:nth-child(2) > span:last-child{
+  position: absolute;
+  bottom: .2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.location-li-dep, .location-li-arr{
+  text-align: center;
+}
+
+
+.time-dep-li , .time-arr-li{
+  font-size: 2rem;
+}
+
+
+.li-main > p:last-child{
+  padding: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.class-li{
+  font-weight: 600;
+  color: var(--blublak);
+  background-color: var(--yellow);
+  padding: .3rem .5rem .3rem;
+}
+
+.li-main > p:last-child > button{
+  text-transform: uppercase;
+  outline: none;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--green);
+  background-color: #fff;
+  border: none;
+  font-size: .8rem;
+}
+.li-main > p:last-child > button > i{
+  font-size: .6rem;
+}
+.li-main > p:last-child > button:hover > i{
+  transform: translateY(3px);
+  transition: .2s;
+}
+
+.line-li-result{
+  width: .5%;
+  margin: .5rem 0 .5rem;
+  border-left: 1.5px dotted green;
+}
+
+.return-li{
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .1rem 1rem .2rem;
+  font-size: .8rem;
+  background-color: var(--blublak);
+  color: #fff;
+  font-weight: 600;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: none;
+}
+
+.show-return{
+  display: block;
+}
+
+
+
+
+
 
 @media (min-width: 500px) {
   .departureDate {
