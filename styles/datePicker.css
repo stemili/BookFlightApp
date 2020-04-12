@@ -70,7 +70,8 @@
   color: #313131;
 }
 .date-picker .dates .days .day.selected {
-  background-color: var(--yellow);
+  background-color: var(--green);
+  border-radius: 5px;
 }
 
 @media (min-width: 500px) {

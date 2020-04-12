@@ -1,116 +1,97 @@
-const fligtOptions = document.querySelector(".flight-options");
-const options = fligtOptions.children;
-const searchQuery = document.querySelector(".search-query");
-const queryItems = searchQuery.children;
-const fromElement = document.querySelector("#from");
-const toElement = document.querySelector("#to");
-const flightDateElement = document.querySelector("#departure");
-const returnDateElement = document.querySelector("#return");
-const returnElementX = returnDateElement.lastElementChild; 
-let activeFlightOption;
+const formContainer = $(".form-container");
 
-//IIF to add event listeners to travel options
-(function addEventListenersToFlightOptions(){
+const tripOption = $(".col-trip a");
+const travelersOption = $(".col-travelers a");
+const cabinOption = $(".col-cabin a");
 
-    document.addEventListener("click",()=>{
-        if(activeFlightOption==options[0]){
-            queryItems[1].lastElementChild.style.display="none";
+const tripAllOptions = $(".trip");
+const travelersAllOptions = $(".travelers");
+const cabinAllOptions = $(".cabin");
+
+const retDate = $(".returnDate");
+console.log(retDate)
+const searchOptions = document.querySelectorAll(".col-ul");
+
+function $(selector) {
+  return document.querySelector(selector);
+}
+
+(function loadEventListeners() {
+  tripOption.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hideAllBut(e.currentTarget.parentElement);
+  });
+  travelersOption.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hideAllBut(e.currentTarget.parentElement);
+  });
+
+  cabinOption.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hideAllBut(e.currentTarget.parentElement);
+  });
+
+  formContainer.addEventListener("click", (e) => {
+    tripAllOptions.classList.add("hide");
+    travelersAllOptions.classList.add("hide");
+    cabinAllOptions.classList.add("hide");
+  });
+
+  //   document.addEventListener("click",(e)=>{
+  //       let selectedOption = e.target.parentElement.children[1]
+  //       let isClickedInside = false;
+  //     //   console.log(isClickedInside)
+  //     //   if(!isClickedInside){
+  //     //       travelersAllOptions.classList.add("hide");
+  //     //   }
+  //       hideIfClickedOutside(e.target,selectedOption)
+
+  //       function hideIfClickedOutside(target,option){
+  //           console.log(option)
+  //         isClickedInside = option.contains(target);
+  //         if(!isClickedInside){
+  //             option.classList.add("hide")
+  //         }
+  //       }
+
+  //   });
+  (function eventListenersForLi() {
+    let tripUl = tripAllOptions.firstElementChild;
+    let travelersUl = travelersAllOptions.firstElementChild;
+    let cabinUl = cabinAllOptions.firstElementChild;
+
+    [...tripUl.children].forEach((li) => {
+      li.addEventListener("click", (e) => {
+        if(li.textContent !== "Round trip"){
+          formContainer.classList.add("one-way")
         }else{
-            queryItems[1].lastElementChild.style.display="block";
-    
+          formContainer.classList.remove("one-way");
         }
-    })
-
-    returnDateElement.addEventListener("click",()=>{
-        removeActiveClassFromAll(options);
-        addActiveClass(options[1]);
-    })
-
-    returnElementX.addEventListener("click",(e)=>{
-        e.stopImmediatePropagation();
-        returnDateElement.classList.remove("notEmpty");
-        returnDateElement.classList.add("empty");
-        removeActiveClassFromAll(options);
-        addActiveClass(options[0]);
-        activeFlightOption = options[0];
-        queryItems[1].lastElementChild.style.display="none";
-
-        returnDateElement.firstElementChild.value = "";
-
-    })
-
-    Array.from(options).forEach(option => {
-        option.addEventListener("click",()=>{
-            removeActiveClassFromAll(options);
-            addActiveClass(option);
-            activeFlightOption = option;
-        });
+        tripUl.parentElement.classList.add("hide");
+        let icon = tripOption.children[0];
+        tripOption.textContent = li.textContent+" ";
+        tripOption.appendChild(icon)
+      });
     });
+  })();
 
-    Array.from(queryItems).forEach(item => {
-        item.addEventListener("click",()=>{
-            removeActiveClassFromAll(queryItems);
-            addActiveClass(item);
-        })
-    })
-
-    addEmptyClassAndListeners(fromElement);
-    addEmptyClassAndListeners(toElement);
-    addEmptyClassAndListeners(flightDateElement);
-    addEmptyClassAndListeners(returnDateElement);
-
-
-
-    function addEmptyClassAndListeners(element){
-        
-        
-        element.addEventListener("keyup",(e)=>{
-            if(e.target.value === ""){
-                element.classList.add("empty")
-            }else{
-                element.classList.remove("empty")
-            }
-        })
-
-        // element.addEventListener("click",(e)=>{
-        //     console.log(e.target.value)
-        //     if(e.target.value === ""){
-        //         element.classList.remove("empty")
-        //     }
-        // })
-
-        // element.addEventListener("mouseleave",(e)=>{
-        //     console.log("test")
-        //     console.log(e.target)
-        //     if(e.target.children[0].value === ""){
-        //         element.classList.add("empty");
-        //     }
-        // })
-
-        // document.addEventListener("click",()=>{
-        //     if(fromElement.children[0].value === ""){
-        //         fromElement.classList.add("empty");
-        //     }
-        //     if(toElement.children[0].value === ""){
-        //         toElement.classList.add("empty");
-        //     }
-        // })
-        
-        
-
+  function hideAllBut(element) {
+    switch (element) {
+      case tripOption.parentElement:
+        tripAllOptions.classList.remove("hide");
+        travelersAllOptions.classList.add("hide");
+        cabinAllOptions.classList.add("hide");
+        break;
+      case travelersOption.parentElement:
+        tripAllOptions.classList.add("hide");
+        travelersAllOptions.classList.remove("hide");
+        cabinAllOptions.classList.add("hide");
+        break;
+      case cabinOption.parentElement:
+        tripAllOptions.classList.add("hide");
+        travelersAllOptions.classList.add("hide");
+        cabinAllOptions.classList.remove("hide");
+        break;
     }
-
-    function addActiveClass(input){
-        input.classList.add("active");
-    }
-
-    function removeActiveClassFromAll(array){
-        Array.from(array).forEach(option => {
-            
-                option.classList.remove("active");
-            
-        })
-    }
+  }
 })();
-
-
