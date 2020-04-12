@@ -1,0 +1,80 @@
+.date-picker {
+  display: none;
+  position: absolute;
+  height: auto;
+  width: 100%;
+  border-top: none;
+  background-color: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.date-picker.depart {
+  top: 140px;
+}
+
+.date-picker.return {
+  top: 185px;
+}
+
+.date-picker .dates {
+  border: black 2px solid;
+  border-top: white;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  background-color: #fff;
+}
+
+.date-picker.show {
+  display: block;
+}
+
+.date-picker .dates .month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+}
+
+.date-picker .dates .month .arrows {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #313131;
+  font-size: 20px;
+}
+
+.date-picker .dates .month .arrows:hover {
+  background-color: #f3f3f3;
+}
+
+.date-picker .dates .month .arrows:active {
+  background-color: var(--yellow);
+}
+
+.date-picker .dates .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 200px;
+}
+.date-picker .dates .days .day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #313131;
+}
+.date-picker .dates .days .day.selected {
+  background-color: var(--yellow);
+}
+
+@media (min-width: 500px) {
+}
+
+@media (min-width: 768px) {
+}

@@ -5,9 +5,8 @@ const mth_element = document.querySelector('.date-picker .dates .month .mth');
 const next_mth_element = document.querySelector('.date-picker .dates .month .next-mth');
 const prev_mth_element = document.querySelector('.date-picker .dates .month .prev-mth');
 const days_element = document.querySelector('.date-picker .dates .days');
-const depart_element = document.querySelector("#departure")
-const return_element = document.querySelector("#return")
-
+const depart_element = document.querySelector("#depDate")
+const return_element = document.querySelector("#retDate")
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -21,35 +20,30 @@ let selectedDay = day;
 let selectedMonth = month;
 let selectedYear = year;
 
-let activeElement;
+let activeDate;
 
 mth_element.textContent = months[month] + ' ' + year;
 
 depart_element.addEventListener("click",(e)=>{
-	activeElement = null;
-	
-	activeElement = depart_element
-
+	activeDate = depart_element;
+	date_picker_element.classList.remove("show")
+	date_picker_element.classList.remove("return");
+	date_picker_element.classList.add("depart");
 	date_picker_element.classList.add("show")
-	date_picker_element.getElementsByClassName.left = "40%"
 })
 
 return_element.addEventListener("click",(e)=>{
-	activeElement = null;
-	activeElement = return_element
-
+	activeDate = return_element;
+	date_picker_element.classList.remove("show")
+	date_picker_element.classList.remove("depart");
+	date_picker_element.classList.add("return");
 	date_picker_element.classList.add("show")
-	date_picker_element.getElementsByClassName.left = "50%"
 })
 
 
-function dateEventListenersCheck(element){
-	if(element===depart_element){}
-}
 
 
 populateDates();
-console.log(formatDate(date))
 
 // EVENT LISTENERS
 next_mth_element.addEventListener('click', goToNextMonth);
@@ -80,7 +74,6 @@ function goToPrevMonth (e) {
 function populateDates (e) {
 	days_element.innerHTML = '';
 	let amount_days = 31;
-
 	if (month == 1) {
 		amount_days = 28;
 	}
@@ -100,30 +93,15 @@ function populateDates (e) {
 			selectedMonth = month;
 			selectedYear = year;
 
-			activeElement.children[0].value = formatDate(selectedDate)
-			activeElement.classList.remove("empty")
-			date_picker_element.classList.remove("show")
-
-			if(activeElement === return_element){
-				return_element.classList.add("notEmpty");
-			}
+			activeDate.value = formatDate(selectedDate)
 			populateDates();
 		});
-
+		date_picker_element.classList.remove("show");
 		days_element.appendChild(day_element);
+
 	}
 }
 
-// HELPER FUNCTIONS
-// function checkEventPathForClass (path, selector) {
-// 	for (let i = 0; i < path.length; i++) {
-// 		if (path[i].classList && path[i].classList.contains(selector)) {
-// 			return true;
-// 		}
-// 	}
-	
-// 	return false;
-// }
 function formatDate (d) {
 	let day = d.getDate();
 	if (day < 10) {

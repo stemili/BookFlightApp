@@ -20,10 +20,11 @@
 .form-container {
   height: 95vh;
   width: 90%;
+  max-width: 1100;;
   display: flex;
   flex-direction: column;
   padding: 0.3rem;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 
 .search-options-grid {
@@ -32,28 +33,47 @@
   justify-items: center;
   align-items: center;
   background-color: var(--blublak);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
 }
 
 #searchForm {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   background-color: var(--blublak);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 0.2rem;
+  position: relative;
+}
+
+
+
+#searchForm > div:not(.date-picker) {
+  padding: 0.2rem;
+  height: 40px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-origin: content-box;
+  border-radius: 5px;
+  margin: .2rem
 }
 
 #searchForm > div input {
   width: 100%;
   height: 100%;
-}
-
-#searchForm > div {
-  padding: 0.2rem;
-  height: 40px;
+  background-color: transparent;
+  border-style: none;
+  padding-left: 40px;
 }
 
 .fromDestination {
   grid-column: 1/6;
+  background-image: url("/resources/formFromIcon.png");
 }
+
 
 .switchBtn {
   grid-column: 6/7;
@@ -70,18 +90,23 @@
   font-size: 1.1rem;
   align-items: center;
   justify-content: center;
+  border: none;
+  background:none;
 }
 
 .toDestination {
   grid-column: 1/7;
+  background-image: url("/resources/formToIcon.png");
 }
 
 .departureDate {
   grid-column: 1/7;
+  background-image: url("/resources/fromDateFormIcon.png");
 }
 
 .returnDate {
   grid-column: 1/7;
+  background-image: url("/resources/toDateFormIcon.png");
 }
 
 @media (min-width: 500px) {
