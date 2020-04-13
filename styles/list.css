@@ -269,7 +269,7 @@ main{
   display: none;
 }
 .form-container.one-way .form {
-  width: 80%;
+  width: 100%;
 }
 
 .returnDate {

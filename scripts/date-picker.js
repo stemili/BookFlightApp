@@ -82,7 +82,7 @@ function goToNextMonth(e) {
     year++;
   }
   mth_element.textContent = months[month] + " " + year;
-  e.stopEventPropagation();
+  e.stopPropagation();
   populateDates();
 }
 
@@ -93,8 +93,7 @@ function goToPrevMonth(e) {
     year--;
   }
   mth_element.textContent = months[month] + " " + year;
-  e.stopEventPropagation();
-
+  e.stopPropagation();
   populateDates();
 }
 
@@ -145,5 +144,5 @@ function formatDate(d) {
 
   let year = d.getFullYear();
 
-  return day + " / " + month + " / " + year;
+  return day + "/" + month + "/" + year;
 }
