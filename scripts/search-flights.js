@@ -1,14 +1,19 @@
 const formContainer = $(".form-container");
+const fromDest = $("#fromDest");
+const toDest = $("#toDest");
 
 const tripOption = $(".col-trip a");
 const travelersOption = $(".col-travelers a");
 const cabinOption = $(".col-cabin a");
+const sortByOption = $(".col-sort-by a");
 
 const tripAllOptions = $(".trip");
 const travelersAllOptions = $(".travelers");
 const cabinAllOptions = $(".cabin");
+const sortByAllOptions = $(".sort-by");
 
 const retDate = $(".returnDate");
+const switchDestinationsBtn = $("#switchBtn");
 const searchOptions = document.querySelectorAll(".col-ul");
 
 let travelerObj = {
@@ -23,6 +28,12 @@ function $(selector) {
 }
 
 (function loadEventListeners() {
+  switchDestinationsBtn.addEventListener("click", (e) => {
+    let tempValue = fromDest.value;
+    fromDest.value = toDest.value;
+    toDest.value = tempValue;
+  });
+
   tripOption.addEventListener("click", (e) => {
     e.stopPropagation();
     hideAllBut(e.currentTarget.parentElement);
@@ -37,17 +48,25 @@ function $(selector) {
     hideAllBut(e.currentTarget.parentElement);
   });
 
+  sortByOption.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hideAllBut(e.currentTarget.parentElement);
+  });
+
   formContainer.addEventListener("click", (e) => {
     tripAllOptions.classList.add("hide");
     travelersAllOptions.classList.add("hide");
     cabinAllOptions.classList.add("hide");
+    sortByAllOptions.classList.add("hide");
   });
 
   (function eventListenersForLi() {
     let tripUl = tripAllOptions.firstElementChild;
     let travelersUl = travelersAllOptions.firstElementChild;
     let cabinUl = cabinAllOptions.firstElementChild;
+    let sortByUl = sortByAllOptions.firstElementChild;
 
+    //adding event listeners to list items of drop down options
     [...tripUl.children].forEach((li) => {
       li.addEventListener("click", (e) => {
         if (li.textContent !== "Round trip") {
@@ -56,10 +75,6 @@ function $(selector) {
           formContainer.classList.remove("one-way");
         }
         switchTextContent(li, tripUl);
-        // tripUl.parentElement.classList.add("hide");
-        // let icon = tripOption.children[0];
-        // tripOption.textContent = li.textContent+" ";
-        // tripOption.appendChild(icon)
       });
     });
 
@@ -68,11 +83,17 @@ function $(selector) {
         switchTextContent(li, cabinUl);
       });
     });
+    [...sortByUl.children].forEach((li) => {
+      li.addEventListener("click", (e) => {
+        switchTextContent(li, sortByUl);
+      });
+    });
 
     let adultsSpan = $("#noOfAdults");
     let childrenSpan = $("#noOfChildren");
     let noOfInfantsSpan = $("#noOfInfants");
 
+    //travelers option logic and event listeners
     [...travelersUl.children].forEach((li) => {
       let colRightElements = li.lastElementChild.children;
       let minusBtn = colRightElements[0];
@@ -148,28 +169,28 @@ function $(selector) {
             travelersOption.appendChild(icon);
           }
       }
+      // no parameter isn't referencing,maybe fix later
+      // function plusMinusEventListenersFor(no, spanElement) {
+      //   minusBtn.addEventListener("click", (e) => {
+      //     e.stopPropagation();
+      //     if (no <= 0) {
+      //       return;
+      //     } else {
+      //       no++;
+      //       travelerObj.travelers--;
+      //     }
+      //     changeTravelersText();
+      //     spanElement.textContent = no;
+      //   });
 
-      function plusMinusEventListenersFor(no, spanElement) {
-        minusBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (no <= 0) {
-            return;
-          } else {
-            no++;
-            travelerObj.travelers--;
-          }
-          changeTravelersText();
-          spanElement.textContent = no;
-        });
-
-        plusBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          no++;
-          travelerObj.travelers++;
-          changeTravelersText();
-          spanElement.textContent = no;
-        });
-      }
+      //   plusBtn.addEventListener("click", (e) => {
+      //     e.stopPropagation();
+      //     no++;
+      //     travelerObj.travelers++;
+      //     changeTravelersText();
+      //     spanElement.textContent = no;
+      //   });
+      // }
 
       function checkIfTravelers() {
         if (
@@ -199,9 +220,13 @@ function $(selector) {
 
     function switchTextContent(li, ul) {
       ul.parentElement.classList.add("hide");
-
       let optionForChange = ul.parentElement.parentElement.children[0];
-      optionForChange.textContent = li.textContent + " ";
+      if (ul === sortByUl) {
+        console.log("test");
+        optionForChange.textContent = `Sort by: ${li.textContent} `;
+      } else {
+        optionForChange.textContent = li.textContent + " ";
+      }
       let icon = createIcon();
       optionForChange.appendChild(icon);
     }
@@ -219,17 +244,25 @@ function $(selector) {
         tripAllOptions.classList.remove("hide");
         travelersAllOptions.classList.add("hide");
         cabinAllOptions.classList.add("hide");
+        sortByAllOptions.classList.add("hide");
         break;
       case travelersOption.parentElement:
         tripAllOptions.classList.add("hide");
         travelersAllOptions.classList.remove("hide");
         cabinAllOptions.classList.add("hide");
+        sortByAllOptions.classList.add("hide");
         break;
       case cabinOption.parentElement:
         tripAllOptions.classList.add("hide");
         travelersAllOptions.classList.add("hide");
         cabinAllOptions.classList.remove("hide");
+        sortByAllOptions.classList.add("hide");
         break;
+      case sortByOption.parentElement:
+        tripAllOptions.classList.add("hide");
+        travelersAllOptions.classList.add("hide");
+        cabinAllOptions.classList.add("hide");
+        sortByAllOptions.classList.remove("hide");
     }
   }
 })();

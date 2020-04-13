@@ -1,3 +1,12 @@
+:root {
+  --yellow: #fcc911;
+  --blublak: #3f3d56;
+  --pink: #f2b0b0;
+  --dark-pink: #e58787;
+  --green: #57b894;
+  --red: #ff6584;
+  --purple: #6d087a;
+}
 .date-picker {
   display: none;
   position: absolute;
@@ -18,7 +27,7 @@
 }
 
 .date-picker .dates {
-  border: black 2px solid;
+  border:  2px solid;
   border-top: white;
   display: block;
   position: absolute;
@@ -55,7 +64,7 @@
 }
 
 .date-picker .dates .month .arrows:active {
-  background-color: var(--yellow);
+  background-color: var(--green);
 }
 
 .date-picker .dates .days {
