@@ -1,14 +1,17 @@
 const cityFrom = document.getElementById('fromDest');
 const cityTo = document.getElementById('toDest');
 const depDate = document.getElementById('depDate');
-const retDate = document.getElementById('retDate');
+const returnDate = document.getElementById('retDate');
+const cabinClass = document.querySelector('.col-cabin a');
 //request direct flight
 
 const ulSearchDisplay = document.getElementById('resultList');
 
 const searchForm = document.getElementById('searchForm');
 
-searchForm.addEventListener('submit', handleSearchSubmit);
+const mainSubmitBtn = document.getElementById('submitBtn');
+
+mainSubmitBtn.addEventListener('click', handleSearchSubmit);
 
 const searchParams = {};
 
@@ -18,16 +21,32 @@ const cabins = {
     'C' : 'Business',
     'F' : 'First Class'
 }
+const reverseCabins = {
+    'Economy' : 'M',
+    'E-Premium' : 'W',
+    'Business' : 'C',
+    'First Class' : 'F'
+}
+
 
 async function handleSearchSubmit(e){
     e.preventDefault();
+
+    ulSearchDisplay.innerHTML = `
+            <ul class="slider-cards">
+                <div class="slider-loader">
+                    <div class="spinner"></div>
+                </div>
+            </ul>
+    `;
+
     searchParams.depDate = depDate.value;
-    searchParams.retDate = retDate.value;
+    searchParams.retDate = returnDate.value;
     searchParams.iataFrom = [];
     searchParams.iataTo = [];
-    searchParams.direct = 1; //static direct flight
+    searchParams.direct = 0; //static direct flight
     searchParams.round = 0; // static round flight
-    searchParams.selected_cabins = 'M'; //cabin selection [M, W, C, F]
+    searchParams.selected_cabins = reverseCabins[cabinClass.textContent.trim()]; //cabin selection [M, W, C, F]
     searchParams.adults = 1;
     searchParams.children = 0;
     searchParams.infants = 0;
@@ -49,8 +68,24 @@ async function handleSearchSubmit(e){
         .then(response => response.json())
         .then(data => {
             console.log(data.data)
-            loadFlightResults(data.data);
-        });
+            if(data.data.length !== 0){
+                loadFlightResults(data.data);
+            } else {
+                ulSearchDisplay.innerHTML = `
+                    <div class='slider-loader'>
+                        <p class='center-notification'>S<i class="far fa-sad-tear"></i>rry, No Results...</p>
+                    </div>
+            `;
+            }
+            
+        })
+        .catch(error => {
+            ulSearchDisplay.innerHTML = `
+            <div class='slider-loader'>
+                <p class='center-warning'>Please Provide Valid Data <i class="fas fa-exclamation-triangle"></i></p>
+            </div>
+            `;
+        })
 }
 
 
