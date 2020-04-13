@@ -142,8 +142,10 @@ body{
 
 
 
-/* STRUCTURING THE CONTENT */
-
+/* Marking nav location on header */
+.header-nav-ul > li:nth-child(1) > a{
+    border-bottom: 3px solid var(--yellow);
+} 
 
 
 

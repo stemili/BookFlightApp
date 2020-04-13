@@ -2,6 +2,7 @@
 const ulSlider = document.querySelector('.slider-cards');
 const sliderLeft = document.getElementById('slider-left');
 const sliderRight = document.getElementById('slider-right');
+const sliderBox = document.querySelector('.slider');
 
 const currLocSlider = document.getElementById('city-slider');
 const slideOnEffect = document.querySelector('.slider-content');
@@ -202,14 +203,27 @@ function addingTwelve(){
         ulSlider.appendChild(dfSlider);
 }
 
+function handleKeyUp(e){
+    if(e.key === 'ArrowLeft'){
+        handleLeftNav();
+    } else if (e.key === 'ArrowRight'){
+        handleRightNav();
+    }
+}
+
+
 
 
 
 window.addEventListener('resize' , sliderChangeResize);
 
-
-
-
-
 sliderLeft.addEventListener('click', handleLeftNav);
 sliderRight.addEventListener('click', handleRightNav);
+
+// ARROW navigation
+sliderBox.addEventListener('mouseenter', function(e){
+    document.addEventListener('keyup', handleKeyUp);
+})
+sliderBox.addEventListener('mouseleave', function(){
+    document.removeEventListener('keyup', handleKeyUp);
+})

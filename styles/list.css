@@ -477,7 +477,10 @@ main{
 
 
 
-
+/* Marking nav location on header */
+.header-nav-ul > li:nth-child(2) > a{
+  border-bottom: 3px solid var(--yellow);
+} 
 
 
 @media (min-width: 500px) {

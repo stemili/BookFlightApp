@@ -17,6 +17,9 @@ const searchForm = document.getElementById('searchForm');
 const mainSubmitBtn = document.getElementById('submitBtn');
 
 mainSubmitBtn.addEventListener('click', handleSearchSubmit);
+searchForm.addEventListener('submit', e =>{
+    e.preventDefault();
+})
 
 const searchParams = {};
 

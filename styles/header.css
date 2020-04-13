@@ -132,11 +132,6 @@
 
 
 
-
-.header-nav-ul > li:nth-child(1) > a{
-  border-bottom: 3px solid var(--yellow);
-}
-
 .header-nav-ul > li > a:hover {
   color: #c0c0c0;
   border-bottom: 3px solid var(--yellow);
