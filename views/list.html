@@ -73,7 +73,9 @@
         </nav>
       </div>
     </header>
+    <main>
 
+    
     <div class="form-container">
       <div class="form">
         <div class="search-options-grid">
@@ -110,7 +112,7 @@
         </div>
         <form id="searchForm" action="#">
           <div class="fromDestination">
-            <input type="text" name="" id="fromDest" placeholder="From?" />
+            <input type="text" name="" id="fromDest" placeholder="From?" autocomplete="off"/>
           </div>
           <div class="switchBtn">
             <button id="switchBtn">
@@ -118,13 +120,13 @@
             </button>
           </div>
           <div class="toDestination">
-            <input type="text" name="" id="toDest" placeholder="To?" />
+            <input type="text" name="" id="toDest" placeholder="To?" autocomplete="off"/>
           </div>
           <div class="departureDate">
-            <input type="text" name="" id="depDate" />
+            <input type="text" name="" id="depDate" autocomplete="off"/>
           </div>
           <div class="returnDate">
-            <input type="text" name="" id="retDate" />
+            <input type="text" name="" id="retDate" autocomplete="off"/>
           </div>
           <div class="date-picker">
             <div class="dates">
@@ -141,8 +143,12 @@
       </div>
       <button id="submitBtn">Search</button>
     </div>
-    <script src="/scripts/search-flights.js"></script>
+      <ul id="resultList">
 
+      </ul>
+    
+    <script src="/scripts/search-flights.js"></script>
+  </main>
     <footer>
       <div class="footer-top-wrap">
         <div class="footer-statistics">
@@ -238,5 +244,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="../scripts/listSearch.js" defer></script>
   </body>
 </html>
