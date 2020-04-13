@@ -1,32 +1,27 @@
-const date_picker_element = document.querySelector(".date-picker");
-const selected_date_element = document.querySelector(
-  ".date-picker .selected-date"
-);
-const dates_element = document.querySelector(".date-picker .dates");
-const mth_element = document.querySelector(".date-picker .dates .month .mth");
-const next_mth_element = document.querySelector(
-  ".date-picker .dates .month .next-mth"
-);
-const prev_mth_element = document.querySelector(
-  ".date-picker .dates .month .prev-mth"
-);
-const days_element = document.querySelector(".date-picker .dates .days");
-const depart_element = document.querySelector("#depDate");
-const return_element = document.querySelector("#retDate");
+const date_picker_element = document.querySelector('.date-picker');
+const selected_date_element = document.querySelector('.date-picker .selected-date');
+const dates_element = document.querySelector('.date-picker .dates');
+const mth_element = document.querySelector('.date-picker .dates .month .mth');
+const next_mth_element = document.querySelector('.date-picker .dates .month .next-mth');
+const prev_mth_element = document.querySelector('.date-picker .dates .month .prev-mth');
+const days_element = document.querySelector('.date-picker .dates .days');
+const depart_element = document.querySelector("#depDate")
+const return_element = document.querySelector("#retDate")
+const bodyEl = document.querySelector('body');
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+	'January',
+	'February', 
+	'March', 
+	'April', 
+	'May', 
+	'June', 
+	'July', 
+	'August', 
+	'September', 
+	'October', 
+	'November', 
+	'December'
 ];
 
 let date = new Date();
@@ -43,15 +38,9 @@ let activeDate;
 
 mth_element.textContent = months[month] + " " + year;
 
-formContainer.addEventListener("click",(e)=>{
-	date_picker_element.classList.remove("show");
-	console.log(date_picker_element.classList)
-
-})
 
 depart_element.addEventListener("click", (e) => {
   activeDate = depart_element;
-  e.stopPropagation();
   date_picker_element.classList.remove("show");
   date_picker_element.classList.remove("return");
   date_picker_element.classList.add("depart");
@@ -60,12 +49,18 @@ depart_element.addEventListener("click", (e) => {
 
 return_element.addEventListener("click", (e) => {
   activeDate = return_element;
-  e.stopPropagation();
   date_picker_element.classList.remove("show");
   date_picker_element.classList.remove("depart");
   date_picker_element.classList.add("return");
   date_picker_element.classList.add("show");
 });
+// removing date element on 'blur' FIX
+bodyEl.addEventListener('mouseup', e => {
+	if(!(e.target.classList.contains('next-mth') || e.target.classList.contains('prev-mth'))){
+		date_picker_element.classList.remove("show");
+	}
+})
+
 
 populateDates();
 
@@ -75,60 +70,57 @@ prev_mth_element.addEventListener("click", goToPrevMonth);
 
 // FUNCTIONS
 
-function goToNextMonth(e) {
-  month++;
-  if (month > 11) {
-    month = 0;
-    year++;
-  }
-  mth_element.textContent = months[month] + " " + year;
-  e.stopPropagation();
-  populateDates();
+
+function goToNextMonth (e) {
+	month++;
+	if (month > 11) {
+		month = 0;
+		year++;
+	}
+	mth_element.textContent = months[month] + ' ' + year;
+	populateDates(e);
 }
 
-function goToPrevMonth(e) {
-  month--;
-  if (month < 0) {
-    month = 11;
-    year--;
-  }
-  mth_element.textContent = months[month] + " " + year;
-  e.stopPropagation();
-  populateDates();
+function goToPrevMonth (e) {
+	month--;
+	if (month < 0) {
+		month = 11;
+		year--;
+	}
+	mth_element.textContent = months[month] + ' ' + year;
+	populateDates(e);
 }
 
-function populateDates(e) {
-  days_element.innerHTML = "";
-  let amount_days = 31;
-  if (month == 1) {
-    amount_days = 28;
-  }
+function populateDates (e) {
+	days_element.innerHTML = '';
+	let amount_days = 31;
+	if (month == 1) {
+		amount_days = 28;
+	}
 
-  for (let i = 0; i < amount_days; i++) {
-    const day_element = document.createElement("div");
-    day_element.classList.add("day");
-    day_element.textContent = i + 1;
+	for (let i = 0; i < amount_days; i++) {
+		const day_element = document.createElement('div');
+		day_element.classList.add('day');
+		day_element.textContent = i + 1;
 
-    if (
-      selectedDay == i + 1 &&
-      selectedYear == year &&
-      selectedMonth == month
-    ) {
-      day_element.classList.add("selected");
-    }
+		if (selectedDay == (i + 1) && selectedYear == year && selectedMonth == month) {
+			day_element.classList.add('selected');
+		}
 
-    day_element.addEventListener("click", function () {
-      selectedDate = new Date(year + "-" + (month + 1) + "-" + (i + 1));
-      selectedDay = i + 1;
-      selectedMonth = month;
-      selectedYear = year;
+		day_element.addEventListener('click', function () {
+			selectedDate = new Date(year + '-' + (month + 1) + '-' + (i + 1));
+			selectedDay = (i + 1);
+			selectedMonth = month;
+			selectedYear = year;
 
-      activeDate.value = formatDate(selectedDate);
-      populateDates();
-    });
-    date_picker_element.classList.remove("show");
-    days_element.appendChild(day_element);
-  }
+			activeDate.value = formatDate(selectedDate)
+			populateDates();
+			date_picker_element.classList.remove("show");
+		});
+		// date_picker_element.classList.remove("show");
+		days_element.appendChild(day_element);
+
+	}
 }
 
 function formatDate(d) {

@@ -3,6 +3,11 @@ const cityTo = document.getElementById('toDest');
 const depDate = document.getElementById('depDate');
 const returnDate = document.getElementById('retDate');
 const cabinClass = document.querySelector('.col-cabin a');
+const noAdults = document.getElementById('noOfAdults');
+const noChildren = document.getElementById('noOfChildren');
+const noInfants = document.getElementById('noOfInfants');
+
+
 //request direct flight
 
 const ulSearchDisplay = document.getElementById('resultList');
@@ -47,9 +52,9 @@ async function handleSearchSubmit(e){
     searchParams.direct = 0; //static direct flight
     searchParams.round = 0; // static round flight
     searchParams.selected_cabins = reverseCabins[cabinClass.textContent.trim()]; //cabin selection [M, W, C, F]
-    searchParams.adults = 1;
-    searchParams.children = 0;
-    searchParams.infants = 0;
+    searchParams.adults = noAdults.textContent;
+    searchParams.children = noChildren.textContent;
+    searchParams.infants = noInfants.textContent;
     await fetch('../resources/iataCodes/internationalAirports.json')
         .then(res => res.json())
         .then(data => data.forEach(element=> {
