@@ -7,6 +7,7 @@ const prev_mth_element = document.querySelector('.date-picker .dates .month .pre
 const days_element = document.querySelector('.date-picker .dates .days');
 const depart_element = document.querySelector("#depDate")
 const return_element = document.querySelector("#retDate")
+const bodyEl = document.querySelector('body');
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -40,8 +41,12 @@ return_element.addEventListener("click",(e)=>{
 	date_picker_element.classList.add("show")
 })
 
-
-
+// removing date element on 'blur' FIX
+bodyEl.addEventListener('mouseup', e => {
+	if(!(e.target.classList.contains('next-mth') || e.target.classList.contains('prev-mth'))){
+		date_picker_element.classList.remove("show");
+	}
+})
 
 populateDates();
 
@@ -58,7 +63,7 @@ function goToNextMonth (e) {
 		year++;
 	}
 	mth_element.textContent = months[month] + ' ' + year;
-	populateDates();
+	populateDates(e);
 }
 
 function goToPrevMonth (e) {
@@ -68,7 +73,7 @@ function goToPrevMonth (e) {
 		year--;
 	}
 	mth_element.textContent = months[month] + ' ' + year;
-	populateDates();
+	populateDates(e);
 }
 
 function populateDates (e) {
@@ -95,8 +100,9 @@ function populateDates (e) {
 
 			activeDate.value = formatDate(selectedDate)
 			populateDates();
+			date_picker_element.classList.remove("show");
 		});
-		date_picker_element.classList.remove("show");
+		// date_picker_element.classList.remove("show");
 		days_element.appendChild(day_element);
 
 	}

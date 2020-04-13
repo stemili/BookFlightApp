@@ -122,6 +122,7 @@ main{
   color: white;
 }
 .col-ul > ul > li {
+  white-space: nowrap;
   list-style: none;
   height: 100%;
   cursor: pointer;
