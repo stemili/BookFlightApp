@@ -1,3 +1,4 @@
+
 .main-about-us{
     background-color: #060c21;
     text-align: center;
@@ -27,30 +28,33 @@
     font-style: italic;
     width: 40%;
     margin:auto;
+    margin-bottom: 2rem;
 }
 
 .about-us-grid{
     display: grid;
-    max-width: 1500px;
+    max-width: 1400px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2rem;
+    grid-gap: 2rem;
     padding: 2rem;
     margin: auto;
     
 }
 
 .about-box{
-    height: 60vh;
+    height: 35rem;
     width: 100%;
     background: var(--blublak);
     position: relative;
+    top: 0;
+    left: 0;
     z-index: 1;
+    transition: width 0.2s ease,height 0.2s ease,top 0.2s ease, left 0.2s ease,transform 10s ease;
 }
 
 .about-content > p {
     display: none;
 }
-
 
 .about-box::after{
     content: '';
@@ -65,17 +69,23 @@
 }
 
 .about-box:nth-child(1):after,
-.about-box:nth-child(1) >.about-content > .pop-up-button{
+.about-box:nth-child(1) >.about-content > .pop-up-button,
+.about-box:nth-child(1) > .about-shadow:before,
+.about-box:nth-child(1) > .about-shadow:after{
     background: linear-gradient(315deg, #ff0057, #e64a19);
 }
 
 .about-box:nth-child(2):after,
-.about-box:nth-child(2) >.about-content > .pop-up-button{
+.about-box:nth-child(2) >.about-content > .pop-up-button,
+.about-box:nth-child(2) > .about-shadow:before,
+.about-box:nth-child(2) > .about-shadow:after{
     background: linear-gradient(315deg, #89ff00, #00bcd4);
 }
 
 .about-box:nth-child(3):after,
-.about-box:nth-child(3) >.about-content > .pop-up-button{
+.about-box:nth-child(3) >.about-content > .pop-up-button,
+.about-box:nth-child(3) > .about-shadow:before,
+.about-box:nth-child(3) > .about-shadow:after{
     background: linear-gradient(315deg, #e91e63, #5d02ff);
 }
 
@@ -110,7 +120,7 @@
     z-index: -1;
     color: white;
     font-size: 3rem;
-    padding: 0.3rem;
+    padding: 1rem;
     transition: all 0.5s ease-out;
     
 }
@@ -141,6 +151,7 @@
 .about-content > img {
     max-height: 100%;
     max-width: 100%;
+    transition: all 1s linear;
 }
 
 .pop-up-button {
@@ -200,51 +211,110 @@
     cursor: pointer;
     font-size: 2rem;
 }
+/*/////////////////////////////////*/
 
 
-/*  //Pokusaj klase enlarge
+/*/////////////////////////////////*/
+.about-box:hover > .about-shadow{
+    opacity: 100;
+}
 
-.enlarge {
+.about-box:hover{
+    height: 101%;
+    width: 101%;
+    top: -1%;
+    left: -1%;
+}
+
+.about-shadow{
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
     position: absolute;
-    left: 0;
-    max-width: 1500px;
-    width: 330%;
-    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
-.enlarge > .about-content {
-    justify-content: start;
-}
-
-.enlarge > .about-content > button {
-    display: none;
-}
-
-.enlarge > .about-content::after {
-    font-size: 4rem;
-    top: 2rem;
-    right: 25%;
-    transform: translateX(50%);
-}
-
-.enlarge > .about-content > img {
-    position: relative;
-    left: 25%;
-    transform: translateX(-50%);
-}
-
-.enlarge > .about-content > p {
-    display: inline-block;
-    opacity: 100%;
-    color: white;
+.about-shadow:before,
+.about-shadow:after
+{
+    content: '';
     position: absolute;
-    top: 25%;
-    right: 25%;
-    transform: translateX(50%);
-    width: 10rem;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background-size: 100%;
+    animation: animateabout 2s linear infinite;
 }
 
-*/
+.about-shadow:after{
+    filter: blur(20px);
+}
+
+@keyframes animateabout {
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 100% 0;
+    }
+    0%{
+        background-position: 0 0;
+    }
+}
+
+@media(max-width:1300px){
+    .about-box{
+        height: 25rem;
+    }
+}
+
+@media(max-width:985px){
+    .about-us-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+    #about-veljko{
+        grid-column: 1/3;
+        justify-self: center;
+        width: 50%;
+    }
+    .about-box:hover{
+        width: auto;
+        height: 25rem;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media(max-width:670px){
+    .about-us-grid{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 0 20% 0 20%;
+    }
+
+    #about-veljko{
+        width: 100%;
+        grid-column: 1;
+    }
+    .about-box{
+        width: 100%;
+    }
+
+    .about-box:hover{
+        width: 100%;
+        height: 25rem;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media(max-width:500px){
+    .about-us-grid{
+        padding: 1rem;
+    }
+}
 
 
 

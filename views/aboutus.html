@@ -15,12 +15,11 @@
     <title>About Us!</title>
 </head>
 <body>
-    <div class="about-us-window animated fadeIn fast">
+    <div class="about-us-window">
         <div class="about-window-box">
             <div class="">123</div>
             <div class="about-exit">X</div>
         </div>
-        
     </div>
     <header class="header">
         <div class="container-header">
@@ -39,7 +38,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="../views/list.html">List</a></li>
                     <li><a href="">Custom</a></li>
-                    <li><a href="">About Us</a></li>
+                    <li><a href="../views/aboutus.html">About Us</a></li>
                     <li>
                         <div id="more-dropdown">
                             <a>More <i class="fas fa-caret-down"></i></a>
@@ -62,19 +61,21 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eaque impedit perspiciatis cum, expedita sint magni ea doloribus quasi assumenda molestiae molestias culpa nam illum in asperiores consequuntur id eius.</p>
         <div class="about-us-grid">
             <div class="about-box">
+                <div class="about-shadow"></div>
                 <div class="about-content">
-                    <img src="../resources/about/petar.png" alt="">
+                    <img src="../resources/about/petar.png" class="shrink" alt="">
                     <button class="pop-up-button" type="button">MORE INFO</button>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque natus beatae aperiam excepturi alias, tempora ipsam animi adipisci provident, error molestias blanditiis, magnam quos corporis. Deleniti nam pariatur quaerat veniam.</p>
                 </div>
             </div>
-            <div class="about-box">
+            <div class="about-box animated fadeInUp delay-1s">
+                <div class="about-shadow"></div>
                 <div class="about-content">
                     <img src="../resources/about/stefan.png" alt="">
                     <button class="pop-up-button" type="button">MORE INFO</button>
                 </div>
             </div>
-            <div class="about-box">
+            <div class="about-box animated fadeInRight delay-2s" id="about-veljko">
+                <div class="about-shadow"></div>
                 <div class="about-content">
                     <img src="../resources/about/veljko.png" alt="">
                     <button class="pop-up-button" type="button">MORE INFO</button>
