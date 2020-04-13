@@ -17,13 +17,13 @@
   outline: none;
 }
 
-body{
+body {
   background-color: #f8f8f8;
 }
 
 .form-container {
   /* background: url('../resources/list.jpg') no-repeat center center/cover; */
-  height: 40vh;
+  height: 50vh;
   width: 90%;
   max-width: 1100px;
   display: flex;
@@ -34,13 +34,11 @@ body{
   justify-content: center;
 }
 
-main{
-  min-height: 94.5vh ;
+main {
+  min-height: 94.5vh;
 }
 
-
-
-.slider-loader{
+.slider-loader {
   grid-column: span 3;
   height: 100%;
   width: 100%;
@@ -51,7 +49,7 @@ main{
   align-items: center;
 }
 
-.slider-loader > .spinner{
+.slider-loader > .spinner {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -60,52 +58,79 @@ main{
   animation: spin 1s infinite linear;
 }
 
-.center-warning{
+.center-warning {
   display: inline-block;
   margin: 0 auto;
   color: rgb(231, 216, 7);
   font-size: 2rem;
 }
 
-.center-notification{
+.center-notification {
   display: inline-block;
   margin: 0 auto;
   color: var(--green);
   font-size: 2rem;
 }
-.center-notification > i{
+.center-notification > i {
   font-size: 1.3rem;
 }
 
-
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-
-
-
-
 
 .search-options-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-items: center;
   align-items: center;
   background-color: var(--blublak);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  padding: 0.2rem 0.9rem;
+  font-size: 10px;
+}
+
+.col-trip {
+  grid-column: 1/3;
+}
+
+.col-travelers {
+  grid-column: 3/4;
+}
+
+.col-cabin {
+  grid-column: 4/6;
+  text-align: right;
+}
+
+.col-sort-by {
+  grid-column: 1/3;
+}
+.col-direct-flight {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 3/6;
+  text-align: right;
 }
 
 .search-options-grid > div {
   position: relative;
   cursor: pointer;
+  color: white;
+  width: 100%;
 }
 
 .search-options-grid > div > a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .col-ul {
@@ -122,6 +147,7 @@ main{
   color: white;
 }
 .col-ul > ul > li {
+  white-space: nowrap;
   list-style: none;
   height: 100%;
   cursor: pointer;
@@ -189,9 +215,72 @@ main{
   display: block;
 }
 
-.dates{
+.dates {
   z-index: 1;
 }
+.switch {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 12px;
+  margin-left: 6px;
+}
+
+.form {
+  width: 100%;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.521);
+  transition: 0.5s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  top: 2px;
+  left: 0px;
+  right: 1px;
+  background-color: var(--blublak);
+  transition: 0.5s;
+}
+
+.switch input{
+  position: absolute;
+  z-index: 5;
+  width: 30px;
+  right: 0px;
+  opacity: 0;
+}
+
+input:checked + .slider {
+  background-color: var(--green);
+}
+
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round::before {
+  width: 43%;
+  height: 43%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  transform: rotateZ(-45deg);
+}
+
+input:checked + .slider::before {
+  background-color: var(--blublak);
+  transform: translateX(13px) rotateZ(45deg);
+}
+
 
 #searchForm {
   display: grid;
@@ -205,7 +294,7 @@ main{
 
 #searchForm > div:not(.date-picker) {
   padding: 0.2rem;
-  height: 40px;
+  height: 45px;
   background-color: white;
   background-repeat: no-repeat;
   background-size: contain;
@@ -292,9 +381,7 @@ main{
   background: #64be9d;
 }
 
-
-
-.result-li{
+.result-li {
   z-index: -1;
   margin: 0 auto;
   max-width: 800px;
@@ -302,24 +389,24 @@ main{
   display: flex;
 }
 
-.date-li{
+.date-li {
   border-bottom: 1px solid #ccc;
-  padding-bottom: .2rem;
+  padding-bottom: 0.2rem;
 }
 
-.li-main{
+.li-main {
   background-color: #fff;
-  margin: .5rem;
-  margin-right: .2rem;
-  padding: .5rem;
+  margin: 0.5rem;
+  margin-right: 0.2rem;
+  padding: 0.5rem;
   width: 69.75%;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
 }
 
-.li-price{
+.li-price {
   position: relative;
-  margin: .5rem;
+  margin: 0.5rem;
   margin-left: 0rem;
   background-color: var(--green);
   padding-top: 2rem;
@@ -334,32 +421,31 @@ main{
   font-size: 2.5rem;
 }
 
-.li-price .price-amount{
+.li-price .price-amount {
   font-weight: 500;
   color: #fff;
 }
-.li-price .price-currency{
+.li-price .price-currency {
   font-size: 1.2rem;
   vertical-align: top;
   color: #fff;
 }
 
-.li-price > a{
+.li-price > a {
   font-size: 1rem;
   color: #166e16;
   text-decoration: none;
-  padding: .5rem 2rem .5rem;
+  padding: 0.5rem 2rem 0.5rem;
   border-radius: 5px;
   font-weight: 600;
   background-color: white;
-  transition: border-radius .2s;
+  transition: border-radius 0.2s;
 }
-.li-price > a:hover{
+.li-price > a:hover {
   border-radius: 0;
 }
 
-
-.li-flight-info{
+.li-flight-info {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   padding: 1rem 0 1rem;
@@ -367,12 +453,12 @@ main{
   position: relative;
 }
 
-.middle-line{
+.middle-line {
   grid-column: span 3;
   display: flex;
   align-items: center;
 }
-.middle-line > div{
+.middle-line > div {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -380,57 +466,58 @@ main{
   /* border-bottom: 3px solid red; */
 }
 
-.middle-line > div > div:first-child , .middle-line > div > div:last-child{
-  border-bottom: 1.5px solid var(--yellow); 
+.middle-line > div > div:first-child,
+.middle-line > div > div:last-child {
+  border-bottom: 1.5px solid var(--yellow);
   width: 100%;
-} 
-.middle-line > div > div:nth-child(2) > span:nth-child(2){
+}
+.middle-line > div > div:nth-child(2) > span:nth-child(2) {
   display: flex;
   justify-content: center;
   white-space: nowrap;
   min-width: 30px;
-  color: var(--blublak)
+  color: var(--blublak);
 }
 
-.middle-line > div > div:nth-child(2) > span:first-child{
+.middle-line > div > div:nth-child(2) > span:first-child {
   position: absolute;
-  top: .2rem;
+  top: 0.2rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.middle-line > div > div:nth-child(2) > span:last-child{
+.middle-line > div > div:nth-child(2) > span:last-child {
   position: absolute;
-  bottom: .2rem;
+  bottom: 0.2rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.location-li-dep, .location-li-arr{
+.location-li-dep,
+.location-li-arr {
   text-align: center;
 }
 
-
-.time-dep-li , .time-arr-li{
+.time-dep-li,
+.time-arr-li {
   font-size: 2rem;
 }
 
-
-.li-main > p:last-child{
-  padding: .5rem;
+.li-main > p:last-child {
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.class-li{
+.class-li {
   font-weight: 600;
   color: var(--blublak);
   background-color: var(--yellow);
-  padding: .3rem .5rem .3rem;
+  padding: 0.3rem 0.5rem 0.3rem;
 }
 
-.li-main > p:last-child > button{
+.li-main > p:last-child > button {
   text-transform: uppercase;
   outline: none;
   font-weight: 600;
@@ -438,30 +525,30 @@ main{
   color: var(--green);
   background-color: #fff;
   border: none;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
-.li-main > p:last-child > button > i{
-  font-size: .6rem;
+.li-main > p:last-child > button > i {
+  font-size: 0.6rem;
 }
-.li-main > p:last-child > button:hover > i{
+.li-main > p:last-child > button:hover > i {
   transform: translateY(3px);
-  transition: .2s;
+  transition: 0.2s;
 }
 
-.line-li-result{
-  width: .5%;
-  margin: .5rem 0 .5rem;
+.line-li-result {
+  width: 0.5%;
+  margin: 0.5rem 0 0.5rem;
   border-left: 1.5px dotted green;
 }
 
-.return-li{
+.return-li {
   white-space: nowrap;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  padding: .1rem 1rem .2rem;
-  font-size: .8rem;
+  padding: 0.1rem 1rem 0.2rem;
+  font-size: 0.8rem;
   background-color: var(--blublak);
   color: #fff;
   font-weight: 600;
@@ -470,14 +557,46 @@ main{
   display: none;
 }
 
-.show-return{
+.show-return {
   display: block;
 }
 
+.navigation-list {
+  color: var(--green);
+  font-size: 1.4rem;
+  margin: 0 auto;
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+}
 
+#page-id {
+  color: var(--blublak);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 
+.navigation-list > * {
+  padding: 0.5rem;
+}
 
+/* .fa-caret-left , .fa-caret-right{
+  padding: 1rem;
+} */
+.fa-caret-left:hover,
+.fa-caret-right:hover {
+  cursor: pointer;
+  color: var(--blublak);
+}
+.warning-arrow {
+  color: var(--red);
+  transition: color 0.4s;
+}
 
+/* Marking nav location on header */
+.header-nav-ul > li:nth-child(2) > a {
+  border-bottom: 3px solid var(--yellow);
+}
 
 @media (min-width: 500px) {
   .departureDate {
@@ -491,13 +610,34 @@ main{
   .form-container.one-way .departureDate {
     grid-column: 1/7;
   }
+
+  .search-options-grid {
+    font-size: 12px;
+  }
+  .col-trip {
+    grid-column: 1;
+  }
+
+  .col-travelers {
+    grid-column: 2;
+  }
+
+  .col-cabin {
+    grid-column: 3;
+    text-align: left;
+  }
+
+  .col-sort-by {
+    grid-column: 4/6;
+  }
+  .col-direct-flight {
+    grid-column: 1/7;
+    justify-content: left;
+    text-align: left;
+  }
 }
 
 @media (min-width: 768px) {
-  .form-container {
-    width: 80%;
-  }
-
   .fromDestination {
     grid-column: 1/4;
   }
@@ -516,11 +656,27 @@ main{
   .toDestination {
     grid-column: 5/7;
   }
+  .search-options-grid {
+    font-size: 1rem;
+  }
+  .col-sort-by {
+    grid-column: 4;
+  }
+  .col-direct-flight {
+    grid-column: 5;
+    text-align: center;
+  }
 }
 
 @media (min-width: 985px) {
   .form-container {
     flex-direction: row;
+  }
+  .search-options-grid > div {
+    color: black;
+  }
+  .search-options-grid > div > a {
+    color: black;
   }
   #searchForm {
     display: flex;
@@ -536,6 +692,7 @@ main{
 
   .search-options-grid {
     background-color: transparent;
+    font-size: 1rem;
   }
 
   .fromDestination {
@@ -553,7 +710,7 @@ main{
     width: 25%;
   }
 
-  .form-container.one-way .departureDate{
+  .form-container.one-way .departureDate {
     width: 44%;
   }
   .departureDate {
