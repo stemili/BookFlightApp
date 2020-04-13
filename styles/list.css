@@ -105,7 +105,7 @@ main{
 
 .search-options-grid > div > a {
   text-decoration: none;
-  color: black;
+  color: #333;
 }
 
 .col-ul {
@@ -206,7 +206,7 @@ main{
 
 #searchForm > div:not(.date-picker) {
   padding: 0.2rem;
-  height: 40px;
+  height: 45px;
   background-color: white;
   background-repeat: no-repeat;
   background-size: contain;
@@ -473,6 +473,37 @@ main{
 
 .show-return{
   display: block;
+}
+
+.navigation-list {
+  color: var(--green);
+  font-size: 1.4rem;
+  margin: 0 auto;
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#page-id{
+  color: var(--blublak);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.navigation-list > * {
+  padding: .5rem;
+}
+
+/* .fa-caret-left , .fa-caret-right{
+  padding: 1rem;
+} */
+.fa-caret-left:hover , .fa-caret-right:hover{
+  cursor: pointer;
+  color: var(--blublak)
+}
+.warning-arrow{
+  color: var(--red);
+  transition: color .4s;
 }
 
 

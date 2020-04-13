@@ -7,14 +7,49 @@ const noAdults = document.getElementById('noOfAdults');
 const noChildren = document.getElementById('noOfChildren');
 const noInfants = document.getElementById('noOfInfants');
 
-
-//request direct flight
-
 const ulSearchDisplay = document.getElementById('resultList');
 
 const searchForm = document.getElementById('searchForm');
 
 const mainSubmitBtn = document.getElementById('submitBtn');
+
+
+let start = 0,
+    end = 5,
+    pageId = 1;
+
+ulSearchDisplay.addEventListener('click', handleNavigationArrows);
+
+
+function handleNavigationArrows(e){
+    if(e.target.classList.contains('fa-caret-left')){
+        if(start > 0 && end > 5){
+            start -= 5;
+            end -= 5;
+            pageId--;
+            loadFlightResults(searchResults.slice(start,end));
+        } else {
+            e.target.classList.add('warning-arrow');
+            setTimeout(()=>{
+                e.target.classList.remove('warning-arrow');
+            },1000)
+        }
+        
+    } else if(e.target.classList.contains('fa-caret-right')){
+        if(end < searchResults.length){
+            start += 5;
+            end += 5;
+            pageId++;
+            loadFlightResults(searchResults.slice(start,end));
+        }
+        
+    }
+}
+
+
+
+
+
 
 mainSubmitBtn.addEventListener('click', handleSearchSubmit);
 searchForm.addEventListener('submit', e =>{
@@ -22,6 +57,8 @@ searchForm.addEventListener('submit', e =>{
 })
 
 const searchParams = {};
+
+let searchResults = [];
 
 const cabins = {
     'M' : 'Economy',
@@ -58,6 +95,7 @@ async function handleSearchSubmit(e){
     searchParams.adults = noAdults.textContent;
     searchParams.children = noChildren.textContent;
     searchParams.infants = noInfants.textContent;
+    searchParams.sort = 'quality';
     await fetch('../resources/iataCodes/internationalAirports.json')
         .then(res => res.json())
         .then(data => data.forEach(element=> {
@@ -72,12 +110,13 @@ async function handleSearchSubmit(e){
             }
         }))
     
-    fetch(`https://api.skypicker.com/flights?partner=picky&fly_from=${searchParams.iataFrom.join(',')}&to=${searchParams.iataTo.join(',')}&direct_flights=${searchParams.direct}&date_from=${searchParams.depDate}&date_to=${searchParams.depDate}&return_from=${searchParams.retDate}&return_to=${searchParams.retDate}&selected_cabins=${searchParams.selected_cabins}&adults=${searchParams.adults}&children=${searchParams.children}&infants=${searchParams.infants}&sort=quality&limit=50`)
+    fetch(`https://api.skypicker.com/flights?partner=picky&fly_from=${searchParams.iataFrom.join(',')}&to=${searchParams.iataTo.join(',')}&direct_flights=${searchParams.direct}&date_from=${searchParams.depDate}&date_to=${searchParams.depDate}&return_from=${searchParams.retDate}&return_to=${searchParams.retDate}&selected_cabins=${searchParams.selected_cabins}&adults=${searchParams.adults}&children=${searchParams.children}&infants=${searchParams.infants}&sort=${searchParams.sort}&limit=100`)
         .then(response => response.json())
         .then(data => {
             console.log(data.data)
             if(data.data.length !== 0){
-                loadFlightResults(data.data);
+                searchResults = data.data;
+                loadFlightResults(data.data.slice(start,end));
             } else {
                 ulSearchDisplay.innerHTML = `
                     <div class='slider-loader'>
@@ -88,6 +127,7 @@ async function handleSearchSubmit(e){
             
         })
         .catch(error => {
+            console.log(error);
             ulSearchDisplay.innerHTML = `
             <div class='slider-loader'>
                 <p class='center-warning'>Please Provide Valid Data <i class="fas fa-exclamation-triangle"></i></p>
@@ -98,6 +138,7 @@ async function handleSearchSubmit(e){
 
 
 function loadFlightResults(data){
+    
     let dfResults = new DocumentFragment();
     data.forEach(ticket => {
         let newItem = document.createElement('li');
@@ -105,10 +146,14 @@ function loadFlightResults(data){
         let stops;
         if(ticket.routes.length === 2  && ticket.route.length === 2){
             stops = 'Direct Flights';
+        } else if (ticket.routes.length === 2  && ticket.route.length > 2){
+            stops = `${ticket.route.length-2} Stopovers`
         } else if(ticket.routes.length === 1  && ticket.route.length === 1){
             stops = "Direct"
+        } else if(ticket.routes.length === 1  && ticket.route.length > 1){
+            stops = `${ticket.route.length-1} Stopovers`
         } else {
-            stops = `${ticket.routes[0].length} stops`;
+            stops = `${ticket.route.length} STOPS`;
         }
         newItem.innerHTML = `
             <div class="li-main">
@@ -134,7 +179,7 @@ function loadFlightResults(data){
                             <p><span class="city-arr-li">${ticket.cityTo}</span> <span class="airport-arr-li">${ticket.flyTo}</span></p>
                         </div>
                       </div>
-                      <p><span class="class-li">${cabins[searchParams.selected_cabins]}</span> <button>More<i class="fas fa-chevron-down"></i></button></p>
+                      <p><span class="class-li">${cabins[searchParams.selected_cabins]}</span> </p>
                   </div>
                   <span class="line-li-result"></span>
                   <div class="li-price">
@@ -145,6 +190,16 @@ function loadFlightResults(data){
         `;
         dfResults.appendChild(newItem);
     })
+    let navigationList = document.createElement('div');
+    navigationList.classList.add('navigation-list')
+    navigationList.innerHTML = `
+        <i class="fas fa-caret-left"></i> 
+        <i class="fas fa-ellipsis-h"></i>
+        <p id='page-id'>${pageId}</p> 
+        <i class="fas fa-ellipsis-h"></i>
+        <i class="fas fa-caret-right"></i> 
+    `;
+    dfResults.appendChild(navigationList);
     ulSearchDisplay.innerHTML = '';
     ulSearchDisplay.appendChild(dfResults);
 }
