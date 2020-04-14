@@ -52,15 +52,22 @@ main {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 0.2rem 0.9rem;
-  font-size: 14px;
+  font-size: .9rem;
+  gap: .6rem;
+  margin-bottom: -.1rem;
+}
+.search-options-grid > *{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .col-trip {
-  grid-column: 1/4;
+  grid-row: 1;
+  grid-column: 4/7;
 }
 
 .col-travelers {
-  grid-column: 4/7;
+  grid-row: 1;
+  grid-column: 1/4;
 }
 
 .col-cabin {
@@ -672,7 +679,7 @@ input:checked + .slider::before {
     transform: rotate(360deg);
   }
 }
-
+s
 
 
 
@@ -687,6 +694,7 @@ input:checked + .slider::before {
 
 
 @media (min-width: 500px) {
+
   .departureDate {
     grid-column: 1/4;
   }
@@ -743,6 +751,10 @@ input:checked + .slider::before {
 
 
 @media (min-width: 768px) {
+
+  .search-options-grid > *{
+    border-bottom: none;
+  }
   .center-notification {
     font-size: 2rem;
   }
