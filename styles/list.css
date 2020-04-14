@@ -291,7 +291,7 @@ input:checked + .slider::before {
 .fromDestination {
   position: relative;
   grid-column: 1/6;
-  background-image: url("/resources/formFromIcon.png");
+  background-image: url("../resources/formFromIcon.png");
 }
 
 .switchBtn {
@@ -321,12 +321,12 @@ input:checked + .slider::before {
 .toDestination {
   position: relative;
   grid-column: 1/7;
-  background-image: url("/resources/formToIcon.png");
+  background-image: url("../resources/formToIcon.png");
 }
 
 .departureDate {
   grid-column: 1/7;
-  background-image: url("/resources/fromDateFormIcon.png");
+  background-image: url("../resources/fromDateFormIcon.png");
 }
 
 .form-container.one-way .returnDate {
@@ -338,7 +338,7 @@ input:checked + .slider::before {
 
 .returnDate {
   grid-column: 1/7;
-  background-image: url("/resources/toDateFormIcon.png");
+  background-image: url("../resources/toDateFormIcon.png");
 }
 
 #submitBtn {
@@ -694,12 +694,12 @@ input:checked + .slider::before {
     transform: rotate(360deg);
   }
 }
-s
+
 
 
 
 /* Marking nav location on header */
-.header-nav-ul > li:nth-child(2) > a {
+.header-nav-ul  li:nth-child(2)  a {
   border-bottom: 3px solid var(--yellow);
 }
 
