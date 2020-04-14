@@ -124,7 +124,6 @@ main {
 
 .search-options-grid > div {
   position: relative;
-  cursor: pointer;
   color: white;
   width: 100%;
 }
@@ -132,6 +131,7 @@ main {
 .search-options-grid > div > a {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 .col-ul {
@@ -259,12 +259,14 @@ main {
   transition: 0.5s;
 }
 
-.switch input{
+.switch input {
   position: absolute;
   z-index: 5;
   width: 30px;
   right: 0px;
   opacity: 0;
+  cursor: pointer
+
 }
 
 input:checked + .slider {
@@ -287,7 +289,6 @@ input:checked + .slider::before {
   background-color: var(--blublak);
   transform: translateX(13px) rotateZ(45deg);
 }
-
 
 #searchForm {
   display: grid;
@@ -579,8 +580,6 @@ input:checked + .slider::before {
   justify-content: space-between;
 }
 
-
-
 #page-id {
   color: var(--blublak);
   font-size: 1.2rem;
@@ -663,6 +662,7 @@ input:checked + .slider::before {
     grid-column: 1/7;
     justify-content: left;
     text-align: left;
+    cursor: context-menu;
   }
 }
 
