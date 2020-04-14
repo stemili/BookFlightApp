@@ -7,6 +7,7 @@ const noAdults = document.getElementById('noOfAdults');
 const noChildren = document.getElementById('noOfChildren');
 const noInfants = document.getElementById('noOfInfants');
 
+
 const ulSearchDisplay = document.getElementById('resultList');
 
 const searchForm = document.getElementById('searchForm');
@@ -17,49 +18,8 @@ const mainSubmitBtn = document.getElementById('submitBtn');
 let start = 0,
     end = 5,
     pageId = 1;
-
-ulSearchDisplay.addEventListener('click', handleNavigationArrows);
-
-
-function handleNavigationArrows(e){
-    if(e.target.classList.contains('fa-caret-left')){
-        if(start > 0 && end > 5){
-            start -= 5;
-            end -= 5;
-            pageId--;
-            loadFlightResults(searchResults.slice(start,end));
-        } else {
-            e.target.classList.add('warning-arrow');
-            setTimeout(()=>{
-                e.target.classList.remove('warning-arrow');
-            },1000)
-        }
-        
-    } else if(e.target.classList.contains('fa-caret-right')){
-        if(end < searchResults.length){
-            start += 5;
-            end += 5;
-            pageId++;
-            loadFlightResults(searchResults.slice(start,end));
-        }
-        
-    }
-}
-
-
-
-
-
-
-mainSubmitBtn.addEventListener('click', handleSearchSubmit);
-searchForm.addEventListener('submit', e =>{
-    e.preventDefault();
-})
-
 const searchParams = {};
-
 let searchResults = [];
-
 const cabins = {
     'M' : 'Economy',
     'W' : 'E-Premium',
@@ -75,8 +35,10 @@ const reverseCabins = {
 
 
 async function handleSearchSubmit(e){
+    pageId = 1;
+    start = 0;
+    end = 5;
     e.preventDefault();
-
     ulSearchDisplay.innerHTML = `
             <ul class="slider-cards">
                 <div class="slider-loader">
@@ -84,18 +46,18 @@ async function handleSearchSubmit(e){
                 </div>
             </ul>
     `;
+    let sortByS = document.querySelector('.col-sort-by a').textContent.slice(8,).trim().toLowerCase();
 
     searchParams.depDate = depDate.value;
     searchParams.retDate = returnDate.value;
     searchParams.iataFrom = [];
     searchParams.iataTo = [];
-    searchParams.direct = 0; //static direct flight
-    searchParams.round = 0; // static round flight
+    searchParams.direct = (document.getElementById('searchCheckbox').checked) ? 1 : 0; // direct flight === 1
     searchParams.selected_cabins = reverseCabins[cabinClass.textContent.trim()]; //cabin selection [M, W, C, F]
     searchParams.adults = noAdults.textContent;
     searchParams.children = noChildren.textContent;
     searchParams.infants = noInfants.textContent;
-    searchParams.sort = 'quality';
+    searchParams.sort = sortByS ? sortByS : 'quality';
     await fetch('../resources/iataCodes/internationalAirports.json')
         .then(res => res.json())
         .then(data => data.forEach(element=> {
@@ -218,6 +180,41 @@ function addZero(i) {
     }
     return i;
   }
+
+  function handleNavigationArrows(e){
+    if(e.target.classList.contains('fa-caret-left')){
+        if(start > 0 && end > 5){
+            start -= 5;
+            end -= 5;
+            pageId--;
+            loadFlightResults(searchResults.slice(start,end));
+        } else {
+            e.target.classList.add('warning-arrow');
+            setTimeout(()=>{
+                e.target.classList.remove('warning-arrow');
+            },1000)
+        }
+        
+    } else if(e.target.classList.contains('fa-caret-right')){
+        if(end < searchResults.length){
+            start += 5;
+            end += 5;
+            pageId++;
+            loadFlightResults(searchResults.slice(start,end));
+        }
+        
+    }
+}
+
+
+
+ulSearchDisplay.addEventListener('click', handleNavigationArrows);
+
+mainSubmitBtn.addEventListener('click', handleSearchSubmit);
+
+searchForm.addEventListener('submit', e =>{
+    e.preventDefault();
+})
 
 
 //formating JSON file
