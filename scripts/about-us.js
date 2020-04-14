@@ -1,18 +1,23 @@
 (function (){
     const moreInfoButtons = document.querySelectorAll(".pop-up-button");
-    [...moreInfoButtons].forEach(button => button.addEventListener("click",moreInfo));
-    const aboutExitButton = document.querySelector(".about-exit").addEventListener("click",moreInfoClose);
+    const closeInfoButtons = document.querySelectorAll("#about-close-button");
+    [...closeInfoButtons].forEach(button => button.addEventListener("click",moreInfo));
+    [...moreInfoButtons].forEach(button => {if(button.id !== "about-close-button")button.addEventListener("click",moreInfo)});
 })()
 
 function moreInfo(e){
-    //const aboutWindow = document.querySelector(".about-us-window");
-    //aboutWindow.style.display = "flex";
-    //aboutWindow.style.opacity = "100";
-    console.log(this);
-}
+    if(this.textContent !== "CLOSE"){
+    this.parentNode.parentNode.style.transform = "rotateY(180deg)";
+    this.parentNode.nextElementSibling.addEventListener("mouseleave",handleMouseOut);
+    }
+    else
+    this.parentNode.parentNode.style.transform = "rotateY(0deg)";
 
-function moreInfoClose(e){
-    const aboutWindow = document.querySelector(".about-us-window");
-    aboutWindow.style.display = "none";
     
 }
+
+function handleMouseOut(e){
+    this.parentNode.style.transform = "rotateY(0deg)";
+    this.removeEventListener("mouseleave",handleMouseOut);
+}
+

@@ -38,10 +38,6 @@ footer {
     font-size: 2.5rem;
 }
 
-.statistic:nth-child(odd) {
-    color: var(--yellow)
-}
-
 .statistic-inner-text > span{
     display: block;
     height: auto;
@@ -109,7 +105,7 @@ footer {
 }
 
 .footer-icon > i:hover{
-    color: var(--yellow);
+    color: var(--green);
 }
 
 .footer-buttons > button {
@@ -129,7 +125,7 @@ footer {
 }
 
 .footer-buttons > button:hover {
-    background-color: var(--yellow);
+    background-color: var(--green);
 }
 
 #like{
