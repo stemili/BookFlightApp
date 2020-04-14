@@ -1,10 +1,25 @@
-.header-nav-ul  li:nth-child(4)  a {
-    border-bottom: 3px solid var(--yellow);
+:root{
+    --yellow: #fcc911;
+    --blublak: #3f3d56;
+    --pink: #f2b0b0;
+    --dark-pink: #e58787;
+    --green: #57b894;
+    --red: #ff6584;
+    --purple: #6d087a;
 }
 
-.header-nav-ul  li:nth-child(1)  a {
-    border-bottom: none;
-  }
+/* RESETTING DEFAULTS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+.header-nav-ul > li:nth-child(4) > a {
+    border-bottom: 3px solid var(--yellow);
+}
 
 .main-about-us{
     min-height: 105vh;
