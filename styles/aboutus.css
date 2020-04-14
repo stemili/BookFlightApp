@@ -1,3 +1,11 @@
+.header-nav-ul  li:nth-child(4)  a {
+    border-bottom: 3px solid var(--yellow);
+}
+
+.header-nav-ul  li:nth-child(1)  a {
+    border-bottom: none;
+  }
+
 .main-about-us{
     min-height: 105vh;
     background-color: #060c21;
