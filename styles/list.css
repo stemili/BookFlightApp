@@ -17,12 +17,13 @@
   outline: none;
 }
 
-body {
-  background-color: #f8f8f8;
+body{
+    background: url('../resources/listBack2.jpg') no-repeat bottom right;
+    background-attachment: fixed;
+    background-color: #f8f8f8;
 }
 
 .form-container {
-  /* background: url('../resources/list.jpg') no-repeat center center/cover; */
   height: 50vh;
   width: 90%;
   max-width: 1100px;
@@ -42,7 +43,6 @@ main {
   grid-column: span 3;
   height: 100%;
   width: 100%;
-  background-color: #f8f8f8;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -62,17 +62,18 @@ main {
   display: inline-block;
   margin: 0 auto;
   color: rgb(231, 216, 7);
-  font-size: 2rem;
+  font-size: 2.6rem;
 }
 
 .center-notification {
   display: inline-block;
   margin: 0 auto;
   color: var(--green);
-  font-size: 2rem;
+  font-size: 2.6rem;
+  font-weight: bold;
 }
 .center-notification > i {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 @keyframes spin {
@@ -93,32 +94,31 @@ main {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 0.2rem 0.9rem;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .col-trip {
-  grid-column: 1/3;
+  grid-column: 1/4;
 }
 
 .col-travelers {
-  grid-column: 3/4;
+  grid-column: 4/7;
 }
 
 .col-cabin {
-  grid-column: 4/6;
-  text-align: right;
+  grid-row: 2/3;
+  grid-column: 1/4;
 }
 
 .col-sort-by {
-  grid-column: 1/3;
+  grid-column: 4/7;
 }
 .col-direct-flight {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  grid-column: 3/6;
-  text-align: right;
+  grid-column: 1/7;
 }
 
 .search-options-grid > div {
@@ -137,7 +137,7 @@ main {
   top: 0;
   z-index: 10;
   position: absolute;
-  background-color: var(--green);
+  background-color: #4d4a6b;
   border-radius: 5px;
   width: 100px;
 }
@@ -147,6 +147,7 @@ main {
   color: white;
 }
 .col-ul > ul > li {
+  border-bottom: 1px solid var(--blublak);
   white-space: nowrap;
   list-style: none;
   height: 100%;
@@ -155,7 +156,11 @@ main {
   padding: 0.6rem;
 }
 
-.col-ul > ul > li:first-child:hover {
+.col-ul > ul > li:last-child {
+  border-bottom: none;
+}
+
+/* .col-ul > ul > li:first-child:hover {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -163,10 +168,10 @@ main {
 .col-ul > ul > li:last-of-type:hover {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-}
+} */
 
 .col-ul > ul > li:hover {
-  background-color: #2a8362;
+  background-color: var(--blublak);
 }
 
 .col-ul.travelers {
@@ -177,7 +182,7 @@ main {
 }
 
 .travelers > ul > li:hover {
-  background-color: var(--green);
+  background-color: var(--blublak);
 }
 
 .col-left span {
@@ -190,11 +195,12 @@ main {
 }
 
 .col-right > button {
-  height: 20px;
-  width: 20px;
-  text-align: text-top;
+  height: 25px;
+  width: 25px;
   cursor: pointer;
   border: none;
+  border-radius: 50%;
+  font-weight: 600;
 }
 
 .col-right > button:hover {
@@ -368,14 +374,16 @@ input:checked + .slider::before {
 }
 
 #submitBtn {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  padding: 0.3rem;
+  margin-top: .5rem;
   text-align: center;
-  margin: 0.5rem;
   border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: .7rem 1rem .7rem;
   background: var(--green);
+  border-radius: 10px;
+  box-shadow: 2px 2px 12px rgba(63, 63, 63, 0.692);
 }
 
 #submitBtn:hover {
@@ -594,6 +602,24 @@ input:checked + .slider::before {
   transition: color 0.4s;
 }
 
+
+
+.li-delay-1{
+  animation-delay: 100ms;
+}
+.li-delay-2{
+  animation-delay: 200ms;
+}
+.li-delay-3{
+  animation-delay: 300ms;
+}
+.li-delay-4{
+  animation-delay: 400ms;
+}
+.li-delay-5{
+  animation-delay: 500ms;
+}
+
 /* Marking nav location on header */
 .header-nav-ul > li:nth-child(2) > a {
   border-bottom: 3px solid var(--yellow);
@@ -612,31 +638,8 @@ input:checked + .slider::before {
     grid-column: 1/7;
   }
 
-  .search-options-grid {
-    font-size: 12px;
-  }
-  .col-trip {
-    grid-column: 1;
-  }
-
-  .col-travelers {
-    grid-column: 2;
-  }
-
-  .col-cabin {
-    grid-column: 3;
-    text-align: left;
-  }
-
-  .col-sort-by {
-    grid-column: 4/6;
-  }
-  .col-direct-flight {
-    grid-column: 1/7;
-    justify-content: left;
-    text-align: left;
-    cursor: context-menu;
-  }
+  
+  
 }
 
 @media (min-width: 768px) {
@@ -661,6 +664,19 @@ input:checked + .slider::before {
   .search-options-grid {
     font-size: 1rem;
   }
+  .col-trip{
+    grid-column: 1;
+  }
+
+  .col-travelers{
+    grid-column: 2;
+  }
+
+  .col-cabin{
+    grid-row: 1/2;
+    grid-column: 3;
+  }
+  
   .col-sort-by {
     grid-column: 4;
   }
@@ -671,29 +687,16 @@ input:checked + .slider::before {
 }
 
 @media (min-width: 985px) {
-  .form-container {
-    flex-direction: row;
-  }
-  .search-options-grid > div {
-    color: black;
-  }
-  .search-options-grid > div > a {
-    color: black;
-  }
+  
   #searchForm {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding: 0.2rem;
-    border-radius: 5px;
   }
 
-  #submitBtn {
-    margin-top: 25px;
-  }
 
   .search-options-grid {
-    background-color: transparent;
     font-size: 1rem;
   }
 
