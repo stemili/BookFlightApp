@@ -713,7 +713,7 @@ input:checked + .slider::before {
 
 
 /* Marking nav location on header */
-.header-nav-ul  li:nth-child(2)  a {
+.header-nav-ul > li:nth-child(2)  a {
   border-bottom: 3px solid var(--yellow);
 }
 
