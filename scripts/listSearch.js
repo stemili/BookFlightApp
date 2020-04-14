@@ -138,11 +138,13 @@ async function handleSearchSubmit(e){
 
 
 function loadFlightResults(data){
-    
+    let delay = 1;
     let dfResults = new DocumentFragment();
     data.forEach(ticket => {
         let newItem = document.createElement('li');
         newItem.classList.add('result-li');
+        newItem.classList.add('animated' , 'fadeInLeft' , `li-delay-${delay}`);
+        delay++;
         let stops;
         if(ticket.routes.length === 2  && ticket.route.length === 2){
             stops = 'Direct Flights';
