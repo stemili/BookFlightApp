@@ -17,12 +17,14 @@
   outline: none;
 }
 
-body {
-  background-color: #f8f8f8;
+body{
+    /* background-image: url('../resources/listBack.jpg'); */
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #f8f8f8;
 }
 
 .form-container {
-  /* background: url('../resources/list.jpg') no-repeat center center/cover; */
   height: 50vh;
   width: 90%;
   max-width: 1100px;
@@ -593,6 +595,24 @@ input:checked + .slider::before {
 .warning-arrow {
   color: var(--red);
   transition: color 0.4s;
+}
+
+
+
+.li-delay-1{
+  animation-delay: 100ms;
+}
+.li-delay-2{
+  animation-delay: 200ms;
+}
+.li-delay-3{
+  animation-delay: 300ms;
+}
+.li-delay-4{
+  animation-delay: 400ms;
+}
+.li-delay-5{
+  animation-delay: 500ms;
 }
 
 /* Marking nav location on header */
