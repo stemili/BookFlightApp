@@ -222,7 +222,6 @@ function $(selector) {
       ul.parentElement.classList.add("hide");
       let optionForChange = ul.parentElement.parentElement.children[0];
       if (ul === sortByUl) {
-        console.log("test");
         optionForChange.textContent = `Sort by: ${li.textContent} `;
       } else {
         optionForChange.textContent = li.textContent + " ";

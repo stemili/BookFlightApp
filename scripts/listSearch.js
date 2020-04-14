@@ -9,10 +9,10 @@ const noInfants = document.getElementById('noOfInfants');
 
 
 const ulSearchDisplay = document.getElementById('resultList');
-
 const searchForm = document.getElementById('searchForm');
-
+const autocompleteSelect = document.querySelectorAll('.autocomplete');
 const mainSubmitBtn = document.getElementById('submitBtn');
+const formContainerList = document.querySelector('.form-container');
 
 
 let start = 0,
@@ -34,6 +34,7 @@ const reverseCabins = {
 }
 
 
+
 async function handleSearchSubmit(e){
     pageId = 1;
     start = 0;
@@ -46,6 +47,9 @@ async function handleSearchSubmit(e){
                 </div>
             </ul>
     `;
+
+    formContainerList.classList.add('search-small-form');
+
     let sortByS = document.querySelector('.col-sort-by a').textContent.slice(8,).trim().toLowerCase();
 
     searchParams.depDate = depDate.value;
@@ -61,8 +65,8 @@ async function handleSearchSubmit(e){
     await fetch('../resources/iataCodes/internationalAirports.json')
         .then(res => res.json())
         .then(data => data.forEach(element=> {
-            let regexFrom = new RegExp(cityFrom.value, 'i');
-            let regexTo = new RegExp(cityTo.value, 'i');
+            let regexFrom = new RegExp('^'+cityFrom.value, 'i');
+            let regexTo = new RegExp('^'+cityTo.value, 'i');
 
             if(regexFrom.test(element.city)){
                 searchParams.iataFrom.push(element.iata);
@@ -75,7 +79,6 @@ async function handleSearchSubmit(e){
     fetch(`https://api.skypicker.com/flights?partner=picky&fly_from=${searchParams.iataFrom.join(',')}&to=${searchParams.iataTo.join(',')}&direct_flights=${searchParams.direct}&date_from=${searchParams.depDate}&date_to=${searchParams.depDate}&return_from=${searchParams.retDate}&return_to=${searchParams.retDate}&selected_cabins=${searchParams.selected_cabins}&adults=${searchParams.adults}&children=${searchParams.children}&infants=${searchParams.infants}&sort=${searchParams.sort}&limit=100`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.data)
             if(data.data.length !== 0){
                 searchResults = data.data;
                 loadFlightResults(data.data.slice(start,end));
@@ -89,7 +92,7 @@ async function handleSearchSubmit(e){
             
         })
         .catch(error => {
-            console.log(error);
+            console.log('Locations and First Date Inputs are Mandatory... Also check if your return date is higher then first departure date');
             ulSearchDisplay.innerHTML = `
             <div class='slider-loader'>
                 <p class='center-warning'>Please Provide Valid Data <i class="fas fa-exclamation-triangle"></i></p>
@@ -206,6 +209,57 @@ function addZero(i) {
     }
 }
 
+function handleSearch(e){
+    autocompleteFrom = [];
+    if(e.target.value !== ''){
+        fetch('../resources/iataCodes/internationalAirports.json')
+        .then(res => res.json())
+        .then(data => {
+            let results = [];
+            let regex = new RegExp('^'+e.target.value, 'i');
+            for(element of data){
+                if(regex.test(element.city)){
+                    results.push(element.city);
+                }
+                if(results.length > 3){
+                    break;
+                }
+            }
+            return results;
+        })
+        .then(results => {
+            e.target.nextElementSibling.classList.remove('hide-autocomp');
+            let dfResults = new DocumentFragment();
+            if(results.length>0){
+                results.forEach(result=>{
+                    let newRes = document.createElement('li');
+                    newRes.textContent = result;
+                    dfResults.appendChild(newRes);
+                })
+                e.target.nextElementSibling.innerHTML = '';
+                e.target.nextElementSibling.appendChild(dfResults);
+            } else {
+                e.target.nextElementSibling.innerHTML = '<p class="no-result">No Results</p>';
+            }
+            
+        })
+    } else {
+        e.target.nextElementSibling.innerHTML = '';
+        e.target.nextElementSibling.classList.add('hide-autocomp');
+    }
+}
+
+function handleBlur(e){
+    setTimeout(()=>{
+        e.target.nextElementSibling.classList.add('hide-autocomp');
+    },100)
+}
+
+function passSearchResult(e){
+    e.target.parentElement.previousElementSibling.value = e.target.textContent;
+}
+
+
 
 
 ulSearchDisplay.addEventListener('click', handleNavigationArrows);
@@ -216,7 +270,15 @@ searchForm.addEventListener('submit', e =>{
     e.preventDefault();
 })
 
+cityFrom.addEventListener('keyup', handleSearch)
+cityFrom.addEventListener('blur', handleBlur)
 
+cityTo.addEventListener('keyup', handleSearch)
+cityTo.addEventListener('blur', handleBlur)
+
+autocompleteSelect.forEach(element =>{
+    element.addEventListener('click', passSearchResult);
+})
 //formating JSON file
 // fetch('../resources/iataCodes/airports.json')
 //         .then(response => response.json())
