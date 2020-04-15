@@ -659,7 +659,7 @@ input:checked + .slider::before {
   grid-column: span 2;
   height: 100%;
   width: 100%;
-  z-index: 10;
+  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
