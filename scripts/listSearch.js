@@ -122,6 +122,7 @@ function loadFlightResults(data){
         } else {
             stops = `${ticket.route.length} STOPS`;
         }
+        let flightsDurations = ticket.return_duration ? `${ticket.fly_duration} + ${ticket.return_duration}` : ticket.fly_duration;
         newItem.innerHTML = `
             <div class="li-main">
                       <p class="date-li"><i class="far fa-calendar-alt"></i> ${(new Date(ticket.dTime * 1000)).toDateString().slice(0,10)}</p>
@@ -134,7 +135,7 @@ function loadFlightResults(data){
                             <div>
                                 <div></div>
                                 <div>
-                                    <span>${ticket.fly_duration}</span>
+                                    <span>${flightsDurations}</span>
                                     <span><i class="fas fa-plane"></i></span>
                                     <span>${stops}</i></span>
                                 </div>
@@ -158,14 +159,18 @@ function loadFlightResults(data){
         dfResults.appendChild(newItem);
     })
     let navigationList = document.createElement('div');
-    navigationList.classList.add('navigation-list')
-    navigationList.innerHTML = `
+    navigationList.classList.add('navigation-list');
+    console.log(searchResults);
+    if(searchResults.length > 5){
+        navigationList.innerHTML = `
         <i class="fas fa-caret-left"></i> 
         <i class="fas fa-ellipsis-h"></i>
         <p id='page-id'>${pageId}</p> 
         <i class="fas fa-ellipsis-h"></i>
         <i class="fas fa-caret-right"></i> 
     `;
+    }
+    
     dfResults.appendChild(navigationList);
     ulSearchDisplay.innerHTML = '';
     ulSearchDisplay.appendChild(dfResults);
@@ -252,7 +257,7 @@ function handleSearch(e){
 function handleBlur(e){
     setTimeout(()=>{
         e.target.nextElementSibling.classList.add('hide-autocomp');
-    },100)
+    },300)
 }
 
 function passSearchResult(e){

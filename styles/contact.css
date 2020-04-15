@@ -1,0 +1,26 @@
+:root{
+    --yellow: #fcc911;
+    --blublak: #3f3d56;
+    --pink: #f2b0b0;
+    --dark-pink: #e58787;
+    --green: #57b894;
+    --red: #ff6584;
+    --purple: #6d087a;
+}
+
+main{
+    height: 96vh;
+}
+
+/* RESETTING DEFAULTS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Marking nav location on header */
+.header-nav-ul > li:nth-child(3)  a {
+    border-bottom: 3px solid var(--yellow);
+  }
