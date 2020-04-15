@@ -366,6 +366,15 @@
     filter: blur(20px);
 }
 
+.about-delay-03{
+    animation-delay: 0.3s;
+}
+
+.about-delay-06{
+    animation-delay: 0.6s;
+}
+
+
 @keyframes animateabout {
     0%{
         background-position: 0 0;
@@ -459,6 +468,7 @@
         padding-top: 0;
     }
 }
+
 
 
 
