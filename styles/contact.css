@@ -9,8 +9,12 @@
 }
 
 main {
-  height: auto;
+  min-height: 96vh;
   background-color: #615e82;
+  background-image: url('../resources/contact.svg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* RESETTING DEFAULTS */
@@ -30,16 +34,16 @@ main {
     color: #fff;
 }
 .contact-top > h2{
-    font-size: 4rem;
+    font-size: 2rem;
     letter-spacing: .1rem;
     font-family: 'Amatic SC', cursive;
 }
 .contact-top > div{
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 }
 
 .contact-container {
-  padding-top: 5rem;
+  padding-top: 1rem;
   padding-bottom: 5rem;
   height: auto;
   width: 80%;
@@ -71,7 +75,7 @@ main {
 .contact-form form > input {
   color: var(--blublak);
   padding-left: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-bottom: 1px solid var(--yellow);
 }
 
@@ -103,10 +107,22 @@ main {
     .contact-container{
         width: 50%;
     }
+    .contact-top > h2{
+        font-size: 4rem;
+    }
+    .contact-top > div{
+        font-size: 1.2rem;
+    }
 }
 
 @media (min-width: 985px) {
     .contact-container{
         width: 40%;
+    }
+    .contact-container {
+        padding-top: 4rem;
+    }
+    .contact-form form > input {
+        font-size: 1.1rem;
     }
 }

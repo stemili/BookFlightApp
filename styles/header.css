@@ -225,7 +225,7 @@
     color: #fff;
     text-decoration: none;
     font-size: 1.1rem;
-    text-transform: uppercase;
+    border-bottom: 2px solid #fcc9117e;
   }
   #header-drop-items > li> a:hover{
     background-color: var(--blublak);

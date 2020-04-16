@@ -19,7 +19,7 @@
 
 body{
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: #f2f2f2;
 }
 
 
@@ -133,7 +133,7 @@ body{
         transform: rotate(0deg) scale(1);
     }
     50%{
-        transform: rotate(180deg) scale(1.2);
+        transform: rotate(180deg) scale(1.1);
     }
     100%{
         transform: rotate(360deg) scale(1);
