@@ -551,7 +551,7 @@ input:checked + .slider::before {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.1rem 1rem 0.2rem;
+  padding: 0.1rem .5rem 0.2rem;
   font-size: 0.8rem;
   background-color: var(--blublak);
   color: #fff;
