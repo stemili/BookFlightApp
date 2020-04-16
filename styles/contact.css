@@ -10,6 +10,8 @@
 
 main{
     height: 96vh;
+    background-repeat: no-repeat;
+    background-color: #615e83;
 }
 
 /* RESETTING DEFAULTS */

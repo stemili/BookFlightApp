@@ -166,7 +166,7 @@
     /* background: linear-gradient(0deg, var(--blublak) 0%, rgba(76,74,94,0.865983893557423) 10%, var(--blublak) 100%); */
     /* background: linear-gradient(0deg, rgba(76,74,94,0.8) 0%, var(--blublak) 100%); */
     /* background: linear-gradient(0deg, rgba(110,107,135,1) 0%, rgba(76,74,94,1) 100%); */
-    background: linear-gradient(0deg, rgba(80,77,109,1) 0%, var(--blublak) 100%);
+    background: linear-gradient(0deg, #615e83 0%, var(--blublak) 100%);
     box-shadow: 0 2px 16px 1px #dcdee3;
   }
 
