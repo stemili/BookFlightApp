@@ -5,6 +5,7 @@ footer {
 
 .footer-top-wrap{
     background: linear-gradient(0deg, rgba(66,64,89,1) 0%, rgba(97,94,132,1) 100%);
+    box-shadow: 0px -10px 15px rgba(0,0,0,0.3);
 
 }
 

@@ -9,7 +9,7 @@
 }
 
 main {
-  height: 96vh;
+  height: auto;
   background-color: #615e82;
 }
 
@@ -40,7 +40,8 @@ main {
 
 .contact-container {
   padding-top: 5rem;
-  height: 90vh;
+  padding-bottom: 5rem;
+  height: auto;
   width: 80%;
   margin: 0 auto;
   text-align: center;
